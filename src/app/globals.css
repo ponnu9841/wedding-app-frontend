@@ -121,5 +121,15 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-google-sans-flex);
+  }
+  .container {
+    @apply mx-auto px-5;
+  }
+  .font-playfair-display {
+    font-family: var(--font-playfair-display);
+  }
+  .font-google-sans-flex {
+    font-family: var(--font-google-sans-flex);
   }
 }
