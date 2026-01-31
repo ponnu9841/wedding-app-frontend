@@ -23,4 +23,5 @@ type CarouselSliderProps = CarouselCardProps & {
 	enableScroll?: boolean;
 	renderBackground?: boolean;
 	loop?: boolean;
+	showTracker?: boolean;
 };

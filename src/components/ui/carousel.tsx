@@ -184,7 +184,7 @@ function CarouselPrevious({
 			variant={variant}
 			size={size}
 			className={cn(
-				"absolute rounded-full bg-transparent hover:bg-transparent w-30 border-none",
+				"absolute rounded-full bg-transparent hover:bg-transparent w-15 md:w-30 border-none",
 				orientation === "horizontal"
 					? "top-1/2 -left-12 -translate-y-1/2"
 					: "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -217,7 +217,7 @@ function CarouselNext({
 			variant={variant}
 			size={size}
 			className={cn(
-				"absolute rounded-full bg-transparent hover:bg-transparent w-30 border-none justify-end",
+				"absolute rounded-full bg-transparent hover:bg-transparent w-15 md:w-30 border-none justify-end",
 				orientation === "horizontal"
 					? "top-1/2 -right-12 -translate-y-1/2"
 					: "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -227,6 +227,7 @@ function CarouselNext({
 			onClick={scrollNext}
 			{...props}
 		>
+			{props.children}
 			<div className="relative border border-r-0 border-b-0 border-border/50 rotate-135 size-4 right-0.5 float-right z-2"></div>
 			<div className="absolute top-1/2 left-0 -translate-y-1/2 h-0.25 bg-border/50 w-[calc(100%-0.05rem)] z-1 rounded-r"></div>
 			<span className="sr-only">Next slide</span>

@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade";
 import {
+	type CarouselApi,
 	Carousel,
 	CarouselContent,
 	CarouselItem,
@@ -27,8 +28,12 @@ const CarouselSlider = ({
 	showTitle = false,
 	// enableScroll = false,
 	loop = true,
+	showTracker = false,
 }: CarouselSliderProps) => {
 	// const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }), Fade());
+	const [api, setApi] = useState<CarouselApi | null>(null);
+	const [current, setCurrent] = useState(1);
+	const total = images?.length || 0;
 
 	const opts = {
 		loop,
@@ -42,6 +47,18 @@ const CarouselSlider = ({
 
 	const carousel = useRef<HTMLDivElement>(null);
 	// const [api, setApi] = useState<any>(null); //eslint-disable-line
+
+	//for tracker
+	useEffect(() => {
+		if (!api) return;
+
+		// initial value
+		setCurrent(api.selectedScrollSnap() + 1);
+
+		api.on("select", () => {
+			setCurrent(api.selectedScrollSnap() + 1);
+		});
+	}, [api]);
 
 	// useEffect(() => {
 	// 	if (!api) return;
@@ -79,7 +96,7 @@ const CarouselSlider = ({
 			orientation={orientation}
 			opts={opts}
 			ref={carousel}
-			// setApi={setApi}
+			setApi={setApi}
 		>
 			<CarouselContent
 				className={cn(
@@ -100,17 +117,17 @@ const CarouselSlider = ({
 							fill
 							alt="banner"
 							className="object-cover"
-							sizes="(min-width: 768px)60vw, 70vw"
+							sizes="(min-width: 768px)100vw, 70vw"
 							priority={index === 0}
 						/>
 						{!!children && children}
 						{showTitle && (
 							<>
-								<div className="absolute bottom-0 left-0 w-full px-10 space-y-4 text-white top-100 z-4 top-1/3 md:px-32">
+								<div className="absolute left-0 w-full px-10 text-white md:bottom-20 top-97 space-y-7 z-4 top-2/3 md:top-1/3 md:px-32">
 									{image.title && (
 										<h1
 											// variant="h1"
-											className="text-5xl tracking-wider text-center text-white font-playfair-display"
+											className="text-3xl font-semibold tracking-wider text-center text-white md:text-5xl font-playfair-display"
 											title={image.title}
 											// animation="fadeInDown"
 										>
@@ -120,7 +137,7 @@ const CarouselSlider = ({
 									{image.description && (
 										<p
 											// variant="p"
-											className="max-w-4xl mx-auto text-center"
+											className="max-w-4xl mx-auto tracking-widest text-center"
 											title={image.description}
 											// animation="fadeInUp"
 										>
@@ -136,20 +153,31 @@ const CarouselSlider = ({
 			</CarouselContent>
 			{(children || (images && images.length > 1)) && (
 				<>
-					<CarouselPrevious
-						className={
-							togglerPosition === "default"
-								? "left-20 z-3 bottom-0 top-100 text-foreground translate-y-1/2"
-								: "bottom-0 left-1/2 -translate-x-[calc(50%+1.5rem)] z-3 translate-y-0 top-[calc(100%-3rem)] text-foreground"
-						}
-					/>
-					<CarouselNext
-						className={
-							togglerPosition === "default"
-								? "right-8 z-3 top-100 text-foreground translate-y-1/2"
-								: "bottom-0 left-1/2 -translate-x-[calc(50%-1.5rem)] z-3 translate-y-0 top-[calc(100%-3rem)] text-foreground"
-						}
-					/>
+					<div className="absolute translate-y-1/2 left-40 md:left-40 z-3 bottom-20 md:bottom-30 md:top-100 text-foreground">
+						<div className="relative">
+							<CarouselPrevious />
+						</div>
+					</div>
+					<div className="absolute translate-y-1/2 right-40 z-3 bottom-15 md:bottom-30 md:top-100 text-foreground">
+						<div className="relative">
+							<CarouselNext className="relative">
+								<div className="absolute text-white -left-20 md:hidden top-1/4">
+									<span>{`0${current}`}</span>
+									&nbsp;&nbsp;&nbsp;&nbsp;
+									<span>/</span>
+									&nbsp;&nbsp;&nbsp;&nbsp;
+									<span>{`0${total}`}</span>
+								</div>
+								<div className="absolute hidden font-light tracking-wider text-center text-white -translate-x-1/2 md:block -top-1 left-1/2">
+									0{current}
+								</div>
+
+								<div className="absolute hidden font-light tracking-wider text-white -translate-x-1/2 md:block top-5 left-1/2">
+									0{total}
+								</div>
+							</CarouselNext>
+						</div>
+					</div>
 				</>
 			)}
 		</Carousel>

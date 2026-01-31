@@ -36,10 +36,12 @@ export default function Home() {
 		<div className="">
 			<CarouselSlider
 				images={banners}
-				cardContentClassName="min-h-[70vh] lg:min-h-[85vh]"
-        showTitle
-        
-			/>
+				cardContentClassName="min-h-[85vh] relative"
+				showTitle
+				showTracker
+			>
+				<div className="absolute inset-0 w-full h-full bg-black/17" />
+			</CarouselSlider>
 		</div>
 	);
 }
