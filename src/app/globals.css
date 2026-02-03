@@ -128,8 +128,11 @@
 	p {
 		@apply font-light leading-7 text-foreground/70;
 	}
+	h1 {
+		font-family: var(--font-playfair-display);
+	}
 	h2 {
-		@apply text-3xl font-semibold tracking-wide;
+		@apply text-3xl font-semibold tracking-wide text-foreground/75;
 	}
 	.container {
 		@apply px-5 mx-auto lg:px-45;
