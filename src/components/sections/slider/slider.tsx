@@ -123,7 +123,7 @@ const CarouselSlider = ({
 						{!!children && children}
 						{showTitle && (
 							<>
-								<div className="absolute left-0 w-full px-10 text-white md:bottom-20 top-97 space-y-7 z-4 top-2/3 md:top-1/3 md:px-32">
+								<div className="absolute left-0 w-full px-10 text-white md:bottom-20 space-y-7 z-4 top-2/3 md:top-63/100 md:px-32">
 									{image.title && (
 										<h1
 											// variant="h1"
@@ -137,7 +137,7 @@ const CarouselSlider = ({
 									{image.description && (
 										<p
 											// variant="p"
-											className="max-w-4xl mx-auto tracking-widest text-center"
+											className="max-w-4xl mx-auto tracking-widest text-center text-white"
 											title={image.description}
 											// animation="fadeInUp"
 										>
