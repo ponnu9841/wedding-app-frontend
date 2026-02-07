@@ -1,11 +1,10 @@
-import React, { SetStateAction } from "react";
+import React from "react";
 import {
 	Carousel,
 	type CarouselApi,
 	CarouselContent,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { type UseEmblaCarouselType } from "embla-carousel-react";
 import Fade from "embla-carousel-fade";
 import { cn } from "@/lib/utils";
 import { getPaddingValue } from "@/lib/const";
@@ -23,7 +22,7 @@ type CarouselWrapperProps = {
 const CarouselWrapper = ({
 	id,
 	carouselContentClassName,
-    carouselControls,
+	carouselControls,
 	children,
 	orientation,
 	paddingValue,
