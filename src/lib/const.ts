@@ -232,6 +232,76 @@ const NEGATIVE_MARGIN_LEFT_MAP: Record<number, string> = {
 };
 
 export const getPaddingValue = (value?: number): string => {
-	if(!value) return "";
+	if (!value) return "";
 	return NEGATIVE_MARGIN_LEFT_MAP[value] ?? "";
 };
+
+export const faqs = [
+	{
+		title: "How do you photograph weddings?",
+		faq: `
+		<p class="faq__answer ca-answer-VNbOvg">At Pepper Green Wedding, we believe in more than just taking pictures—we capture the raw emotions, unique moments, and true essence of your special day. From the moment you reach out to us, we’re by your side, helping you plan your wedding photography timeline to ensure we document every precious detail beautifully.<br>
+<br>
+Before your big day, we provide a detailed wedding photography guide with tips on:<br>
+📸 The best lighting for couple portraits<br>
+👗 How to showcase your wedding attire, accessories &amp; invitations<br>
+🕰️ Perfect timing for capturing heartfelt moments<br>
+<br>
+On your wedding day, our goal is to blend into the background while capturing the magic—the tears, laughter, chaos, and quiet moments—everything that makes your wedding truly yours. We specialize in non-traditional, candid, and laid-back wedding photography, ensuring every frame feels natural and timeless.<br>
+<br>
+📍 Best Candid Wedding Photography in Kerala | Kochi | Bangalore | India | UK | Dubai<br>
+📷 Emotional Wedding Photography | Destination Wedding Films | Intimate &amp; Luxury Weddings<br>
+<br>
+Let’s create something unforgettable together!</p>
+		`,
+	},
+	{
+		title: "Where are you based and do you travel?",
+		faq: `
+		<p class="faq__answer ca-answer-VNbOvg">Pepper Green Wedding is proudly based in Kochi, Kerala, but our passion for wedding photography takes us all over India and beyond! Whether you're planning a destination wedding in Udaipur, a beach wedding in Goa, or an intimate ceremony in Dubai or the UK, we’d love to be a part of your journey.<br>
+<br>
+Yes, we do travel! Our destination wedding photography packages include travel, and we always strive to find the most budget-friendly and efficient travel options for our clients. So no matter where your love story takes you, we’re ready to capture every magical moment.<br>
+<br>
+📍 Available for weddings in Kerala | Kochi | Bangalore | India | UK | Dubai &amp; Worldwide<br>
+📸 Destination Wedding Photography | International Wedding Shoots | Luxury &amp; Intimate Weddings<br>
+<br>
+Let’s create something unforgettable, wherever your dream wedding takes place!</p>
+		`,
+	},
+	{
+		title: "When will we get our photos?",
+		faq: `
+		<p class="faq__answer ca-answer-VNbOvg">We know how excited you are to relive your wedding day through beautiful photographs! That’s why we ensure a fast and efficient delivery process.<br>
+<br>
+🗓️ Delivery Timeline:<br>
+You will receive an online gallery link with all your professionally edited wedding photos within a maximum of 5 working days (often sooner, depending on the wedding season).<br>
+<br>
+📸 What You Get:<br>
+✔️ High-resolution digital images for download<br>
+✔️ A private online gallery to view, share, and select your favorite moments<br>
+✔️ Option to order premium prints &amp; albums directly from the gallery<br>
+<br>
+We make sure your memories are preserved beautifully and delivered seamlessly, so you can cherish them for a lifetime!<br>
+<br>
+📍 Best Wedding Photography &amp; Cinematography | Kerala | Kochi | Bangalore | India | UK | Dubai<br>
+<br>
+Let’s capture your love story in the most unforgettable way! 💛</p>
+		`,
+	},
+	{
+		title: "How many pictures will we receive?",
+		faq: `
+		<p class="faq__answer ca-answer-VNbOvg">We focus on quality over quantity, ensuring that every image beautifully tells the story of your wedding day.<br>
+<br>
+📸 Photo Count for an 8-Hour Wedding Coverage:<br>
+✔️ 50 to 150 fully edited images – carefully selected and professionally enhanced<br>
+✔️ 3000 to 5000 raw images – capturing every moment in detail<br>
+<br>
+We meticulously handpick the most meaningful, emotional, and breathtaking moments to create a wedding album that truly reflects your love story.<br>
+<br>
+📍 Best Wedding Photography &amp; Cinematography | Kerala | Kochi | Bangalore | India | UK | Dubai<br>
+<br>
+Let’s create something timeless together! 💛</p>
+		`,
+	},
+];
