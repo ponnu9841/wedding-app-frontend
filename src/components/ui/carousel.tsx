@@ -162,7 +162,7 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
 			data-slot="carousel-item"
 			className={cn(
 				"min-w-0 shrink-0 grow-0 basis-full",
-				orientation === "horizontal" ? "pl-4" : "pt-4",
+				// orientation === "horizontal" ? "pl-4" : "pt-4",
 				className,
 			)}
 			{...props}
@@ -174,8 +174,13 @@ function CarouselPrevious({
 	className,
 	variant = "outline",
 	size = "icon",
+	arrowLineClassName = "",
+	arrowTipClassName = "",
 	...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<typeof Button> & {
+	arrowLineClassName?: string;
+	arrowTipClassName?: string;
+}) {
 	const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
 	return (
@@ -195,8 +200,18 @@ function CarouselPrevious({
 			{...props}
 		>
 			<div className="relative w-full z-3">
-				<div className="relative -rotate-45 border-t border-l border-border/50 size-4 left-0.5 z-2"></div>
-				<div className="absolute top-1/2 -translate-y-1/2 h-0.25 bg-border/50 w-full z-1"></div>
+				<div
+					className={cn(
+						"relative -rotate-45 border-t border-l border-border/50 size-4 left-0.5 z-2",
+						arrowTipClassName,
+					)}
+				></div>
+				<div
+					className={cn(
+						"absolute top-1/2 -translate-y-1/2 h-0.25 bg-border/50 w-full z-1",
+						arrowLineClassName,
+					)}
+				></div>
 				<span className="sr-only">Previous slide</span>
 			</div>
 		</Button>
@@ -207,8 +222,13 @@ function CarouselNext({
 	className,
 	variant = "outline",
 	size = "icon",
+	arrowLineClassName = "",
+	arrowTipClassName = "",
 	...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<typeof Button> & {
+	arrowLineClassName?: string;
+	arrowTipClassName?: string;
+}) {
 	const { orientation, scrollNext, canScrollNext } = useCarousel();
 
 	return (
@@ -228,8 +248,18 @@ function CarouselNext({
 			{...props}
 		>
 			{props.children}
-			<div className="relative border border-r-0 border-b-0 border-border/50 rotate-135 size-4 right-0.5 float-right z-2"></div>
-			<div className="absolute top-1/2 left-0 -translate-y-1/2 h-0.25 bg-border/50 w-[calc(100%-0.05rem)] z-1 rounded-r"></div>
+			<div
+				className={cn(
+					"relative border border-r-0 border-b-0 border-border/50 rotate-135 size-4 right-0.5 float-right z-2",
+					arrowTipClassName,
+				)}
+			/>
+			<div
+				className={cn(
+					"absolute top-1/2 left-0 -translate-y-1/2 h-0.25 bg-border/50 w-[calc(100%-0.05rem)] z-1 rounded-r",
+					arrowLineClassName,
+				)}
+			/>
 			<span className="sr-only">Next slide</span>
 		</Button>
 	);
