@@ -1,0 +1,16 @@
+import StoriesHero from "@/features/stories/hero";
+import StoriesList from "@/features/stories/stories-list";
+import React from "react";
+
+const StoriesPage = () => {
+	return (
+		<div className="container space-y-10">
+			<div className="mt-40">
+				<StoriesHero />
+			</div>
+            <StoriesList />
+		</div>
+	);
+};
+
+export default StoriesPage;

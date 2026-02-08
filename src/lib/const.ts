@@ -305,3 +305,66 @@ Let’s create something timeless together! 💛</p>
 		`,
 	},
 ];
+
+export const stories = [
+	{
+		image:
+			"https://images.pixieset.com/578639801/99d8d8f91d8c7f8211da5fa53e578cc8-cover-large.jpg",
+		name: "Irene Gowtham",
+	},
+	{
+		image:
+			"https://images.pixieset.com/198385801/0db5b930ae3808ae591ffa8cfe71abe7-cover-large.jpg",
+		name: "ATSHARA RAHUL",
+	},
+	{
+		image:
+			"https://images.pixieset.com/273461801/18f257560d9251140bcbca335730ec8e-cover-large.jpg",
+		name: "JANAKI JONATHAN",
+	},
+	{
+		image:
+			"https://images.pixieset.com/272157701/83ccdb56bf6dee9699fa38402d33d7fb-cover-large.jpg",
+		name: "ARATHY ANAND",
+	},
+	{
+		image:
+			"https://images.pixieset.com/093545701/555c751074240dfc3788ee14ea3b942c-cover-large.jpg",
+		name: "Manisha Antoine",
+	},
+	{
+		image:
+			"https://images.pixieset.com/552233501/dd3f2dcb5d9b2ba08b073ac68db3425c-cover-large.jpg",
+		name: "NAMRATHA NIKSHEP",
+	},
+	{
+		image:
+			"https://images.pixieset.com/087623501/90971728d51d9b454a0badba9de10edc-cover-large.jpg",
+		name: "NIDHI ADITHYA",
+	},
+	{
+		image:
+			"https://images.pixieset.com/925022501/1e6f9fdd672ce49f0727e35a3999d45e-cover-large.jpg",
+		name: "NIHARA AKSHAY",
+	},
+	{
+		image:
+			"https://images.pixieset.com/406501501/6d2ef0da10eebfbd9d6911c4242209ea-cover-large.jpg",
+		name: "Sheetal Ashwin",
+	},
+	{
+		image:
+			"https://images.pixieset.com/009628301/23f0e4034bb0acbf7fc15755920740fe-cover-large.jpg",
+		name: "LANNIE  MELVIN",
+	},
+	{
+		image:
+			"https://images.pixieset.com/191375201/f517d44a6642d216339daf1b0c4cebbe-cover-large.jpg",
+		name: "VIVEK IRENE",
+	},
+	{
+		image:
+			"https://images.pixieset.com/718463201/3ec5dfbc28b66f878fb5128bb41125d0-cover-large.jpg",
+		name: "ELIZABETH SARAH",
+	},
+];

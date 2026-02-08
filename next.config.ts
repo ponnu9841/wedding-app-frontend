@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
 			},
 			{
 				protocol: "https",
+				hostname: "images.pixieset.com",
+			},
+			{
+				protocol: "https",
 				hostname: "magicmotionmedia.com",
 			},
 		],
