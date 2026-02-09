@@ -463,6 +463,80 @@ export const blogs = [
 		title: "Sobhita and Chay, Hyderabad",
 		description:
 			"From the very first call we had with Kriti and Pulkit we knew this one was going to be special.A full on Punjabi energy was expected",
-	},
-	
+	},	
 ];
+
+export const films = [
+	{
+		image: "https://images-pw.pixieset.com/elementfield/05471805/64834531_2424654174480171_5115206805726691328_o-2c8a2a2d.jpg",
+		title: "Reva & Zach",
+		description: `Let’s call this our “Happy New Year Wedding”. We welcomed 2024 partying with Reva and Zach and we couldn’t have asked for a better beginning for the new year.`,
+		type: "Indian"
+	},
+	{
+		image: "https://images-pw.pixieset.com/elementfield/05471805/64834531_2424654174480171_5115206805726691328_o-2c8a2a2d.jpg",
+		title: "Reva & Zach",
+		description: `Let’s call this our “Happy New Year Wedding”. We welcomed 2024 partying with Reva and Zach and we couldn’t have asked for a better beginning for the new year.`,
+		type: "Indian"
+	},
+	{
+		image: "https://images-pw.pixieset.com/elementfield/05471805/64834531_2424654174480171_5115206805726691328_o-2c8a2a2d.jpg",
+		title: "Reva & Zach",
+		description: `Let’s call this our “Happy New Year Wedding”. We welcomed 2024 partying with Reva and Zach and we couldn’t have asked for a better beginning for the new year.`,
+		type: "Indian"
+	},
+	{
+		image: "https://images-pw.pixieset.com/elementfield/05471805/64834531_2424654174480171_5115206805726691328_o-2c8a2a2d.jpg",
+		title: "Reva & Zach",
+		description: `Let’s call this our “Happy New Year Wedding”. We welcomed 2024 partying with Reva and Zach and we couldn’t have asked for a better beginning for the new year.`,
+		type: "Indian"
+	},
+	{
+		image: "https://images-pw.pixieset.com/elementfield/05471805/64834531_2424654174480171_5115206805726691328_o-2c8a2a2d.jpg",
+		title: "Reva & Zach",
+		description: `Let’s call this our “Happy New Year Wedding”. We welcomed 2024 partying with Reva and Zach and we couldn’t have asked for a better beginning for the new year.`,
+		type: "Indian"
+	},
+	{
+		image: "https://images-pw.pixieset.com/elementfield/05471805/64834531_2424654174480171_5115206805726691328_o-2c8a2a2d.jpg",
+		title: "Reva & Zach",
+		description: `Let’s call this our “Happy New Year Wedding”. We welcomed 2024 partying with Reva and Zach and we couldn’t have asked for a better beginning for the new year.`,
+		type: "Indian"
+	},
+	{
+		image: "https://images-pw.pixieset.com/elementfield/05471805/64834531_2424654174480171_5115206805726691328_o-2c8a2a2d.jpg",
+		title: "Reva & Zach",
+		description: `Let’s call this our “Happy New Year Wedding”. We welcomed 2024 partying with Reva and Zach and we couldn’t have asked for a better beginning for the new year.`,
+		type: "Indian"
+	},
+	{
+		image: "https://images-pw.pixieset.com/elementfield/05471805/64834531_2424654174480171_5115206805726691328_o-2c8a2a2d.jpg",
+		title: "Reva & Zach",
+		description: `Let’s call this our “Happy New Year Wedding”. We welcomed 2024 partying with Reva and Zach and we couldn’t have asked for a better beginning for the new year.`,
+		type: "Indian"
+	},
+	{
+		image: "https://images-pw.pixieset.com/elementfield/05471805/64834531_2424654174480171_5115206805726691328_o-2c8a2a2d.jpg",
+		title: "Reva & Zach",
+		description: `Let’s call this our “Happy New Year Wedding”. We welcomed 2024 partying with Reva and Zach and we couldn’t have asked for a better beginning for the new year.`,
+		type: "Indian"
+	},
+	{
+		image: "https://images-pw.pixieset.com/elementfield/05471805/64834531_2424654174480171_5115206805726691328_o-2c8a2a2d.jpg",
+		title: "Reva & Zach",
+		description: `Let’s call this our “Happy New Year Wedding”. We welcomed 2024 partying with Reva and Zach and we couldn’t have asked for a better beginning for the new year.`,
+		type: "Indian"
+	},
+	{
+		image: "https://images-pw.pixieset.com/elementfield/05471805/64834531_2424654174480171_5115206805726691328_o-2c8a2a2d.jpg",
+		title: "Reva & Zach",
+		description: `Let’s call this our “Happy New Year Wedding”. We welcomed 2024 partying with Reva and Zach and we couldn’t have asked for a better beginning for the new year.`,
+		type: "Indian"
+	},
+	{
+		image: "https://images-pw.pixieset.com/elementfield/05471805/64834531_2424654174480171_5115206805726691328_o-2c8a2a2d.jpg",
+		title: "Reva & Zach",
+		description: `Let’s call this our “Happy New Year Wedding”. We welcomed 2024 partying with Reva and Zach and we couldn’t have asked for a better beginning for the new year.`,
+		type: "Indian"
+	},
+]

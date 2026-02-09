@@ -17,7 +17,7 @@ export const navItems = [
 
 const Header = () => {
 	const pathName = usePathname();
-	const isAltPathName = pathName === "/stories";
+	const isAltPathName = pathName === "/stories" || pathName === "/films";
 	return (
 		<nav
 			className="container absolute top-0 flex items-center justify-between w-full -translate-x-1/2 bg-transparent left-1/2 h-35"
