@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
 			},
 			{
 				protocol: "https",
+				hostname: "*.vimeocdn.com",
+			},
+			{
+				protocol: "https",
 				hostname: "magicmotionmedia.com",
 			},
 		],

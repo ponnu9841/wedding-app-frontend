@@ -368,3 +368,101 @@ export const stories = [
 		name: "ELIZABETH SARAH",
 	},
 ];
+
+export const blogs = [
+	{
+		image:
+			"https://i.vimeocdn.com/video/2112060463-b19d68c4ecbf3f9e9670114f80a11140bd78ba074ce3810f70098409b55747f6-d_295x166?region=us",
+		type: "Classic Story Telling",
+		title: "Sobhita and Chay, Hyderabad",
+	},
+	{
+		image:
+			"https://i.vimeocdn.com/video/2112060463-b19d68c4ecbf3f9e9670114f80a11140bd78ba074ce3810f70098409b55747f6-d_295x166?region=us",
+		type: "Classic Story Telling",
+		title: "Sobhita and Chay, Hyderabad",
+		description:
+			"From the very first call we had with Kriti and Pulkit we knew this one was going to be special.A full on Punjabi energy was expected",
+	},
+	{
+		image:
+			"https://i.vimeocdn.com/video/2112060463-b19d68c4ecbf3f9e9670114f80a11140bd78ba074ce3810f70098409b55747f6-d_295x166?region=us",
+		type: "Classic Story Telling",
+		title: "Sobhita and Chay, Hyderabad",
+		description:
+			"From the very first call we had with Kriti and Pulkit we knew this one was going to be special.A full on Punjabi energy was expected",
+	},
+	{
+		image:
+			"https://i.vimeocdn.com/video/2112060463-b19d68c4ecbf3f9e9670114f80a11140bd78ba074ce3810f70098409b55747f6-d_295x166?region=us",
+		type: "Classic Story Telling",
+		title: "Sobhita and Chay, Hyderabad",
+		description:
+			"From the very first call we had with Kriti and Pulkit we knew this one was going to be special.A full on Punjabi energy was expected",
+	},
+	{
+		image:
+			"https://i.vimeocdn.com/video/2112060463-b19d68c4ecbf3f9e9670114f80a11140bd78ba074ce3810f70098409b55747f6-d_295x166?region=us",
+		type: "Classic Story Telling",
+		title: "Sobhita and Chay, Hyderabad",
+		description:
+			"From the very first call we had with Kriti and Pulkit we knew this one was going to be special.A full on Punjabi energy was expected",
+	},
+	{
+		image:
+			"https://i.vimeocdn.com/video/2112060463-b19d68c4ecbf3f9e9670114f80a11140bd78ba074ce3810f70098409b55747f6-d_295x166?region=us",
+		type: "Classic Story Telling",
+		title: "Sobhita and Chay, Hyderabad",
+		description:
+			"From the very first call we had with Kriti and Pulkit we knew this one was going to be special.A full on Punjabi energy was expected",
+	},
+	{
+		image:
+			"https://i.vimeocdn.com/video/2112060463-b19d68c4ecbf3f9e9670114f80a11140bd78ba074ce3810f70098409b55747f6-d_295x166?region=us",
+		type: "Classic Story Telling",
+		title: "Sobhita and Chay, Hyderabad",
+		description:
+			"From the very first call we had with Kriti and Pulkit we knew this one was going to be special.A full on Punjabi energy was expected",
+	},
+	{
+		image:
+			"https://i.vimeocdn.com/video/2112060463-b19d68c4ecbf3f9e9670114f80a11140bd78ba074ce3810f70098409b55747f6-d_295x166?region=us",
+		type: "Classic Story Telling",
+		title: "Sobhita and Chay, Hyderabad",
+		description:
+			"From the very first call we had with Kriti and Pulkit we knew this one was going to be special.A full on Punjabi energy was expected",
+	},
+	{
+		image:
+			"https://i.vimeocdn.com/video/2112060463-b19d68c4ecbf3f9e9670114f80a11140bd78ba074ce3810f70098409b55747f6-d_295x166?region=us",
+		type: "Classic Story Telling",
+		title: "Sobhita and Chay, Hyderabad",
+		description:
+			"From the very first call we had with Kriti and Pulkit we knew this one was going to be special.A full on Punjabi energy was expected",
+	},
+	{
+		image:
+			"https://i.vimeocdn.com/video/2112060463-b19d68c4ecbf3f9e9670114f80a11140bd78ba074ce3810f70098409b55747f6-d_295x166?region=us",
+		type: "Classic Story Telling",
+		title: "Sobhita and Chay, Hyderabad",
+		description:
+			"From the very first call we had with Kriti and Pulkit we knew this one was going to be special.A full on Punjabi energy was expected",
+	},
+	{
+		image:
+			"https://i.vimeocdn.com/video/2112060463-b19d68c4ecbf3f9e9670114f80a11140bd78ba074ce3810f70098409b55747f6-d_295x166?region=us",
+		type: "Classic Story Telling",
+		title: "Sobhita and Chay, Hyderabad",
+		description:
+			"From the very first call we had with Kriti and Pulkit we knew this one was going to be special.A full on Punjabi energy was expected",
+	},
+	{
+		image:
+			"https://i.vimeocdn.com/video/2112060463-b19d68c4ecbf3f9e9670114f80a11140bd78ba074ce3810f70098409b55747f6-d_295x166?region=us",
+		type: "Classic Story Telling",
+		title: "Sobhita and Chay, Hyderabad",
+		description:
+			"From the very first call we had with Kriti and Pulkit we knew this one was going to be special.A full on Punjabi energy was expected",
+	},
+	
+];
