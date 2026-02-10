@@ -118,29 +118,42 @@
 }
 
 @layer base {
-	* {
-		@apply border-border outline-ring/50;
-	}
-	body {
-		@apply bg-background text-foreground;
-		font-family: var(--font-google-sans-flex);
-	}
-	p {
-		@apply font-light leading-7 text-foreground/70;
-	}
-	h1 {
-		font-family: var(--font-playfair-display);
-	}
-	h2 {
-		@apply text-3xl font-semibold tracking-wide text-foreground/75;
-	}
-	.container {
-		@apply px-5 mx-auto lg:px-45;
-	}
-	.font-playfair-display {
-		font-family: var(--font-playfair-display);
-	}
-	.font-google-sans-flex {
-		font-family: var(--font-google-sans-flex);
-	}
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-google-sans-flex);
+  }
+
+  p {
+    @apply font-light leading-7 text-foreground/70;
+  }
+
+  h1 {
+    font-family: var(--font-playfair-display);
+  }
+
+  h2 {
+    @apply text-3xl font-semibold tracking-wide text-foreground/75;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto px-5 lg:px-45;
+  }
+
+  .container-fluid {
+    @apply w-full max-w-7xl mx-auto px-5;
+  }
+
+  .font-playfair-display {
+    font-family: var(--font-playfair-display);
+  }
+
+  .font-google-sans-flex {
+    font-family: var(--font-google-sans-flex);
+  }
 }
