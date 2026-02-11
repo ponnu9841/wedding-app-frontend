@@ -44,7 +44,7 @@ const Footer = () => {
 						))}
 					</div>
 				</div>
-				<div className="grid md:grid-cols-2 col-span-2">
+				<div className="grid md:grid-cols-2 col-span-2 gap-5 lg:gap-30">
 					<div className="flex flex-col gap-10">
 						<Link
 							href="#"
@@ -73,13 +73,10 @@ const Footer = () => {
 						</div>
 					</div>
 					<div className="flex flex-col gap-8">
-						<div className="leading-2">
+						<div>
 							All rights reserved
 							<br />
-							<span className="flex items-center gap-0.5">
-								<span className="text-3xl pt-2">&copy;</span>
-								<span>2026 Magic Motion Media</span>
-							</span>
+                            &copy; 2026 Magic Motion Media
 						</div>
 						<Link href="#">Terms and Conditions</Link>
 					</div>

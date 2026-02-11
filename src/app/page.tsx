@@ -7,6 +7,7 @@ import FeaturedHero from "@/features/home/featured-hero";
 import InstagramFollow from "@/features/home/instagram-follow";
 import CarouselSlider from "@/features/home/banner-slider";
 import { SectionSeperatorTop } from "@/components/section-seperator";
+import VideoBanner from "@/features/home/video-banner";
 
 export default function Home() {
 	return (
@@ -23,6 +24,7 @@ export default function Home() {
 			<AboutBrief />
 			<WeddingHero />
 			{/* works */}
+			<div><VideoBanner /></div>
 			<FeaturedWorks />
 			<FeaturedHero />
 			{/* instagram */}
