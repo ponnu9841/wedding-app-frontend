@@ -1,11 +1,12 @@
 import NextImage from "@/components/ui/image";
 import { stories } from "@/lib/const";
+import Link from "next/link";
 
 const StoriesList = () => {
 	return (
 		<div className="grid grid-cols-1 gap-5 lg:gap-8 md:grid-cols-2 lg:grid-cols-3">
 			{stories.map((item, index) => (
-				<div key={index}>
+				<Link href={`stories/${index}`} key={index}>
 					<div className="apsect-[370/246]">
 					    <NextImage
     						src={item.image}
@@ -18,7 +19,7 @@ const StoriesList = () => {
 							{item.name}
 						</h3>
 					</div>
-				</div>
+				</Link>
 			))}
 		</div>
 	);

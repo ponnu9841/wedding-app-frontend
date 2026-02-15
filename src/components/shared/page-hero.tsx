@@ -12,6 +12,8 @@ interface PageHeroProps {
 	containerClassName?: string; // e.g. "min-h-[85vh]"
 	overlayClassName?: string; // e.g. "bg-black/20"
 	contentPositionClassName?: string; // e.g. "top-2/3"
+	shouldRenderCustomContent?: boolean;
+	customContent?: React.ReactNode;
 }
 
 const PageHero: React.FC<PageHeroProps> = ({
@@ -23,6 +25,8 @@ const PageHero: React.FC<PageHeroProps> = ({
 	imageClassName,
 	overlayClassName = "bg-black/17",
 	contentPositionClassName = "top-2/3",
+	shouldRenderCustomContent = false,
+	customContent = "",
 }) => {
 	return (
 		<div className={`relative ${containerClassName}`}>
@@ -39,24 +43,28 @@ const PageHero: React.FC<PageHeroProps> = ({
 			<BackgroundShade className={cn("z-2", overlayClassName)} />
 
 			{/* Content */}
-			<div
-				className={cn(
-					`absolute left-1/2 z-2 flex w-full -translate-x-1/2 flex-col items-center justify-center gap-5`,
-					contentPositionClassName,
-				)}
-			>
-				{title && (
-					<h1 className="text-5xl tracking-wider text-white font-playfair-display">
-						{title}
-					</h1>
-				)}
+			{!shouldRenderCustomContent ? (
+				<div
+					className={cn(
+						`absolute left-1/2 z-2 flex w-full -translate-x-1/2 flex-col items-center justify-center gap-5`,
+						contentPositionClassName,
+					)}
+				>
+					{title && (
+						<h1 className="text-5xl tracking-wider text-white font-playfair-display">
+							{title}
+						</h1>
+					)}
 
-				{subtitle && (
-					<p className="text-base font-medium tracking-widest text-white uppercase">
-						{subtitle}
-					</p>
-				)}
-			</div>
+					{subtitle && (
+						<p className="text-base font-medium tracking-widest text-white uppercase">
+							{subtitle}
+						</p>
+					)}
+				</div>
+			) : (
+				customContent
+			)}
 		</div>
 	);
 };

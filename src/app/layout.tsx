@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Google_Sans_Flex } from "next/font/google";
-import "./globals.css";
 import Layout from "@/components/layout/layout";
+import "./globals.css";
 
 const fontPlayfairDisplay = Playfair_Display({
 	variable: "--font-playfair-display",

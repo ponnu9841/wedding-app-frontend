@@ -19,7 +19,7 @@ const CustomDialog = ({
 	dialogOpen,
 	setDialogOpen,
 	contentClassName,
-	overlayClassName,
+	overlayClassName = "bg-black/50 backdrop-blur-sm",
 	isModal = false,
 }: {
 	dialogOpen?: boolean;
