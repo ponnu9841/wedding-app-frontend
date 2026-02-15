@@ -1,8 +1,13 @@
+import Typography from "@/components/shared/typography";
+
 const ContactCta = () => {
 	return (
 		<div className="container max-w-4xl mx-auto">
-			<h2 className="mb-5 font-playfair-display">{`Let's Start Your Journey`}</h2>
-			<p>
+			<Typography
+				variant="h2"
+				className="mb-5"
+			>{`Let's Start Your Journey`}</Typography>
+			<Typography variant="p">
 				Your wedding story deserves to be captured beautifully. If you have any
 				questions or want to check our availability, simply fill in the form
 				below with your details, and Team Pepper Green will get back to you
@@ -18,9 +23,9 @@ const ContactCta = () => {
 				<br />
 				Available for Weddings in Kerala | Kochi | Bangalore | India | UK |
 				Dubai
-                <br />
-                Let’s create unforgettable memories together!
-			</p>
+				<br />
+				Let’s create unforgettable memories together!
+			</Typography>
 		</div>
 	);
 };

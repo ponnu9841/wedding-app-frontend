@@ -153,24 +153,36 @@ const CarouselSlider = ({
 			</CarouselContent>
 			{(children || (images && images.length > 1)) && (
 				<>
-					<div className="absolute translate-y-1/2 left-40 md:left-40 z-3 bottom-20 md:bottom-30 md:top-100 text-foreground">
+					{showTracker && (
+						<>
+							{/* mobile tracker */}
+							<div className="absolute text-white -translate-x-1/2 left-1/2 md:hidden bottom-15">
+								<span>{`0${current}`}</span>
+								&nbsp;&nbsp;&nbsp;
+								<span>/</span>
+								&nbsp;&nbsp;&nbsp;
+								<span>{`0${total}`}</span>
+							</div>
+						</>
+					)}
+
+					{/* mobile nav */}
+					<CarouselPrevious className="absolute bottom-0 -translate-x-1/2 top-[calc(100%-4.5rem)] md:hidden left-[30%] z-3 text-foreground" />
+					<CarouselNext className="absolute bottom-0 -translate-x-1/2 top-[calc(100%-4.5rem)] md:hidden left-[70%] z-3 text-foreground" />
+
+					{/* desktop nav */}
+					<div className="absolute hidden translate-y-1/2 md:block left-40 md:left-40 z-3 bottom-20 md:bottom-30 md:top-100 text-foreground">
 						<div className="relative">
 							<CarouselPrevious />
 						</div>
 					</div>
-					<div className="absolute translate-y-1/2 right-40 z-3 bottom-15 md:bottom-30 md:top-100 text-foreground">
-						<div className="relative">
-							<CarouselNext className="relative">
+					<div className="absolute hidden translate-y-1/2 md:block right-40 z-3 bottom-15 md:bottom-30 md:top-100 text-foreground">
+						<div className="md:relative">
+							<CarouselNext className="md:relative">
 								<>
 									{showTracker && (
 										<>
-											<div className="absolute text-white -left-20 md:hidden top-1/4">
-												<span>{`0${current}`}</span>
-												&nbsp;&nbsp;&nbsp;&nbsp;
-												<span>/</span>
-												&nbsp;&nbsp;&nbsp;&nbsp;
-												<span>{`0${total}`}</span>
-											</div>
+											{/* desktop tracker */}
 											<div className="absolute hidden font-light tracking-wider text-center text-white -translate-x-1/2 md:block -top-1 left-1/2">
 												0{current}
 											</div>

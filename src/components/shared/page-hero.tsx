@@ -2,6 +2,7 @@ import React from "react";
 import BackgroundShade from "@/components/shared/background-shade";
 import NextImage from "@/components/ui/image";
 import { cn } from "@/lib/utils";
+import Typography from "./typography";
 
 interface PageHeroProps {
 	imageSrc: string;
@@ -51,15 +52,15 @@ const PageHero: React.FC<PageHeroProps> = ({
 					)}
 				>
 					{title && (
-						<h1 className="text-5xl tracking-wider text-white font-playfair-display">
+						<Typography variant="h1" className="tracking-wider text-center text-white font-playfair-display">
 							{title}
-						</h1>
+						</Typography>
 					)}
 
 					{subtitle && (
-						<p className="text-base font-medium tracking-widest text-white uppercase">
+						<Typography variant="p" className="font-medium tracking-widest text-white uppercase">
 							{subtitle}
-						</p>
+						</Typography>
 					)}
 				</div>
 			) : (

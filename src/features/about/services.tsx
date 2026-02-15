@@ -1,9 +1,12 @@
+import Typography from "@/components/shared/typography";
 import React from "react";
 
 const AboutServices = () => {
 	return (
 		<div className="container">
-			<h2 className="mb-6 text-3xl font-playfair-display">Our Services</h2>
+			<Typography variant="h2" className="mb-6 text-3xl">
+				Our Services
+			</Typography>
 			<div className="space-y-6">
 				<ServiceCard
 					title="Traditional Wedding"
@@ -109,7 +112,7 @@ const ServiceCard = ({
 			<h3 className="text-xl tracking-widest uppercase font-playfair-display">
 				{title}
 			</h3>
-			<p className="white-space-pre">{description}</p>
+			<Typography variant="p" className="white-space-pre">{description}</Typography>
 		</div>
 	);
 };

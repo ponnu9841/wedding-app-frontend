@@ -1,3 +1,4 @@
+import Typography from "@/components/shared/typography";
 import NextImage from "@/components/ui/image";
 import { instagram } from "@/lib/const";
 import { Copy, Instagram } from "lucide-react";
@@ -5,11 +6,11 @@ import Link from "next/link";
 
 const InstagramFollow = () => {
 	return (
-		<div>
-			<h2 className="flex justify-center mb-10 font-playfair-display">
+		<div className="container">
+			<Typography variant="h2" className="flex justify-center mb-10">
 				FOLLOW ME ON INSTAGRAM
-			</h2>
-			<div className="grid grid-cols-3 gap-4">
+			</Typography>
+			<div className="grid grid-cols-1 gap-4 md:grid-cols-3">
 				{instagram.map((item, index) => (
 					<Link
 						href="https://www.instagram.com"

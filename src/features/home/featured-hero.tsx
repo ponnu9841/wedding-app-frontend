@@ -1,3 +1,4 @@
+import Typography from "@/components/shared/typography";
 import { Button } from "@/components/ui/button";
 import NextImage from "@/components/ui/image";
 
@@ -5,10 +6,10 @@ const FeaturedHero = () => {
 	return (
 		<div className="space-y-15">
 			<div className="flex flex-col items-center justify-center gap-5">
-				<h2 className="mx-auto text-center font-playfair-display max-w-3/5 text-foreground/80">
+				<Typography variant="h2" className="px-3 mx-auto text-center md:max-w-3/5 text-foreground/80">
 					“MY HEART OVERFLOWS WITH THE LOVE WE CREATED. IT FEELS LIKE SUNSHINE”
-				</h2>
-				<div className="w-0.25 h-10 bg-foreground/20" />
+				</Typography>
+				<div className="w-0.25 h-10 bg-foreground/20 hidden md:block" />
 				<div className="text-sm tracking-widest text-foreground/80">
 					RODOLFO EDUARDO
 				</div>
@@ -20,10 +21,10 @@ const FeaturedHero = () => {
 					className="absolute inset-0 w-full h-full z-1"
 				/>
 				<div className="px-5 text-white lg:px-20 z-2">
-					<h2 className="mb-4 font-playfair-display text-white">
+					<Typography variant="h2" className="mb-4 text-white">
 						{`Unveiling the Magic of Bhagya and Prabhu's Haldi Ceremony: A Day of
 							Love and Traditions`}
-					</h2>
+					</Typography>
 					<p className="text-xs font-medium tracking-widest text-white">
 						MARCH 26, 2025
 					</p>

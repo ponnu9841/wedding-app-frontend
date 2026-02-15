@@ -1,12 +1,13 @@
+import Typography from "@/components/shared/typography";
 import React from "react";
 
 const OurStory = () => {
 	return (
 		<div className="container max-w-6xl">
-			<h2 className="flex justify-center mb-6 font-playfair-display">
+			<Typography variant="h2" className="flex justify-center mb-6 text-3xl font-playfair-display">
 				Our Story
-			</h2>
-			<p>
+			</Typography>
+			<Typography variant="p">
 				What started as a dream among a group of passionate individuals soon
 				turned into one of the most sought-after wedding photography and
 				cinematography teams in Kochi, Kerala, and beyond. When we combined our
@@ -18,7 +19,7 @@ const OurStory = () => {
 				work, creativity, and dedication speak for us. Every wedding we capture
 				is a new opportunity to hone our craft and create magic, ensuring that
 				your most precious moments are preserved with beauty and authenticity.
-			</p>
+			</Typography>
 		</div>
 	);
 };

@@ -10,7 +10,7 @@ import WhatMakesUsUnique from "@/features/about/what-makes-us-unique";
 
 const AboutPage = () => {
 	return (
-		<div className="space-y-20">
+		<div className="space-y-15 md:space-y-20">
 			<AboutHero />
 			<Founder />
 			<OurStory />
@@ -19,7 +19,7 @@ const AboutPage = () => {
 			<FeaturedList />
 			<Testimonials />
 			<div className="flex justify-center mb-20 -mt-20">
-				<Button variant="outline">
+				<Button variant="outline" className="text-black/80 min-w-40">
 					Contact Me
 				</Button>
 			</div>

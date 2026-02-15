@@ -1,18 +1,19 @@
+import Typography from "@/components/shared/typography";
 import NextImage from "@/components/ui/image";
 import React from "react";
 
 const Founder = () => {
 	return (
-		<div className="container grid grid-cols-2 gap-8 lg:gap-20">
+		<div className="container grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-20">
 			<NextImage
 				src="https://images-pw.pixieset.com/elementfield/8KLRZvQ/1-f09ad40d-2500.jpg"
 				className="aspect-[520/693]"
 			/>
 			<div className="my-auto">
-				<h2 className="mb-5 text-4xl text-foreground/80 font-playfair-display">
+				<Typography variant="h2" className="mb-5 text-4xl text-foreground/80 font-playfair-display">
 					Sachin Sai
-				</h2>
-				<p>
+				</Typography>
+				<Typography variant="p">
 					The founder of{" "}
 					<span className="font-medium">Pepper Green Wedding Company</span> — a
 					team of passionate creatives capturing timeless wedding stories across
@@ -33,7 +34,7 @@ const Founder = () => {
 					<br />
 					{`At Pepper Green, it's not just about clicking pictures — it's about
 						preserving moments that last a lifetime.`}
-				</p>
+				</Typography>
 			</div>
 		</div>
 	);

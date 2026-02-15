@@ -7,25 +7,25 @@ import React from "react";
 
 const BlogList = () => {
 	return (
-		<div className="max-w-7xl mx-auto">
-			<div className="flex gap-3 mb-8">
-				<Button variant="ghost" className="h-fit p-0 hover:bg-transparent">
+		<div className="px-3 mx-auto max-w-7xl">
+			<div className="flex flex-wrap gap-3 mb-8">
+				<Button variant="ghost" className="p-0 h-fit hover:bg-transparent">
 					All
 				</Button>
 				<div className="min-h-full w-0.25 bg-foreground/30" />
-				<Button variant="ghost" className="h-fit  p-0 hover:bg-transparent">
+				<Button variant="ghost" className="p-0 h-fit hover:bg-transparent">
 					Classic Story Telling
 				</Button>
 				<div className="min-h-full w-0.25 bg-foreground/30" />
-				<Button variant="ghost" className="h-fit p-0 hover:bg-transparent">
+				<Button variant="ghost" className="p-0 h-fit hover:bg-transparent">
 					New Age Modern
 				</Button>
 				<div className="min-h-full w-0.25 bg-foreground/30" />
-				<Button variant="ghost" className="h-fit p-0 hover:bg-transparent">
+				<Button variant="ghost" className="p-0 h-fit hover:bg-transparent">
 					Intimates
 				</Button>
 			</div>
-			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+			<div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 				{blogs.map((item, index) => (
 					<Link href="#" key={index}>
 						<div className="aspect-[334/222]">
@@ -36,7 +36,7 @@ const BlogList = () => {
 							/>
 						</div>
 						<div className="my-3 text-xs">{item.type}</div>
-						<h3 className="font-playfair-display text-lg mb-2">{item.title}</h3>
+						<h3 className="mb-2 text-lg font-playfair-display">{item.title}</h3>
 						{item.description && (
 							<p className="text-xs leading-5">{item.description}</p>
 						)}

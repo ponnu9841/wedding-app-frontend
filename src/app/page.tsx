@@ -6,12 +6,11 @@ import { banners } from "@/lib/const";
 import FeaturedHero from "@/features/home/featured-hero";
 import InstagramFollow from "@/features/home/instagram-follow";
 import CarouselSlider from "@/features/home/banner-slider";
-import { SectionSeperatorTop } from "@/components/section-seperator";
 import VideoBanner from "@/features/home/video-banner";
 
 export default function Home() {
 	return (
-		<div className="mb-10 space-y-20">
+		<div className="mb-10 space-y-15 md:space-y-20">
 			<CarouselSlider
 				images={banners}
 				cardContentClassName="min-h-[85vh] relative"
@@ -23,16 +22,12 @@ export default function Home() {
 			<WhyUs />
 			<AboutBrief />
 			<WeddingHero />
+			<VideoBanner />
 			{/* works */}
-			<div><VideoBanner /></div>
 			<FeaturedWorks />
 			<FeaturedHero />
 			{/* instagram */}
 			<InstagramFollow />
-
-			<div className="relative">
-				<SectionSeperatorTop className="text-primary" />
-			</div>
 		</div>
 	);
 }
