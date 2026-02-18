@@ -1,5 +1,5 @@
-import BlogList from "@/features/blogs/blog-list";
-import BlogsHero from "@/features/blogs/hero";
+import BlogList from "@/features/user/blogs/blog-list";
+import BlogsHero from "@/features/user/blogs/hero";
 import React from "react";
 
 const BlogsPage = () => {

@@ -1,12 +1,12 @@
-import AboutBrief from "@/features/home/about-brief";
-import WeddingHero from "@/features/home/wedding-hero";
-import WhyUs from "@/features/home/why-us";
-import FeaturedWorks from "@/features/home/featured-works";
+import AboutBrief from "@/features/user/home/about-brief";
+import WeddingHero from "@/features/user/home/wedding-hero";
+import WhyUs from "@/features/user/home/why-us";
+import FeaturedWorks from "@/features/user/home/featured-works";
 import { banners } from "@/lib/const";
-import FeaturedHero from "@/features/home/featured-hero";
-import InstagramFollow from "@/features/home/instagram-follow";
-import CarouselSlider from "@/features/home/banner-slider";
-import VideoBanner from "@/features/home/video-banner";
+import FeaturedHero from "@/features/user/home/featured-hero";
+import InstagramFollow from "@/features/user/home/instagram-follow";
+import CarouselSlider from "@/features/user/home/banner-slider";
+import VideoBanner from "@/features/user/home/video-banner";
 
 export default function Home() {
 	return (

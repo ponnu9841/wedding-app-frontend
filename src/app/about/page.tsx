@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
-import Faq from "@/features/about/faq";
-import FeaturedList from "@/features/about/featured-list";
-import Founder from "@/features/about/founder";
-import AboutHero from "@/features/about/hero";
-import OurStory from "@/features/about/our-story";
-import AboutServices from "@/features/about/services";
-import Testimonials from "@/features/about/testimonials";
-import WhatMakesUsUnique from "@/features/about/what-makes-us-unique";
+import Faq from "@/features/user/about/faq";
+import FeaturedList from "@/features/user/about/featured-list";
+import Founder from "@/features/user/about/founder";
+import AboutHero from "@/features/user/about/hero";
+import OurStory from "@/features/user/about/our-story";
+import AboutServices from "@/features/user/about/services";
+import Testimonials from "@/features/user/about/testimonials";
+import WhatMakesUsUnique from "@/features/user/about/what-makes-us-unique";
 
 const AboutPage = () => {
 	return (

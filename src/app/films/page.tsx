@@ -1,4 +1,4 @@
-import FilmsList from '@/features/films/films-list'
+import FilmsList from '@/features/user/films/films-list'
 import React from 'react'
 
 const FilmsPage = () => {

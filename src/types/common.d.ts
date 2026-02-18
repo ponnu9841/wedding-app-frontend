@@ -1,8 +1,12 @@
 type IconProps = {
-    size?: string | number;
-    className?: string;
-}
+	size?: string | number;
+	className?: string;
+};
 
 type ReactChildren = {
-    children: React.ReactNode
-}
+	children: React.ReactNode;
+};
+
+type ExtendedFile = File & {
+	url: string;
+};

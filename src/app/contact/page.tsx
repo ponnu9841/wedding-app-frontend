@@ -1,6 +1,6 @@
-import ContactCta from "@/features/contact/contact-cta"
-import ContactForm from "@/features/contact/contact-form"
-import ContactHero from "@/features/contact/hero"
+import ContactCta from "@/features/user/contact/contact-cta"
+import ContactForm from "@/features/user/contact/contact-form"
+import ContactHero from "@/features/user/contact/hero"
 
 const ContactPage = () => {
   return (

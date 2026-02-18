@@ -1,6 +1,6 @@
 import PageHero from "@/components/shared/page-hero";
 import { Button } from "@/components/ui/button";
-import PhotoGallery from "@/features/stories/photo-gallery";
+import PhotoGallery from "@/features/user/stories/photo-gallery";
 import React from "react";
 
 const StoriesDetails = () => {

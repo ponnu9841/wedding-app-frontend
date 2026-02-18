@@ -1,4 +1,4 @@
-import FilmsHero from "@/features/films/films-hero";
+import FilmsHero from "@/features/user/films/films-hero";
 import React from "react";
 
 const FilmsDetails = () => {
