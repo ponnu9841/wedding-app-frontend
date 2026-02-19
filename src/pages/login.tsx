@@ -42,11 +42,10 @@ export default function Login() {
 		setLoading(true);
 		try {
 			const response = await axiosInstance.post("/auth/login", data);
-			console.log(response)
 			if (response.status === 200) {
 				const { token } = response.data;
 				if (token) setToken(token);
-				// router.push("/dashboard");
+				router.push("/dashboard");
 			}
 		} catch (error) {
 			console.log(error);

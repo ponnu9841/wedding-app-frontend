@@ -1,8 +1,16 @@
+// import Banner from "@/components/admin/banner";
 
-const Dashboard = () => {
-  return (
-    <div>Dashboard</div>
-  )
+import DashBoardLayout from "@/components/layout/admin/dashboard-layout";
+
+export default function Home() {
+	return (
+		<div>
+			<h2 className="text-lg">Banner</h2>
+			{/* <Banner /> */}
+		</div>
+	);
 }
 
-export default Dashboard
+Home.getLayout = function getLayout(page: React.ReactElement) {
+	return <DashBoardLayout>{page}</DashBoardLayout>;
+};

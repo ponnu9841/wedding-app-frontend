@@ -7,7 +7,7 @@ const initialState = {
 		name: "",
 		email: "",
 		id: "",
-		type: "",
+		role: "",
 	},
 	error: "",
 };
@@ -18,7 +18,7 @@ export const fetchUser = createAsyncThunk(
 		const response = await axiosInstance.get("/user", {
 			signal: controller?.signal,
 		});
-		return response.data.data;
+		return response.data.data.user;
 	},
 );
 
