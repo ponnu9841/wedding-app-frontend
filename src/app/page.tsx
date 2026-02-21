@@ -2,17 +2,27 @@ import AboutBrief from "@/features/user/home/about-brief";
 import WeddingHero from "@/features/user/home/wedding-hero";
 import WhyUs from "@/features/user/home/why-us";
 import FeaturedWorks from "@/features/user/home/featured-works";
-import { banners } from "@/lib/const";
+// import { banners } from "@/lib/const";
 import FeaturedHero from "@/features/user/home/featured-hero";
 import InstagramFollow from "@/features/user/home/instagram-follow";
 import CarouselSlider from "@/features/user/home/banner-slider";
 import VideoBanner from "@/features/user/home/video-banner";
+import { getBannersResponse } from "@/services/axios/get-data";
 
-export default function Home() {
+export default async function Home() {
+	const [
+		bannerData,
+		
+	] = await Promise.all([
+		getBannersResponse(),
+		
+	]);
+
+	console.log(bannerData)
 	return (
 		<div className="mb-10 space-y-15 md:space-y-20">
 			<CarouselSlider
-				images={banners}
+				images={bannerData || []}
 				cardContentClassName="min-h-[85vh] relative"
 				showTitle
 				showTracker

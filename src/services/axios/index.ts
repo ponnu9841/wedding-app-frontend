@@ -1,7 +1,7 @@
 "use client";
 
 import axios, { AxiosError, AxiosInstance } from "axios";
-import { clearToken } from "./local-storage-service";
+import { clearToken } from "../local-storage-service";
 import { handleToast } from "@/lib/handle-toast";
 
 const axiosClient: AxiosInstance = axios.create({
