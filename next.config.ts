@@ -24,6 +24,10 @@ const nextConfig: NextConfig = {
 				protocol: "https",
 				hostname: "magicmotionmedia.com",
 			},
+			{
+				protocol: "http",
+				hostname: "localhost",
+			},
 		],
 	},
 };

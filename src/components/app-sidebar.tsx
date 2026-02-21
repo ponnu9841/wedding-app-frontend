@@ -218,7 +218,7 @@ function Logo() {
 		<SidebarMenu>
 			<SidebarMenuItem>
 				<Link href="/dashboard" className="flex justify-center">
-					<NextImage src="/images/logo.webp" className="aspect-[3/1] w-50" />
+					<NextImage src="/assets/images/logo.png" className="aspect-[3/1] w-50" />
 				</Link>
 			</SidebarMenuItem>
 		</SidebarMenu>

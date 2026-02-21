@@ -16,10 +16,9 @@ const initialState: {
 export const fetchBanner = createAsyncThunk(
 	"fetchBanners",
 	async (controller?: AbortController) => {
-		const response = await axiosClient.get("/categories", {
+		const response = await axiosClient.get("/banner", {
             signal: controller?.signal,
         });
-		console.log(response)
         return response.data.data;
 	}
 );
