@@ -58,7 +58,7 @@ export function DeleteDrawer({
 				</DrawerHeader>
 				<DrawerFooter className="sm:flex-row sm:justify-end sm:space-x-2">
 					<DrawerClose asChild>
-						<Button variant="outline">Cancel</Button>
+						<Button variant="outline" className="text-foreground">Cancel</Button>
 					</DrawerClose>
 					<Button
 						variant="destructive"

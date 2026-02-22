@@ -7,19 +7,18 @@ import FeaturedHero from "@/features/user/home/featured-hero";
 import InstagramFollow from "@/features/user/home/instagram-follow";
 import CarouselSlider from "@/features/user/home/banner-slider";
 import VideoBanner from "@/features/user/home/video-banner";
-import { getBannersResponse } from "@/services/axios/get-data-server";
+import {
+	getBannersResponse,
+	getInstagramFollowResponse,
+} from "@/services/axios/get-data-server";
 
 export default async function Home() {
-	const [
-		bannerData,
-		
-	] = await Promise.all([
+	const [bannerData, instagramFollow] = await Promise.all([
 		getBannersResponse(),
-		
+		getInstagramFollowResponse(),
 	]);
 
 	return (
-
 		<div className="mb-10 space-y-15 md:space-y-20">
 			<CarouselSlider
 				images={bannerData || []}
@@ -37,7 +36,7 @@ export default async function Home() {
 			<FeaturedWorks />
 			<FeaturedHero />
 			{/* instagram */}
-			<InstagramFollow />
+			<InstagramFollow instagramFollowData={instagramFollow || []} />
 		</div>
 	);
 }
