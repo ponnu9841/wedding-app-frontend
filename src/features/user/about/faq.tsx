@@ -15,7 +15,7 @@ const Faq = () => {
 			<Accordion type="single" collapsible className="w-full border-t">
 				{faqs.map((item, index) => (
 					<AccordionItem value={item.title} key={index} className="py-6">
-						<AccordionTrigger className="text-2xl tracking-wide font-playfair-display">
+						<AccordionTrigger className="text-lg lg:text-2xl tracking-wide font-playfair-display">
 							{item.title}
 						</AccordionTrigger>
 						<AccordionContent>{parseHtml(item.faq)}</AccordionContent>

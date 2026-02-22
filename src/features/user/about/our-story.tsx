@@ -4,7 +4,7 @@ import React from "react";
 const OurStory = () => {
 	return (
 		<div className="container max-w-6xl">
-			<Typography variant="h2" className="flex justify-center mb-6 text-3xl font-playfair-display">
+			<Typography variant="h2" className="flex justify-center mb-6 font-playfair-display">
 				Our Story
 			</Typography>
 			<Typography variant="p">

@@ -21,7 +21,7 @@ const PageHero: React.FC<PageHeroProps> = ({
 	imageSrc,
 	title,
 	subtitle,
-	containerClassName = "min-h-[85vh]",
+	containerClassName = "min-h-screen",
 	imageContainerClassName,
 	imageClassName,
 	overlayClassName = "bg-black/17",

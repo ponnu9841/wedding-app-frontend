@@ -10,30 +10,20 @@ const Founder = () => {
 				className="aspect-[520/693]"
 			/>
 			<div className="my-auto">
-				<Typography variant="h2" className="mb-5 text-4xl text-foreground/80 font-playfair-display">
-					Sachin Sai
+				<Typography
+					variant="h2"
+					className="mb-5 text-foreground/80 font-playfair-display"
+				>
+					Amal Joy Arkulasseril
 				</Typography>
 				<Typography variant="p">
-					The founder of{" "}
-					<span className="font-medium">Pepper Green Wedding Company</span> — a
-					team of passionate creatives capturing timeless wedding stories across
-					India and beyond. With over a decade of experience in the photography
-					and cinematography industry, I’ve built a company that blends visual
-					storytelling with emotion, culture, and elegance. I lead a dedicated
-					team of 26 in-house professionals, each committed to delivering
-					heartfelt and visually stunning wedding memories.
+					{`I’m Amal Joy Arkulasseril, the founder of CWC, established in 2017. After completing my M.Phil in Physical Education, I began my career as a Physical Education Teacher at a government school in Kerala, India. While the role was meaningful, I felt a strong pull toward a more creative path and chose to follow my passion.`}
 					<br />
 					<br />
-					{`As a passionate traveler who has explored over 15 countries, I draw
-						inspiration from diverse cultures and landscapes, which reflects in
-						our destination wedding work. Whether it's a traditional Kerala
-						ceremony, a vibrant North Indian celebration, or a dreamy
-						international affair — we bring authenticity, artistry, and heart to
-						every frame.`}
+					{`Starting from my hometown, Alappuzha, Kerala, I transitioned into wedding photography, where I discovered my true calling—capturing genuine emotions and real moments of happiness. What began as a personal journey gradually evolved into CWC, a growing team committed to authentic and heartfelt storytelling.`}
 					<br />
 					<br />
-					{`At Pepper Green, it's not just about clicking pictures — it's about
-						preserving moments that last a lifetime.`}
+					{`Today, as I lead the company, I continue to personally shoot weddings, staying closely connected to the work I love and the moments that inspire me the most.`}
 				</Typography>
 			</div>
 		</div>

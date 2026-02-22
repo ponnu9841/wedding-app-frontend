@@ -7,20 +7,15 @@ const WhyUs = () => {
 		<div className="container space-y-15 md:space-y-20">
 			<div className="grid grid-cols-1 md:grid-cols-2">
 				<Typography variant="h2" className="mb-6 md:max-w-4/5 md:mb-0">
-					Capturing Timeless Wedding Moments
+					{`Timeless Wedding Storytelling Crafted with Elegance`}
 				</Typography>
 				<Typography variant="p" className="leading-7">
-					A wedding is a collection of priceless moments that deserve to be
-					cherished forever. While life doesn’t have a rewind button, wedding
-					photography ensures you relive your special day over and over again.
-					At Pepper Green Wedding, we specialize in capturing the beauty,
-					emotions, and joy of your big day, preserving them as if they happened
-					just yesterday.
-					<br />
+					{`Celebrate Wedding Company approaches every wedding as a once in a lifetime story waiting to be told with honesty and depth. We focus on capturing natural emotions, quiet in between moments, and grand celebrations with equal care. From intimate glances to vibrant traditions, each frame is thoughtfully composed to reflect the personality of the couple. Our team works seamlessly behind the scenes, ensuring comfort and confidence while preserving memories in a way that feels immersive, heartfelt, and beautifully timeless for generations to cherish.`}
+					{/* <br />
 					<br />
 					Best Wedding Photography in Kerala - Kochi - Bangalore | India | UK |
 					Dubai Destination Wedding Photography | Candid & Traditional Wedding
-					Films
+					Films */}
 				</Typography>
 			</div>
 			<div className="grid grid-cols-1 gap-5 md:grid-cols-3">

@@ -1,6 +1,15 @@
 import Typography from "@/components/shared/typography";
 import Link from "next/link";
-import React from "react";
+
+const publications: string[] = [
+	"Femina Wedding",
+	"Brides of Kerala",
+	"WedMeGood",
+	"Wedding Sutra",
+	"Wedding Bazar",
+	"Wedding Wire",
+	"Vogue",
+];
 
 const FeaturedList = () => {
 	return (
@@ -12,7 +21,16 @@ const FeaturedList = () => {
 				As featured in
 			</Typography>
 			<div className="flex flex-wrap justify-center gap-6">
-				<Link
+				{publications.map((item) => (
+					<Link
+						key={item}
+						href="#"
+						className="text-lg tracking-wider uppercase md:text-xl text-foreground/75 font-playfair-display"
+					>
+						{item}
+					</Link>
+				))}
+				{/* <Link
 					href="#"
 					className="text-lg tracking-wider uppercase md:text-xl text-foreground/75 font-playfair-display"
 				>
@@ -53,7 +71,7 @@ const FeaturedList = () => {
 					className="text-lg tracking-wider uppercase md:text-xl text-foreground/75 font-playfair-display"
 				>
 					vogue
-				</Link>
+				</Link> */}
 			</div>
 		</div>
 	);

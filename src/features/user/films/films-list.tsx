@@ -6,8 +6,8 @@ import React from "react";
 
 const FilmsList = () => {
 	return (
-		<div className="max-w-349.25 mx-auto mt-50">
-			<Card className="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 p-5 lg:p-18 rounded-[1.875rem]">
+		<div className="max-w-349.25 mx-auto mt-50 p-1">
+			<Card className="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 p-5 lg:p-18 rounded-lg lg:rounded-[1.875rem]">
                 {films.map((item, index) => (
                     <Link href={`/films/${index}`} key={index}>
                         <div className="aspect-[294/368]">

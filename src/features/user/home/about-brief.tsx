@@ -9,19 +9,10 @@ const AboutBrief = () => {
 					About Us Brief
 				</Typography>
 				<Typography variant="p">
-					At Pepper Green Wedding, we specialize in capturing beautiful,
-					timeless moments that turn into treasured memories for a lifetime. Our
-					frames are filled with real, raw emotions, ensuring that every time
-					you look back, you relive the laughter, joy, and love of your special
-					day.
+					{`Founded in 2017 by Amal Joy Arukulasseril, Celebrate Wedding Company is a premium wedding photography and cinematography brand recognized for refined storytelling and timeless visuals. Having captured over 500+ weddings across India and Canada, we understand diverse cultures, traditions, and celebrations. Our experience allows us to document each wedding with sensitivity, elegance, and a deep respect for every couple’s unique story.`}
 				</Typography>
 				<Typography variant="p" className="text-center">
-					{`With a keen eye for detail and a passion for storytelling, our
-						cameras never miss a moment. This dedication has made us one of the
-						best wedding photographers in Kerala, Bangalore, and across India.
-						Whether it's a destination wedding, candid photography, or
-						traditional wedding films, we create visuals that bring your love
-						story to life.`}
+					{`We specialize exclusively in weddings, focusing on authentic emotions, graceful details, and cinematic moments. Our work blends artistic vision with technical expertise to create imagery that feels personal and enduring. Guided by a passionate and detail-oriented team, we deliver a seamless luxury experience, preserving your most meaningful moments with sophistication, care, and excellence.`}
 				</Typography>
 			</div>
 			<div className="grid grid-cols-1 gap-10 lg:grid-cols-8">

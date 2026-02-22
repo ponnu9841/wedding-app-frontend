@@ -23,7 +23,7 @@ const Header = () => {
 			className="container absolute top-0 flex items-center justify-between w-full -translate-x-1/2 bg-transparent left-1/2 h-35"
 			style={{ zIndex: "10" }}
 		>
-			<NextImage src="/assets/images/logo.png" className="max-w-50" />
+			<NextImage src="/assets/images/logo-dark-new.png" className="max-w-50" />
 			<div className="items-center hidden gap-6 overflow-hidden text-white md:flex">
 				{navItems.map((item, index) => (
 					<Link

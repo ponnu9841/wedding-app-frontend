@@ -4,7 +4,7 @@ import React from "react";
 const WhatMakesUsUnique = () => {
 	return (
 		<div className="container max-w-6xl">
-			<Typography variant="h2" className="flex justify-center mb-6 text-3xl font-playfair-display">
+			<Typography variant="h2" className="flex justify-center mb-6 font-playfair-display">
 				What Makes Us Unique!
 			</Typography>
 			<Typography variant="p" className="pl-8 border-l border-muted-foreground/60 text-foreground">

@@ -1,4 +1,4 @@
-export const banners: Banner[] = [
+export const bannerData: Banner[] = [
 	{
 		id: "1",
 		image:

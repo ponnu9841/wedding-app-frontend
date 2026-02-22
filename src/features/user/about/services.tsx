@@ -4,7 +4,7 @@ import React from "react";
 const AboutServices = () => {
 	return (
 		<div className="container">
-			<Typography variant="h2" className="mb-6 text-3xl">
+			<Typography variant="h2" className="mb-6">
 				Our Services
 			</Typography>
 			<div className="space-y-6">
@@ -109,7 +109,7 @@ const ServiceCard = ({
 }) => {
 	return (
 		<div className="flex flex-col gap-2">
-			<h3 className="text-xl tracking-widest uppercase font-playfair-display">
+			<h3 className="text-lg md:text-xl tracking-widest uppercase font-playfair-display">
 				{title}
 			</h3>
 			<Typography variant="p" className="white-space-pre">{description}</Typography>
