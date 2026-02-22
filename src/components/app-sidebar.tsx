@@ -1,15 +1,15 @@
 import {
 	FaHome,
-	FaHandshake,
-	FaCogs,
-	FaComments,
-	FaImages,
-	// FaUsers,
-	FaAddressBook,
-	FaInfoCircle,
-	FaThList,
-	FaBlog,
-	FaBriefcase,
+	// FaHandshake,
+	// FaCogs,
+	// FaComments,
+	// FaImages,
+	// // FaUsers,
+	// FaAddressBook,
+	// FaInfoCircle,
+	// FaThList,
+	// FaBlog,
+	// FaBriefcase,
 } from "react-icons/fa";
 import {
 	Sidebar,
@@ -35,60 +35,65 @@ const items = [
 		icon: FaHome,
 	},
 	{
-		title: "About",
-		url: "/dashboard/about",
-		icon: FaInfoCircle,
-	},
-	{
-		title: "Packages",
-		url: "/dashboard/packages",
-		icon: FaInfoCircle,
-	},
-	{
-		title: "Clients",
-		url: "/dashboard/clients",
-		icon: FaHandshake,
-	},
-	{
-		title: "Products",
-		url: "/dashboard/products",
-		icon: FaCogs,
-	},
-	{
-		title: "Testimonials",
-		url: "/dashboard/testimonials",
-		icon: FaComments,
-	},
-	{
-		title: "Works",
-		url: "/dashboard/works",
-		icon: FaImages,
+		title: "Follow on Instagram",
+		url: "/dashboard/instagram-follow",
+		icon: FaHome,
 	},
 	// {
-	//   title: "Teams",
-	//   url: "/dashboard/teams",
-	//   icon: FaUsers,
+	// 	title: "About",
+	// 	url: "/dashboard/about",
+	// 	icon: FaInfoCircle,
 	// },
-	{
-		title: "Contact",
-		url: "/dashboard/contact",
-		icon: FaAddressBook,
-	},
-	{
-		title: "Vlogs",
-		url: "/dashboard/vlogs",
-		icon: FaBlog,
-	},
-	{
-		title: "Experts",
-		url: "/dashboard/experts",
-		icon: FaBriefcase,
-	},
-	{
-		title: "Miscellaneous",
-		url: "/dashboard/miscellaneous",
-		icon: FaThList,
-	},
+	// {
+	// 	title: "Packages",
+	// 	url: "/dashboard/packages",
+	// 	icon: FaInfoCircle,
+	// },
+	// {
+	// 	title: "Clients",
+	// 	url: "/dashboard/clients",
+	// 	icon: FaHandshake,
+	// },
+	// {
+	// 	title: "Products",
+	// 	url: "/dashboard/products",
+	// 	icon: FaCogs,
+	// },
+	// {
+	// 	title: "Testimonials",
+	// 	url: "/dashboard/testimonials",
+	// 	icon: FaComments,
+	// },
+	// {
+	// 	title: "Works",
+	// 	url: "/dashboard/works",
+	// 	icon: FaImages,
+	// },
+	// // {
+	// //   title: "Teams",
+	// //   url: "/dashboard/teams",
+	// //   icon: FaUsers,
+	// // },
+	// {
+	// 	title: "Contact",
+	// 	url: "/dashboard/contact",
+	// 	icon: FaAddressBook,
+	// },
+	// {
+	// 	title: "Vlogs",
+	// 	url: "/dashboard/vlogs",
+	// 	icon: FaBlog,
+	// },
+	// {
+	// 	title: "Experts",
+	// 	url: "/dashboard/experts",
+	// 	icon: FaBriefcase,
+	// },
+	// {
+	// 	title: "Miscellaneous",
+	// 	url: "/dashboard/miscellaneous",
+	// 	icon: FaThList,
+	// },
 ];
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {

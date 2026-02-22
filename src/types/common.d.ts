@@ -10,3 +10,8 @@ type ReactChildren = {
 type ExtendedFile = File & {
 	url: string;
 };
+
+type FetchDataArgs = {
+	url: string;
+	controller?: AbortController;
+};

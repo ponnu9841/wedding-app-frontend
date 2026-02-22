@@ -1,13 +1,5 @@
-import axiosInstance from "@/services/axios";
-import { Input } from "@/components/ui/input";
-import { fetchBanner, setSelectedBanner } from "@/store/features/banner-slice";
-import { useAppDispatch, useAppSelector } from "@/hooks/use-store";
-import { BannerFormData, bannerSchema } from "@/schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import FormAction from "@/components/shared/admin-form-action";
-import { Textarea } from "@/components/ui/textarea";
+import FileUpload from "@/components/shared/file-upload";
 import {
 	Form,
 	FormControl,
@@ -16,76 +8,79 @@ import {
 	FormLabel,
 	FormMessage,
 } from "@/components/ui/form";
-import FileUpload from "@/components/shared/file-upload";
+import { Input } from "@/components/ui/input";
+import { useAppDispatch, useAppSelector } from "@/hooks/use-store";
 import { delayDispatch } from "@/lib/utils";
+import { InstagramFollowFormData, instagramFollowSchema } from "@/schema";
+import axiosClient from "@/services/axios";
+import {
+	fetchInstagramFollowData,
+	getSelectedInstagramData,
+	setSelectedInstagramFollowData,
+} from "@/store/features/instagram-follow-slice";
+import { zodResolver } from "@hookform/resolvers/zod";
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
 
-const initalState = {
+const initialState = {
 	id: "",
 	image: [],
 	imageAlt: "",
-	title: "",
-	description: "",
+	url: "",
 };
 
-export default function BannerForm() {
-	const form = useForm<BannerFormData>({
-		resolver: zodResolver(bannerSchema),
-		defaultValues: initalState,
+const InstagramFollowForm = () => {
+	const form = useForm<InstagramFollowFormData>({
+		resolver: zodResolver(instagramFollowSchema),
+		defaultValues: initialState,
 	});
-	const { register } = form;
+    const loading = form.formState.isSubmitting;
 
 	const dispatch = useAppDispatch();
-	const selectedBanner = useAppSelector(
-		(state) => state.banners.selectedBanner,
-	);
-	const [loading, setLoading] = useState(false);
-	const existingImage = selectedBanner?.image ?? "";
+	const selectedInstagramData = useAppSelector(getSelectedInstagramData);
+	const existingImage = selectedInstagramData?.image ?? "";
 
-	const onSubmit = (data: BannerFormData) => {
-		setLoading(true);
+	const onSubmit = (data: InstagramFollowFormData) => {
 		const form = new FormData();
 		form.append("alt", data.imageAlt || "");
-		form.append("title", data.title || "");
-		form.append("description", data.description || "");
+		form.append("url", data.url || "");
 		form.append("existingImage", existingImage);
 		if (data.image && data.image.length > 0) {
 			form.append("image", data.image[0]);
 		}
 		if (data.id) form.append("id", data.id);
-		const method = data.id ? axiosInstance.put : axiosInstance.post;
-		method("/banner", form)
+		const method = data.id ? axiosClient.put : axiosClient.post;
+		method("/instagram-follow", form)
 			.then((response) => {
 				if (response.status === 200) {
-					delayDispatch(dispatch, fetchBanner());
+					delayDispatch(dispatch, fetchInstagramFollowData({}));
 					resetForm();
 				}
 			})
 			.catch((error) => {
 				console.log(error);
-			})
-			.finally(() => setLoading(false));
+			});
 	};
 
 	const resetForm = () => {
-		form.reset(initalState);
-		dispatch(setSelectedBanner(null));
+		form.reset(initialState);
+		dispatch(setSelectedInstagramFollowData(null));
 	};
 
 	useEffect(() => {
-		if (selectedBanner) {
+		if (selectedInstagramData) {
 			form.reset({
-				id: selectedBanner.id,
-				imageAlt: selectedBanner.alt || "",
-				title: selectedBanner.title,
-				description: selectedBanner.description,
+				id: selectedInstagramData.id,
+				imageAlt: selectedInstagramData.alt || "",
+				url: selectedInstagramData.url,
 			});
 		}
-	}, [selectedBanner]); //eslint-disable-line
+	}, [selectedInstagramData]);
 
 	return (
 		<Form {...form}>
 			<form onSubmit={form.handleSubmit(onSubmit)}>
-				<input type="hidden" {...register("id")} />
+				<input type="hidden" {...form.register("id")} />
 				<div className="mt-4">
 					<FormField
 						control={form.control}
@@ -127,28 +122,12 @@ export default function BannerForm() {
 				<div className="mt-4">
 					<FormField
 						control={form.control}
-						name="title"
+						name="url"
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel>Title</FormLabel>
 								<FormControl>
-									<Input {...field} placeholder="Enter Title" />
-								</FormControl>
-								<FormMessage />
-							</FormItem>
-						)}
-					/>
-				</div>
-
-				<div className="mt-4">
-					<FormField
-						control={form.control}
-						name="description"
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>Description</FormLabel>
-								<FormControl>
-									<Textarea {...field} placeholder="Enter Banner Description" />
+									<Input {...field} placeholder="Enter Instagram URL" />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -160,4 +139,6 @@ export default function BannerForm() {
 			</form>
 		</Form>
 	);
-}
+};
+
+export default InstagramFollowForm;

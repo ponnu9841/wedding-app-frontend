@@ -160,7 +160,7 @@ const FileUpload = ({
 					))}
 				</div>
 			) : existingImage ? (
-				<Image src={existingImage} width={100} height={100} alt="upload" />
+				<Image src={existingImage} width={100} height={100} alt="upload" unoptimized />
 			) : (
 				<></>
 			)}

@@ -54,6 +54,18 @@ export const bannerSchema = z
 		path: requireImageIfNoId.path,
 	});
 
+export const instagramFollowSchema = z
+	.object({
+		id: z.string().optional(),
+		image: fileSchema().optional(),
+		imageAlt: z.string().optional(),
+		url: z.url().min(1, "URL is required"),
+	})
+	.refine(requireImageIfNoId.condition, {
+		message: requireImageIfNoId.message,
+		path: requireImageIfNoId.path,
+	});
+
 export const packageSchema = z
 	.object({
 		id: z.string().optional(),
@@ -236,6 +248,8 @@ export type WorkFormData = z.infer<typeof workSchema>;
 export type ClientFormData = z.infer<typeof clientSchema>;
 
 export type PackageFormData = z.infer<typeof packageSchema>;
+
+export type InstagramFollowFormData = z.infer<typeof instagramFollowSchema>;
 
 export type BannerFormData = z.infer<typeof bannerSchema>;
 

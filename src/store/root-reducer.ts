@@ -3,12 +3,14 @@ import { type Action, combineReducers } from "redux";
 // import slices
 import userSliceReducer from "./features/user-slice";
 import bannersSliceReducer from "./features/banner-slice";
+import instagramFollowReducer from "./features/instagram-follow-slice";
 
 export const LOGOUT = "LOGOUT";
 
 const appReducer = combineReducers({
 	user: userSliceReducer,
 	banners: bannersSliceReducer,
+	instagram: instagramFollowReducer,
 });
 
 const rootReducer = (

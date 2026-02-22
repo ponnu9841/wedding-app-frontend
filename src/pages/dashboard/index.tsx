@@ -8,7 +8,7 @@ import { useAppDispatch } from "@/hooks/use-store";
 import { fetchBanner, setSelectedBanner } from "@/store/features/banner-slice";
 import { useEffect } from "react";
 
-export default function Home() {
+export default function DashboardPage() {
 	const dispatch = useAppDispatch();
 	useEffect(() => {
 		const controller = new AbortController();
@@ -30,6 +30,6 @@ export default function Home() {
 	);
 }
 
-Home.getLayout = function getLayout(page: React.ReactElement) {
+DashboardPage.getLayout = function getLayout(page: React.ReactElement) {
 	return <DashBoardLayout>{page}</DashBoardLayout>;
 };
