@@ -8,14 +8,16 @@ import InstagramFollow from "@/features/user/home/instagram-follow";
 import CarouselSlider from "@/features/user/home/banner-slider";
 import VideoBanner from "@/features/user/home/video-banner";
 import {
+	getAboutImagesResponse,
 	getBannersResponse,
 	getInstagramFollowResponse,
 } from "@/services/axios/get-data-server";
 
 export default async function Home() {
-	const [bannerData, instagramFollow] = await Promise.all([
+	const [bannerData, instagramFollow, aboutImages] = await Promise.all([
 		getBannersResponse(),
 		getInstagramFollowResponse(),
+		getAboutImagesResponse(),
 	]);
 
 	return (
@@ -28,7 +30,7 @@ export default async function Home() {
 			>
 				<div className="absolute inset-0 w-full h-full bg-black/17" />
 			</CarouselSlider>
-			<WhyUs />
+			<WhyUs aboutImage={aboutImages} />
 			<AboutBrief />
 			<WeddingHero />
 			<VideoBanner />

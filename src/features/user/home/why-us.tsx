@@ -1,8 +1,22 @@
 import Typography from "@/components/shared/typography";
 import NextImage from "@/components/ui/image";
-import { capturingMoments } from "@/lib/const";
+// import { capturingMoments } from "@/lib/const";
 
-const WhyUs = () => {
+const WhyUs = ({ aboutImage }: { aboutImage: AboutImagesData | null }) => {
+	const capturingMoments = [
+		{
+			image: aboutImage?.imageOne ?? "",
+			alt: aboutImage?.imageOneAlt ?? "",
+		},
+		{
+			image: aboutImage?.imageTwo ?? "",
+			alt: aboutImage?.imageTwoAlt ?? "",
+		},
+		{
+			image: aboutImage?.imageThree ?? "",
+			alt: aboutImage?.imageThreeAlt ?? "",
+		},
+	];
 	return (
 		<div className="container space-y-15 md:space-y-20">
 			<div className="grid grid-cols-1 md:grid-cols-2">
@@ -21,10 +35,11 @@ const WhyUs = () => {
 			<div className="grid grid-cols-1 gap-5 md:grid-cols-3">
 				{capturingMoments.map((item, index) => (
 					<NextImage
-						src={item}
+						src={item.image}
 						key={index}
 						className="aspect-[16/9]"
 						imageClassName="object-cover"
+						alt={item.alt}
 					/>
 				))}
 			</div>
