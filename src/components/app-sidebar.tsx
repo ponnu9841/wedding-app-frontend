@@ -6,7 +6,7 @@ import {
 	// FaImages,
 	// // FaUsers,
 	// FaAddressBook,
-	// FaInfoCircle,
+	FaInfoCircle,
 	// FaThList,
 	// FaBlog,
 	// FaBriefcase,
@@ -39,11 +39,11 @@ const items = [
 		url: "/dashboard/instagram-follow",
 		icon: FaHome,
 	},
-	// {
-	// 	title: "About",
-	// 	url: "/dashboard/about",
-	// 	icon: FaInfoCircle,
-	// },
+	{
+		title: "About",
+		url: "/dashboard/about",
+		icon: FaInfoCircle,
+	},
 	// {
 	// 	title: "Packages",
 	// 	url: "/dashboard/packages",

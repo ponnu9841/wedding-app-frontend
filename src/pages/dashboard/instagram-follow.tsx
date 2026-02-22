@@ -9,7 +9,7 @@ import {
 } from "@/store/features/instagram-follow-slice";
 import React, { useEffect } from "react";
 
-export default function DashboardPage() {
+export default function InstagramPage() {
 	const dispatch = useAppDispatch();
 	useEffect(() => {
 		const controller = new AbortController();
@@ -31,6 +31,6 @@ export default function DashboardPage() {
 	);
 }
 
-DashboardPage.getLayout = function getLayout(page: React.ReactElement) {
+InstagramPage.getLayout = function getLayout(page: React.ReactElement) {
 	return <DashBoardLayout>{page}</DashBoardLayout>;
 };

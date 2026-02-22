@@ -125,7 +125,7 @@ const InstagramFollowForm = () => {
 						name="url"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Title</FormLabel>
+								<FormLabel>Instagram URL</FormLabel>
 								<FormControl>
 									<Input {...field} placeholder="Enter Instagram URL" />
 								</FormControl>

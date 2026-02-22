@@ -66,188 +66,38 @@ export const instagramFollowSchema = z
 		path: requireImageIfNoId.path,
 	});
 
-export const packageSchema = z
-	.object({
-		id: z.string().optional(),
-		image: fileSchema(),
-		imageAlt: z.string().optional(),
-		title: z.string().min(3, "Title must be at least 3 characters"),
-		price: z.string().min(1, "Price is required"),
-	})
-	.refine(requireImageIfNoId.condition, {
-		message: requireImageIfNoId.message,
-		path: requireImageIfNoId.path,
-	});
-
-export const clientSchema = z
-	.object({
-		id: z.string().optional(),
-		image: fileSchema(),
-		imageAlt: z.string().optional(),
-	})
-	.refine(requireImageIfNoId.condition, {
-		message: requireImageIfNoId.message,
-		path: requireImageIfNoId.path,
-	});
-
-export const workSchema = z
-	.object({
-		id: z.string().optional(),
-		image: fileSchema(),
-		imageAlt: z.string().optional(),
-		title: z.string().optional(),
-		description: z.string().optional(),
-	})
-	.refine(requireImageIfNoId.condition, {
-		message: requireImageIfNoId.message,
-		path: requireImageIfNoId.path,
-	});
-
-export const testimonialSchema = z
-	.object({
-		id: z.string().optional(),
-		image: fileSchema(),
-		imageAlt: z.string().optional(),
-		name: z.string().min(3, "Name must be at least 3 characters"),
-		designation: z.string().optional(),
-		testimonial: z
-			.string()
-			.min(10, "Testimonial must be at least 3 characters"),
-	})
-	.refine(requireImageIfNoId.condition, {
-		message: requireImageIfNoId.message,
-		path: requireImageIfNoId.path,
-	});
-
-export const expertsSchema = z
-	.object({
-		id: z.string().optional(),
-		image: fileSchema().optional(),
-		imageAlt: z.string().optional(),
-		title: z.string().min(3, "Title must be at least 3 characters"),
-		description: z
-			.string()
-			.min(10, "Description must be at least 3 characters"),
-	})
-	.refine(requireImageIfNoId.condition, {
-		message: requireImageIfNoId.message,
-		path: requireImageIfNoId.path,
-	});
-
-export const productSchema = z
-	.object({
-		id: z.string().optional(),
-		image: fileSchema(),
-		imageAlt: z.string().optional(),
-		title: z.string().optional(),
-		description: z.string().optional(),
-	})
-	.refine(requireImageIfNoId.condition, {
-		message: requireImageIfNoId.message,
-		path: requireImageIfNoId.path,
-	});
-
-export const vlogSchema = z.object({
-	id: z.string().optional(),
-	url: z.string().url("Invalid URL"),
-});
-
 export const aboutSchema = z
 	.object({
 		id: z.string().optional(),
-		image: fileSchema(),
-		imageAlt: z.string().optional(),
-		shortDescription: z
-			.string()
-			.min(10, "Content must be at least 3 characters"),
-		longDescription: z.string().optional(),
+
+		imageOne: fileSchema().optional(),
+		imageOneAlt: z.string().optional(),
+
+		imageTwo: fileSchema().optional(),
+		imageTwoAlt: z.string().optional(),
+
+		imageThree: fileSchema().optional(),
+		imageThreeAlt: z.string().optional(),
 	})
-	.refine(requireImageIfNoId.condition, {
-		message: requireImageIfNoId.message,
-		path: requireImageIfNoId.path,
-	});
+	.refine(
+		(data) => {
+			// ✅ If updating → allow missing images
+			if (data.id?.trim()) return true;
 
-export const missionSchema = z
-	.object({
-		id: z.string().optional(),
-		image: fileSchema(),
-		imageAlt: z.string().optional(),
-		description: z.string().min(10, "Content must be at least 3 characters"),
-	})
-	.refine(requireImageIfNoId.condition, {
-		message: requireImageIfNoId.message,
-		path: requireImageIfNoId.path,
-	});
-
-export const headingSchema = z.object({
-	id: z.string().optional(),
-	title: z.string().min(3, "Title must be at least 3 characters"),
-	description: z.string().optional(),
-	section: z.string(),
-});
-
-export const pagesBannerSchema = z
-	.object({
-		id: z.string().optional(),
-		image: fileSchema(),
-		title: z.string().optional(),
-		alt: z.string().optional(),
-		page: z.string(),
-	})
-	.refine(requireImageIfNoId.condition, {
-		message: requireImageIfNoId.message,
-		path: requireImageIfNoId.path,
-	});
-
-export const seoSchema = z.object({
-	id: z.string().optional(),
-	title: z.string().min(3, "Title must be at least 3 characters"),
-	description: z.string().min(3, "Title must be at least 3 characters"),
-	page: z.string(),
-});
-
-export const contactSchema = z.object({
-	id: z.string().optional(),
-	location: z.string().min(3, "Location must be at least 3 characters"),
-	contactOne: z.string().regex(/^\d{10}$/, {
-		message: "Phone number must be exactly 10 digits",
-	}),
-	contactTwo: z.string().optional(),
-	emailOne: z
-		.string()
-		.min(1, { message: "This field has to be filled." })
-		.email("This is not a valid email."),
-	emailTwo: z.string().optional(),
-	map: z.string().optional(),
-});
-
-export type ContactFormData = z.infer<typeof contactSchema>;
-
-export type SeoFormData = z.infer<typeof seoSchema>;
-
-export type PagesBannerFormData = z.infer<typeof pagesBannerSchema>;
-
-export type HeadingFormData = z.infer<typeof headingSchema>;
-
-export type VissionFormData = z.infer<typeof missionSchema>;
-
-export type MissionFormData = z.infer<typeof missionSchema>;
+			// ❌ If creating → all three images required
+			return (
+				(data.imageOne?.length ?? 0) > 0 &&
+				(data.imageTwo?.length ?? 0) > 0 &&
+				(data.imageThree?.length ?? 0) > 0
+			);
+		},
+		{
+			message: "All three images are required",
+			path: ["imageOne"], // attach error to first field (or customize)
+		},
+	);
 
 export type AboutFormData = z.infer<typeof aboutSchema>;
-
-export type VlogFormData = z.infer<typeof vlogSchema>;
-
-export type ProductsFormData = z.infer<typeof productSchema>;
-
-export type ExpertsFormData = z.infer<typeof expertsSchema>;
-
-export type TestimonialFormData = z.infer<typeof testimonialSchema>;
-
-export type WorkFormData = z.infer<typeof workSchema>;
-
-export type ClientFormData = z.infer<typeof clientSchema>;
-
-export type PackageFormData = z.infer<typeof packageSchema>;
 
 export type InstagramFollowFormData = z.infer<typeof instagramFollowSchema>;
 
