@@ -8,17 +8,20 @@ import InstagramFollow from "@/features/user/home/instagram-follow";
 import CarouselSlider from "@/features/user/home/banner-slider";
 import VideoBanner from "@/features/user/home/video-banner";
 import {
+	getAboutBriefResponse,
 	getAboutImagesResponse,
 	getBannersResponse,
 	getInstagramFollowResponse,
 } from "@/services/axios/get-data-server";
 
 export default async function Home() {
-	const [bannerData, instagramFollow, aboutImages] = await Promise.all([
-		getBannersResponse(),
-		getInstagramFollowResponse(),
-		getAboutImagesResponse(),
-	]);
+	const [bannerData, instagramFollow, aboutImages, aboutBrief] =
+		await Promise.all([
+			getBannersResponse(),
+			getInstagramFollowResponse(),
+			getAboutImagesResponse(),
+			getAboutBriefResponse(),
+		]);
 
 	return (
 		<div className="mb-10 space-y-15 md:space-y-20">
@@ -31,7 +34,7 @@ export default async function Home() {
 				<div className="absolute inset-0 w-full h-full bg-black/17" />
 			</CarouselSlider>
 			<WhyUs aboutImage={aboutImages} />
-			<AboutBrief />
+			<AboutBrief videoUrl={aboutBrief?.videoUrl} />
 			<WeddingHero />
 			<VideoBanner />
 			{/* works */}

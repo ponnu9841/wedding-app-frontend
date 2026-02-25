@@ -6,3 +6,5 @@ export const getInstagramFollowResponse = () =>
 
 export const getAboutImagesResponse = () =>
 	fetchData<AboutImagesData | null>("/about");
+
+export const getAboutBriefResponse = () => fetchData<AboutBrief | null>("/about/brief");

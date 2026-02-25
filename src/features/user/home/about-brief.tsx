@@ -1,11 +1,14 @@
 import Typography from "@/components/shared/typography";
 import React from "react";
 
-const AboutBrief = () => {
+const AboutBrief = ({ videoUrl }: { videoUrl?: string | null }) => {
 	return (
 		<div className="container space-y-20">
 			<div>
-				<Typography variant="h2" className="mb-5 text-center text-foreground/80">
+				<Typography
+					variant="h2"
+					className="mb-5 text-center text-foreground/80"
+				>
 					About Us Brief
 				</Typography>
 				<Typography variant="p">
@@ -35,7 +38,7 @@ const AboutBrief = () => {
 				<div className="md:col-span-5">
 					<iframe
 						title="vimeo-player"
-						src="https://player.vimeo.com/video/807039911?h=b983c4bc50"
+						src={videoUrl || ""}
 						allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
 						className="object-cover w-full h-full bg-black"
 					></iframe>
