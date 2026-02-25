@@ -8,3 +8,6 @@ export const getInstagramFollowResponse = (controller?: AbortController) =>
 
 export const getAboutImages = (controller?: AbortController) =>
 	fetchData<AboutImagesData | null>({ url: "/about", controller });
+
+export const getAboutBrief = (controller?: AbortController) =>
+	fetchData<AboutBrief | null>({ url: "/about/brief", controller });

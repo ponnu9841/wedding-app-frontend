@@ -41,8 +41,6 @@ const AboutForm = () => {
 	const dispatch = useAppDispatch();
 	const aboutImagesData = useAppSelector(getAboutImagesData);
 
-    console.log(form.formState)
-
 	const onSubmit = (data: AboutFormData) => {
 		const form = new FormData();
 		form.append("imageOneAlt", data.imageOneAlt || "");

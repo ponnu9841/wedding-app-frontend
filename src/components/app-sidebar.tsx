@@ -44,6 +44,11 @@ const items = [
 		url: "/dashboard/about",
 		icon: FaInfoCircle,
 	},
+	{
+		title: "AboutBrief",
+		url: "/dashboard/about-brief",
+		icon: FaInfoCircle,
+	},
 	// {
 	// 	title: "Packages",
 	// 	url: "/dashboard/packages",

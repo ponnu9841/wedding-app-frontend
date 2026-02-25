@@ -7,3 +7,8 @@ type AboutImagesData = {
 	imageThree: string;
 	imageThreeAlt: string | null;
 };
+
+type AboutBrief = {
+	id: string;
+	videoUrl: string;
+};

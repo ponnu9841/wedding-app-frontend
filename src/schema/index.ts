@@ -97,6 +97,13 @@ export const aboutSchema = z
 		},
 	);
 
+export const aboutBriefSchema = z.object({
+	id: z.string().optional(),
+	videoUrl: z.url(),
+});
+
+export type AboutBriefFormData = z.infer<typeof aboutBriefSchema>;
+
 export type AboutFormData = z.infer<typeof aboutSchema>;
 
 export type InstagramFollowFormData = z.infer<typeof instagramFollowSchema>;
