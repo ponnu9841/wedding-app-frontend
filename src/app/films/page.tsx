@@ -1,12 +1,7 @@
-import FilmsList from '@/features/user/films/films-list'
-import React from 'react'
+import FilmsList from "@/features/user/films/films-list";
 
 const FilmsPage = () => {
-  return (
-    <div>
-        <FilmsList />
-    </div>
-  )
-}
+	return <FilmsList />;
+};
 
-export default FilmsPage
+export default FilmsPage;

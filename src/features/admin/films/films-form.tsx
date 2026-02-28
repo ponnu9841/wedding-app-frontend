@@ -69,7 +69,7 @@ const FilmsForm = () => {
 		const response = await method(url, formData);
 		if (response) {
 			dispatch(fetchFilms({}));
-			form.reset(defaultValues);
+			resetForm();
 		}
 	};
 

@@ -38,7 +38,7 @@ const filmsSlice = createSlice({
 		},
 		setFilmsPageNo: (state, action) => {
 			state.pageNo = action.payload;
-		}
+		},
 	},
 	extraReducers: (builder) => {
 		builder
@@ -61,5 +61,6 @@ export const { setSelectedFilm, setFilmsPageNo } = filmsSlice.actions;
 export const getFilmsData = (state: RootState) => state.films.data;
 export const getSelectedFilmData = (state: RootState) =>
 	state.films.selectedFilm;
+export const getFilmsPageNo = (state: RootState) => state.films.pageNo;
 
 export default filmsSlice.reducer;
