@@ -1,17 +1,17 @@
 import { useAppSelector, useAppDispatch } from "@/hooks/use-store";
 import { DeleteDrawer } from "@/components/shared/delete-drawer";
 import { fetchBanner, setSelectedBanner } from "@/store/features/banner-slice";
-import axiosInstance from "@/services/axios";
 import EditButton from "@/components/shared/edit-button";
 import NextImage from "@/components/ui/image";
 import { delayDispatch } from "@/lib/utils";
+import axiosClient from "@/services/axios";
 
 export default function BannerData() {
 	const dispatch = useAppDispatch();
 	const data = useAppSelector((state) => state.banners.data);
 
 	const deleteBanner = async (id: string, image: string) => {
-		const response = await axiosInstance.delete(`/banner`, {
+		const response = await axiosClient.delete(`/banner`, {
 			params: { id, image },
 		});
 		if (response.status === 200) {

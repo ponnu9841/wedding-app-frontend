@@ -124,6 +124,21 @@ export const updateStoryImage = z.object({
 	image: fileSchema(),
 });
 
+export const filmsSchema = z
+	.object({
+		id: z.string().optional(),
+		image: fileSchema().optional(),
+		title: z.string().min(1, "Title is required"),
+		shortDescription: z.string().optional(),
+		videoUrl: z.url().min(1, "Video URL is required"),
+	})
+	.refine(requireImageIfNoId.condition, {
+		message: requireImageIfNoId.message,
+		path: requireImageIfNoId.path,
+	});
+
+export type FilmsFormData = z.infer<typeof filmsSchema>;
+
 export type UpdateStoryImageFormData = z.infer<typeof updateStoryImage>;
 
 export type UpdateStoryBanner = z.infer<typeof updateStoryBanner>;

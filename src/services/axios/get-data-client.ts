@@ -25,3 +25,17 @@ export const getStories = ({
 		url: `/story?page=${pageNo}&pageSize=${pageSize}`,
 		controller,
 	});
+
+export const getFilms = ({
+	controller,
+	pageNo,
+	pageSize,
+}: {
+	controller?: AbortController;
+	pageNo: number;
+	pageSize: number;
+}) =>
+	fetchData<FilmsResponse | null>({
+		url: `/film?page=${pageNo}&pageSize=${pageSize}`,
+		controller,
+	});

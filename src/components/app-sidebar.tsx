@@ -10,6 +10,7 @@ import {
 	// FaThList,
 	// FaBlog,
 	// FaBriefcase,
+	FaVideo,
 } from "react-icons/fa";
 import {
 	Sidebar,
@@ -53,6 +54,10 @@ const items = [
 		title: "Stories",
 		url: "/dashboard/stories",
 		icon: FaInfoCircle,
+	},
+	{	title: "Films",
+		url: "/dashboard/films",
+		icon: FaVideo,
 	},
 	// {
 	// 	title: "Clients",
