@@ -39,3 +39,17 @@ export const getFilms = ({
 		url: `/film?page=${pageNo}&pageSize=${pageSize}`,
 		controller,
 	});
+
+export const getBlogs = ({
+	controller,
+	pageNo,
+	pageSize,
+}: {
+	controller?: AbortController;
+	pageNo: number;
+	pageSize: number;
+}) =>
+	fetchData<BlogResponse>({
+		url: `/blog?page=${pageNo}&pageSize=${pageSize}`,
+		controller,
+	});

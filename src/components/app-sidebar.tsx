@@ -8,7 +8,7 @@ import {
 	// FaAddressBook,
 	FaInfoCircle,
 	// FaThList,
-	// FaBlog,
+	FaBlog,
 	// FaBriefcase,
 	FaVideo,
 } from "react-icons/fa";
@@ -55,10 +55,8 @@ const items = [
 		url: "/dashboard/stories",
 		icon: FaInfoCircle,
 	},
-	{	title: "Films",
-		url: "/dashboard/films",
-		icon: FaVideo,
-	},
+	{ title: "Films", url: "/dashboard/films", icon: FaVideo },
+	{ title: "Blogs", url: "/dashboard/blog", icon: FaBlog },
 	// {
 	// 	title: "Clients",
 	// 	url: "/dashboard/clients",
@@ -233,7 +231,10 @@ function Logo() {
 		<SidebarMenu>
 			<SidebarMenuItem>
 				<Link href="/dashboard" className="flex justify-center">
-					<NextImage src="/assets/images/logo.png" className="aspect-[3/1] w-50" />
+					<NextImage
+						src="/assets/images/logo.png"
+						className="aspect-[3/1] w-50"
+					/>
 				</Link>
 			</SidebarMenuItem>
 		</SidebarMenu>

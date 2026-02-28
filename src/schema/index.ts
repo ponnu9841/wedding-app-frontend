@@ -137,6 +137,21 @@ export const filmsSchema = z
 		path: requireImageIfNoId.path,
 	});
 
+export const blogSchema = z
+	.object({
+		id: z.string().optional(),
+		image: fileSchema().optional(),
+		imageAlt: z.string().optional(),
+		title: z.string().min(3, "Name must be at least 3 characters"),
+		content: z.string().min(3, "Content must be at least 3 characters"),
+	})
+	.refine(requireImageIfNoId.condition, {
+		message: requireImageIfNoId.message,
+		path: requireImageIfNoId.path,
+	});
+
+export type BlogFormData = z.infer<typeof blogSchema>;
+
 export type FilmsFormData = z.infer<typeof filmsSchema>;
 
 export type UpdateStoryImageFormData = z.infer<typeof updateStoryImage>;

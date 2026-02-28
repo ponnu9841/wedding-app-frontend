@@ -7,6 +7,7 @@ import instagramFollowReducer from "./features/instagram-follow-slice";
 import aboutReducer from "./features/about-slice";
 import storyReducer from "./features/story-slice";
 import filmsReducer from "./features/films-slice";
+import blogReducer from "./features/blog-slice";
 
 export const LOGOUT = "LOGOUT";
 
@@ -16,7 +17,8 @@ const appReducer = combineReducers({
 	instagram: instagramFollowReducer,
 	about: aboutReducer,
 	story: storyReducer,
-	films: filmsReducer
+	films: filmsReducer,
+	blog: blogReducer
 });
 
 const rootReducer = (
