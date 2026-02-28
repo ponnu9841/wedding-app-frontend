@@ -25,3 +25,6 @@ export const getStoryById = (id: string) =>
 
 export const getFilmById = (id: string) =>
 	fetchData<FilmResponseById>(`/film/${id}`);
+
+export const getBlogById = (id: string) =>
+	fetchData<Blog | null>(`/blog/${id}`);
