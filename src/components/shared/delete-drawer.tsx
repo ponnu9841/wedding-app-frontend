@@ -46,7 +46,7 @@ export function DeleteDrawer({
 		<Drawer open={isOpen} onOpenChange={setIsOpen}>
 			<DrawerTrigger asChild>
 				{deleteButton ?? (
-					<Button variant="destructive" size="icon" className="w-8 h-8">
+					<Button variant="destructive" size="icon" className={"w-8 h-8"}>
 						<MdDelete />
 					</Button>
 				)}

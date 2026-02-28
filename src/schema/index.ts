@@ -102,6 +102,36 @@ export const aboutBriefSchema = z.object({
 	videoUrl: z.url(),
 });
 
+export const storySchema = z.object({
+	id: z.string().optional(),
+	title: z.string(),
+	bannerImage: fileSchema().optional(),
+	images: fileSchema().optional(),
+});
+
+export const addStoryImages = z.object({
+	id: z.string(),
+	images: fileSchema(),
+});
+
+export const updateStoryBanner = z.object({
+	id: z.string(),
+	bannerImage: fileSchema(),
+});
+
+export const updateStoryImage = z.object({
+	id: z.string(),
+	image: fileSchema(),
+});
+
+export type UpdateStoryImageFormData = z.infer<typeof updateStoryImage>;
+
+export type UpdateStoryBanner = z.infer<typeof updateStoryBanner>;
+
+export type AddStoryImagesFormData = z.infer<typeof addStoryImages>;
+
+export type StoryFormData = z.infer<typeof storySchema>;
+
 export type AboutBriefFormData = z.infer<typeof aboutBriefSchema>;
 
 export type AboutFormData = z.infer<typeof aboutSchema>;

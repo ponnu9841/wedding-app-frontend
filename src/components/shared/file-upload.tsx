@@ -30,16 +30,16 @@ const FileUpload = ({
 
 	const selectedFiles = files.map((file) => file.url);
 
-
 	const handleFiles = (fileList: FileList) => {
 		const filesArr = Array.from(fileList) as ExtendedFile[];
 
 		if (multiple) {
-			filesArr.forEach((file) => {
+			const allowedFiles = filesArr.map((file) => {
 				const url = URL.createObjectURL(file);
 				file.url = url;
-				setFiles((prev) => [...prev, file]);
+				return file;
 			});
+			setFiles([...files, ...allowedFiles]);
 		} else if (filesArr.length > 0) {
 			if (selectedFiles.length > 0) URL.revokeObjectURL(selectedFiles[0]);
 			const url = URL.createObjectURL(filesArr[0]);
@@ -89,7 +89,7 @@ const FileUpload = ({
 
 	return (
 		<div className="flex flex-col items-center gap-2">
-			{selectedFiles.length < 10 && (
+			{selectedFiles.length < 50 && (
 				<div
 					className={cn(
 						"flex items-center justify-center w-full h-32 px-4 transition bg-white border-2 border-dashed rounded-md appearance-none cursor-pointer hover:border-gray-400 focus:outline-none",
@@ -121,9 +121,9 @@ const FileUpload = ({
 				</div>
 			)}
 
-			{selectedFiles?.length >= 10 && (
+			{selectedFiles?.length >= 50 && (
 				<div className="text-red-500 py-3">
-					You can`t upload more than 10 files!
+					You can`t upload more than 50 files!
 				</div>
 			)}
 
@@ -160,7 +160,13 @@ const FileUpload = ({
 					))}
 				</div>
 			) : existingImage ? (
-				<Image src={existingImage} width={100} height={100} alt="upload" unoptimized />
+				<Image
+					src={existingImage}
+					width={100}
+					height={100}
+					alt="upload"
+					unoptimized
+				/>
 			) : (
 				<></>
 			)}

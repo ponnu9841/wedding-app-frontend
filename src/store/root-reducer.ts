@@ -5,6 +5,7 @@ import userSliceReducer from "./features/user-slice";
 import bannersSliceReducer from "./features/banner-slice";
 import instagramFollowReducer from "./features/instagram-follow-slice";
 import aboutReducer from "./features/about-slice";
+import storyReducer from "./features/story-slice";
 
 export const LOGOUT = "LOGOUT";
 
@@ -13,6 +14,7 @@ const appReducer = combineReducers({
 	banners: bannersSliceReducer,
 	instagram: instagramFollowReducer,
 	about: aboutReducer,
+	story: storyReducer,
 });
 
 const rootReducer = (

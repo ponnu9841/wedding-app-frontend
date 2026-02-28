@@ -49,11 +49,11 @@ const items = [
 		url: "/dashboard/about-brief",
 		icon: FaInfoCircle,
 	},
-	// {
-	// 	title: "Packages",
-	// 	url: "/dashboard/packages",
-	// 	icon: FaInfoCircle,
-	// },
+	{
+		title: "Stories",
+		url: "/dashboard/stories",
+		icon: FaInfoCircle,
+	},
 	// {
 	// 	title: "Clients",
 	// 	url: "/dashboard/clients",

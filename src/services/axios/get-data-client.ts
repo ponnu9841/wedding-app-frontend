@@ -11,3 +11,17 @@ export const getAboutImages = (controller?: AbortController) =>
 
 export const getAboutBrief = (controller?: AbortController) =>
 	fetchData<AboutBrief | null>({ url: "/about/brief", controller });
+
+export const getStories = ({
+	controller,
+	pageNo,
+	pageSize,
+}: {
+	controller?: AbortController;
+	pageNo: number;
+	pageSize: number;
+}) =>
+	fetchData<StoryResponse>({
+		url: `/story?page=${pageNo}&pageSize=${pageSize}`,
+		controller,
+	});
