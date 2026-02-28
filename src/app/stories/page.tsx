@@ -1,6 +1,5 @@
 import StoriesHero from "@/features/user/stories/hero";
-import StoriesList from "@/features/user/stories/stories-list";
-import React from "react";
+import StoriesList from "@/features/user/stories/stories-list/stories-list";
 
 const StoriesPage = () => {
 	return (

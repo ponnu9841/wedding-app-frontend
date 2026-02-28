@@ -18,7 +18,13 @@ const initialState: {
 
 export const fetchStories = createAsyncThunk(
 	"fetchStories",
-	async ({ controller }: { controller?: AbortController }, thunkAPI) => {
+	async (
+		{
+			controller,
+			isInfiniteLoad = true,
+		}: { controller?: AbortController; isInfiniteLoad?: boolean },
+		thunkAPI,
+	) => {
 		const storySlice = (thunkAPI.getState() as RootState).story;
 		const pageNo = storySlice.storyListPageNo;
 		const pageSize = storySlice.pageSize;
@@ -26,7 +32,7 @@ export const fetchStories = createAsyncThunk(
 		const response = await getStories({ controller, pageNo, pageSize });
 		const currentState = storySlice.data;
 
-		if (currentState && pageNo !== 1) {
+		if (currentState && pageNo !== 1 && isInfiniteLoad) {
 			return {
 				...currentState,
 				data: [...currentState.data, ...(response?.data || [])],

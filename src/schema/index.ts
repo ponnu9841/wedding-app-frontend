@@ -104,19 +104,19 @@ export const aboutBriefSchema = z.object({
 
 export const storySchema = z.object({
 	id: z.string().optional(),
-	title: z.string(),
-	bannerImage: fileSchema().optional(),
-	images: fileSchema().optional(),
+	title: z.string().min(1, "Title is required"),
+	bannerImage: fileSchema().min(1, "Banner image is required"),
+	images: fileSchema().min(1, "At least one image is required"),
 });
 
 export const addStoryImages = z.object({
 	id: z.string(),
-	images: fileSchema(),
+	images: fileSchema().min(1, "At least one image is required"),
 });
 
 export const updateStoryBanner = z.object({
 	id: z.string(),
-	bannerImage: fileSchema(),
+	bannerImage: fileSchema().min(1, "At least one image is required"),
 });
 
 export const updateStoryImage = z.object({

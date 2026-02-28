@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Google_Sans_Flex } from "next/font/google";
 import Layout from "@/components/layout/layout";
 import "./globals.css";
+import Provider from "@/store/provider";
 
 const fontPlayfairDisplay = Playfair_Display({
 	variable: "--font-playfair-display",
@@ -28,7 +29,9 @@ export default function RootLayout({
 			<body
 				className={`${fontPlayfairDisplay.variable} ${fontGoogleSansFlex.variable} antialiased`}
 			>
-				<Layout>{children}</Layout>
+				<Provider>
+					<Layout>{children}</Layout>
+				</Provider>
 			</body>
 		</html>
 	);
