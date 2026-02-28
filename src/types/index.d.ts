@@ -6,3 +6,7 @@ type Testimonial = {
 	designation: string | null;
 	testimonial: string;
 };
+
+type PageProps = {
+   params: Promise<{ slug: string }>;
+};

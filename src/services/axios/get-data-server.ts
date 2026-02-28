@@ -8,3 +8,5 @@ export const getAboutImagesResponse = () =>
 	fetchData<AboutImagesData | null>("/about");
 
 export const getAboutBriefResponse = () => fetchData<AboutBrief | null>("/about/brief");
+
+export const getStoryById = (id: string) => fetchData<Story | null>(`/story/${id}`);

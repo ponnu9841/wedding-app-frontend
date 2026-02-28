@@ -2,25 +2,22 @@
 
 import { useState } from "react";
 import { Share2 } from "lucide-react";
-import { storiesDetails } from "@/lib/const";
+// import { storiesDetails } from "@/lib/const";
 import { Card } from "@/components/ui/card";
 import CustomDialog from "@/components/ui/custom-dialog";
 
-const PhotoGallery = () => {
-	const [selectedImage, setSelectedImage] = useState<{
-		image: string;
-		name: string;
-	} | null>(null);
+const PhotoGallery = ({ story }: { story: Story }) => {
+	const [selectedImage, setSelectedImage] = useState<StoryImage | null>(null);
 
 	return (
 		<div className="w-full min-h-screen p-4 bg-gradient-to-br from-slate-50 to-slate-100">
 			<div className="mx-auto max-w-415">
-				<h1 className="mb-8 text-4xl font-bold text-center text-slate-800">
-					Wedding Gallery
-				</h1>
+				<h2 className="mb-8 text-4xl font-bold text-center text-slate-800">
+					{story.title}
+				</h2>
 
 				<div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-2">
-					{storiesDetails.map((item, index) => (
+					{story.images.map((item, index) => (
 						<Card
 							key={index}
 							className="relative overflow-hidden cursor-pointer group hover:shadow-2xl p-0 mt-3 first:mt-0 rounded-none group"
@@ -28,8 +25,8 @@ const PhotoGallery = () => {
 						>
 							{/* eslint-disable-next-line @next/next/no-img-element */}
 							<img
-								src={item.image}
-								alt={item.name}
+								src={item.imageUrl}
+								alt={story.title}
 								className="w-full h-full object-cover transition-all duration-300 group-hover:scale-[1.02]"
 							/>
 
@@ -84,9 +81,9 @@ const PhotoGallery = () => {
 								<div className="flex items-center justify-center w-full h-full max-h-[78vh]">
 									{/* eslint-disable-next-line */}
 									<img
-										src={selectedImage.image}
-										alt={selectedImage.name}
-										className="object-contain max-w-full max-h-full"
+										src={selectedImage.imageUrl}
+										alt={selectedImage.id}
+										className="object-cover max-w-full max-h-full"
 									/>
 								</div>
 							)}

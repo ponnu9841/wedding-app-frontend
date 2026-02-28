@@ -12,7 +12,7 @@ type Story = {
 	order: number | string | null;
 	createdAt: string;
 	updatedAt: string;
-	images: Image[];
+	images: StoryImage[];
 };
 
 type StoryResponse = PaginationResponse & {
