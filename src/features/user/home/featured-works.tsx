@@ -2,6 +2,7 @@ import Typography from "@/components/shared/typography";
 import { Button } from "@/components/ui/button";
 import NextImage from "@/components/ui/image";
 import { works } from "@/lib/const";
+import Link from "next/link";
 
 const FeaturedWorks = () => {
 	return (
@@ -25,12 +26,14 @@ const FeaturedWorks = () => {
 				))}
 			</div>
 			<div className="flex justify-center mt-40">
-				<Button
-					variant="outline"
-					className="bg-transparent hover:bg-transparent h-12 w-60.25 text-foreground/40 hover:text-foreground/40 "
-				>
-					SEE MORE GALLERIES
-				</Button>
+				<Link href="/stories">
+					<Button
+						variant="outline"
+						className="bg-transparent hover:bg-transparent h-12 w-60.25 text-foreground/40 hover:text-foreground/40 "
+					>
+						SEE MORE GALLERIES
+					</Button>
+				</Link>
 			</div>
 		</div>
 	);

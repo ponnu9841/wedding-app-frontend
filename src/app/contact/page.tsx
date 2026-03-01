@@ -11,7 +11,7 @@ const ContactPage = () => {
 			<ContactHero />
 			{/* <ContactCta />
         <ContactForm /> */}
-			<div className="container">
+			<div className="max-w-4xl mx-auto px-5 lg:px-0">
 				<div className="mt-15">
 					<h1 className="text-6xl text-center font-playfair-display font-semibold">
 						Contact Us
