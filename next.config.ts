@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
 		remotePatterns: [
 			{
 				protocol: "https",
+				hostname: "*.celebrateweddingcompany.com",
+			},
+			{
+				protocol: "https",
 				hostname: "images-pw.pixieset.com",
 			},
 			{
