@@ -38,7 +38,7 @@ export function MobileNavigation() {
 			}
 			hideDialogTitle
 			hideDialogDescription
-			contentClassName="min-h-screen min-w-full rounded-none border-none"
+			contentClassName="min-h-dvh min-w-full rounded-none border-none"
 		/>
 	);
 }
