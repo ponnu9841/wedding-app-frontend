@@ -1,12 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { CustomPagination } from "@/components/ui/custom-pagination";
 import NextImage from "@/components/ui/image";
 import { Separator } from "@/components/ui/separator";
 import { useAppDispatch, useAppSelector } from "@/hooks/use-store";
 import { blogs } from "@/lib/const";
 import { parseHtml } from "@/lib/utils";
-import { fetchBlogs } from "@/store/features/blog-slice";
+import { fetchBlogs, setBlogPageNo } from "@/store/features/blog-slice";
 import Link from "next/link";
 import React, { useEffect } from "react";
 
@@ -21,7 +22,7 @@ const BlogList = () => {
 	const { blogs, loading, pageNo } = useAppSelector((state) => state.blog);
 
 	return (
-		<div className="px-3 mx-auto max-w-7xl">
+		<div className="space-y-6">
 			{/* <div className="flex flex-wrap gap-3 mb-8">
 				<Button variant="ghost" className="p-0 h-fit hover:bg-transparent">
 					All
@@ -55,6 +56,11 @@ const BlogList = () => {
 					</Link>
 				))}
 			</div>
+			<CustomPagination
+				totalPages={blogs?.totalPages}
+				currentPage={blogs?.page}
+				onPageChange={(page) => dispatch(setBlogPageNo(page))}
+			/>
 		</div>
 	);
 };

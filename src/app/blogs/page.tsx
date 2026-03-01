@@ -6,7 +6,9 @@ const BlogsPage = () => {
 	return (
 		<div className="space-y-20">
 			<BlogsHero />
-            <BlogList />
+			<div className="container">
+				<BlogList />
+			</div>
 		</div>
 	);
 };

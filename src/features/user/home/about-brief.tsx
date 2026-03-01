@@ -11,7 +11,7 @@ const AboutBrief = ({ videoUrl }: { videoUrl?: string | null }) => {
 				>
 					About Us Brief
 				</Typography>
-				<Typography variant="p">
+				<Typography variant="p" className="text-center">
 					{`Founded in 2017 by Amal Joy Arukulasseril, Celebrate Wedding Company is a premium wedding photography and cinematography brand recognized for refined storytelling and timeless visuals. Having captured over 500+ weddings across India and Canada, we understand diverse cultures, traditions, and celebrations. Our experience allows us to document each wedding with sensitivity, elegance, and a deep respect for every couple’s unique story.`}
 				</Typography>
 				<Typography variant="p" className="text-center">

@@ -20,11 +20,11 @@ const Header = () => {
 	const isAltPathName = pathName === "/stories" || pathName?.includes("/films");
 	return (
 		<nav
-			className="container absolute top-0 flex items-center justify-between w-full -translate-x-1/2 bg-transparent left-1/2 h-35"
+			className="container absolute top-0 flex items-center justify-between w-full -translate-x-1/2 bg-transparent left-1/2 h-38"
 			style={{ zIndex: "10" }}
 		>
-			<NextImage src="/assets/images/logo-dark-new.png" className="max-w-50" />
-			<div className="items-center hidden gap-6 overflow-hidden text-white md:flex">
+			<NextImage src="/assets/images/logo-dark.webp" className="max-w-50 max-h-35" />
+			<div className="items-center hidden gap-10 overflow-hidden text-white md:flex">
 				{navItems.map((item, index) => (
 					<Link
 						key={index}

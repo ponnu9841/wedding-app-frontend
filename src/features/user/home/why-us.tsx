@@ -23,7 +23,7 @@ const WhyUs = ({ aboutImage }: { aboutImage: AboutImagesData | null }) => {
 				<Typography variant="h2" className="mb-6 md:max-w-4/5 md:mb-0">
 					{`Timeless Wedding Storytelling Crafted with Elegance`}
 				</Typography>
-				<Typography variant="p" className="leading-7">
+				<Typography variant="p" className="leading-7 text-justify">
 					{`Celebrate Wedding Company approaches every wedding as a once in a lifetime story waiting to be told with honesty and depth. We focus on capturing natural emotions, quiet in between moments, and grand celebrations with equal care. From intimate glances to vibrant traditions, each frame is thoughtfully composed to reflect the personality of the couple. Our team works seamlessly behind the scenes, ensuring comfort and confidence while preserving memories in a way that feels immersive, heartfelt, and beautifully timeless for generations to cherish.`}
 					{/* <br />
 					<br />

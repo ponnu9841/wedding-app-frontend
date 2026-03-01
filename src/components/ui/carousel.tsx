@@ -201,13 +201,13 @@ function CarouselPrevious({
 			<div className="relative w-full z-3">
 				<div
 					className={cn(
-						"relative -rotate-45 border-t border-l border-border/50 size-4 left-0.5 z-2",
+						"relative -rotate-45 border-t border-l border-white size-4 left-0.5 z-2",
 						arrowTipClassName,
 					)}
 				></div>
 				<div
 					className={cn(
-						"absolute top-1/2 -translate-y-1/2 h-0.25 bg-border/50 w-full z-1",
+						"absolute top-1/2 -translate-y-1/2 h-0.25 bg-white w-full z-1",
 						arrowLineClassName,
 					)}
 				></div>
@@ -249,13 +249,13 @@ function CarouselNext({
 			{props.children}
 			<div
 				className={cn(
-					"relative border border-r-0 border-b-0 border-border/50 rotate-135 size-4 right-0.5 float-right z-2",
+					"relative border border-r-0 border-b-0 border-white rotate-135 size-4 right-0.5 float-right z-2",
 					arrowTipClassName,
 				)}
 			/>
 			<div
 				className={cn(
-					"absolute top-1/2 left-0 -translate-y-1/2 h-0.25 bg-border/50 w-[calc(100%-0.05rem)] z-1 rounded-r",
+					"absolute top-1/2 left-0 -translate-y-1/2 h-0.25 bg-white w-[calc(100%-0.05rem)] z-1 rounded-r",
 					arrowLineClassName,
 				)}
 			/>
