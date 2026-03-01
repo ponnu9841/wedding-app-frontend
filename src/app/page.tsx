@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import AboutBrief from "@/features/user/home/about-brief";
 import WeddingHero from "@/features/user/home/wedding-hero";
 import WhyUs from "@/features/user/home/why-us";

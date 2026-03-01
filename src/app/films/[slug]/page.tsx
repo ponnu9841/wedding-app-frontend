@@ -1,9 +1,10 @@
+export const dynamic = "force-dynamic";
+
 import { Button } from "@/components/ui/button";
 import FilmsHero from "@/features/user/films/films-hero";
 import { getFilmById } from "@/services/axios/get-data-server";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
 const FilmsDetails = async (props: PageProps) => {
 	const params = await props.params;

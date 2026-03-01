@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import NextImage from "@/components/ui/image";
 import { formatDateToMonthYear, parseHtml } from "@/lib/utils";
 import { getBlogById } from "@/services/axios/get-data-server";

@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { Button } from "@/components/ui/button";
 import Faq from "@/features/user/about/faq";
 import FeaturedList from "@/features/user/about/featured-list";

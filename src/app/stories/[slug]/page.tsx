@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import PageHero from "@/components/shared/page-hero";
 import { Button } from "@/components/ui/button";
 import PhotoGallery from "@/features/user/stories/photo-gallery";
