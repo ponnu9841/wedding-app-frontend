@@ -81,7 +81,7 @@ const InstagramFollowForm = () => {
 		<Form {...form}>
 			<form onSubmit={form.handleSubmit(onSubmit)}>
 				<input type="hidden" {...form.register("id")} />
-				<div className="mt-4">
+				<div>
 					<FormField
 						control={form.control}
 						name="image"

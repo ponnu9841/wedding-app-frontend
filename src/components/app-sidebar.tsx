@@ -35,21 +35,21 @@ const items = [
 		url: "/dashboard",
 		icon: FaHome,
 	},
-	{
-		title: "Follow on Instagram",
-		url: "/dashboard/instagram-follow",
-		icon: FaHome,
-	},
-	{
-		title: "About",
-		url: "/dashboard/about",
-		icon: FaInfoCircle,
-	},
-	{
-		title: "AboutBrief",
-		url: "/dashboard/about-brief",
-		icon: FaInfoCircle,
-	},
+	// {
+	// 	title: "Follow on Instagram",
+	// 	url: "/dashboard/instagram-follow",
+	// 	icon: FaHome,
+	// },
+	// {
+	// 	title: "About",
+	// 	url: "/dashboard/about",
+	// 	icon: FaInfoCircle,
+	// },
+	// {
+	// 	title: "AboutBrief",
+	// 	url: "/dashboard/about-brief",
+	// 	icon: FaInfoCircle,
+	// },
 	{
 		title: "Stories",
 		url: "/dashboard/stories",

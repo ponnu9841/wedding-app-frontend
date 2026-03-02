@@ -1,4 +1,3 @@
-import DashBoardLayout from "@/components/layout/admin/dashboard-layout";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -25,7 +24,7 @@ const initialState = {
 	videoUrl: "",
 };
 
-const AboutBriefPage = () => {
+const AboutBrief = () => {
 	const form = useForm<AboutBriefFormData>({
 		resolver: zodResolver(aboutBriefSchema),
 		defaultValues: initialState,
@@ -49,16 +48,12 @@ const AboutBriefPage = () => {
 	};
 
 	useEffect(() => {
-		const controller = new AbortController();
-		dispatch(fetchAboutBrief({ controller }));
-		return () => controller.abort();
-	}, []);
-
-	useEffect(() => {
 		if (aboutBriefData) {
 			form.reset(aboutBriefData);
 		}
 	}, [aboutBriefData]);
+
+    console.log(aboutBriefData)
 
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -88,8 +83,4 @@ const AboutBriefPage = () => {
 	);
 };
 
-AboutBriefPage.getLayout = function getLayout(page: React.ReactElement) {
-	return <DashBoardLayout>{page}</DashBoardLayout>;
-};
-
-export default AboutBriefPage;
+export default AboutBrief;

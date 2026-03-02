@@ -86,7 +86,7 @@ export default function BannerForm() {
 		<Form {...form}>
 			<form onSubmit={form.handleSubmit(onSubmit)}>
 				<input type="hidden" {...register("id")} />
-				<div className="mt-4">
+				<div>
 					<FormField
 						control={form.control}
 						name="image"
