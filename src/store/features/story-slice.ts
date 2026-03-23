@@ -7,12 +7,14 @@ const initialState: {
 	loading: boolean;
 	storyListPageNo: number;
 	data: StoryResponse | null;
+	search: string;
 	error: string;
 } = {
-	pageSize: 10,
+	pageSize: 12,
 	loading: true,
 	storyListPageNo: 1,
 	data: null,
+	search: "",
 	error: "",
 };
 
@@ -28,8 +30,9 @@ export const fetchStories = createAsyncThunk(
 		const storySlice = (thunkAPI.getState() as RootState).story;
 		const pageNo = storySlice.storyListPageNo;
 		const pageSize = storySlice.pageSize;
+		const search = storySlice.search;
 
-		const response = await getStories({ controller, pageNo, pageSize });
+		const response = await getStories({ controller, pageNo, pageSize, search });
 		const currentState = storySlice.data;
 
 		if (currentState && pageNo !== 1 && isInfiniteLoad) {
@@ -47,6 +50,10 @@ export const storySlice = createSlice({
 	name: "story",
 	initialState,
 	reducers: {
+		setStorySearch(state, action) {
+			state.search = action.payload;
+			state.storyListPageNo = 1;
+		},
 		setStoryListPageNo(state, action) {
 			state.storyListPageNo = action.payload;
 		},
@@ -68,10 +75,11 @@ export const storySlice = createSlice({
 	},
 });
 
-export const { setStoryListPageNo } = storySlice.actions;
+export const { setStoryListPageNo, setStorySearch } = storySlice.actions;
 
 export const getStoriesPageSize = (state: RootState) => state.story.pageSize;
 export const getStoriesData = (state: RootState) => state.story.data;
+export const getStoriesSearch = (state: RootState) => state.story.search;
 export const getStoriesPageNo = (state: RootState) =>
 	state.story.storyListPageNo;
 export const getStoriesLoading = (state: RootState) => state.story.loading;

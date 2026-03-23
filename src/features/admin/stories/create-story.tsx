@@ -36,9 +36,9 @@ const CreateStory = () => {
 	const onSubmit = async (data: StoryFormData) => {
 		const form = new FormData();
 		form.append("title", data.title || "");
-		data.bannerImage?.forEach((element) => {
-			form.append("bannerImage", element);
-		});
+		// data.bannerImage?.forEach((element) => {
+		// 	form.append("bannerImage", element);
+		// });
 		data.images?.forEach((element) => {
 			form.append("images", element);
 		});
@@ -56,7 +56,7 @@ const CreateStory = () => {
 					name="title"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Image Alt</FormLabel>
+							<FormLabel>Title</FormLabel>
 							<FormControl>
 								<Input {...field} placeholder="Enter Title" />
 							</FormControl>
@@ -64,7 +64,7 @@ const CreateStory = () => {
 						</FormItem>
 					)}
 				/>
-				<FormField
+				{/* <FormField
 					control={form.control}
 					name="bannerImage"
 					render={({ field, fieldState: { error } }) => (
@@ -82,7 +82,7 @@ const CreateStory = () => {
 							<FormMessage />
 						</FormItem>
 					)}
-				/>
+				/> */}
 				<FormField
 					control={form.control}
 					name="images"

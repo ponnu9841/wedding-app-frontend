@@ -1,5 +1,3 @@
-import React from "react";
-
 const BlogsHero = () => {
 	return (
 		<div className="h-[70vh]">

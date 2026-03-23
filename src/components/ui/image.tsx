@@ -10,15 +10,15 @@ type NextImageProps = {
 	isUnOptimized?: boolean;
 };
 
-export default function NextImage(props: NextImageProps) {
-	const {
-		src,
-		alt = "",
-		className,
-		priority = false,
-		imageClassName,
-		isUnOptimized = false,
-	} = props;
+export default function NextImage({
+	src,
+	alt = "",
+	className,
+	priority = false,
+	imageClassName,
+	isUnOptimized = false,
+	...props
+}: NextImageProps) {
 	return (
 		<div className={cn("relative w-full h-full", className)}>
 			<Image
@@ -29,6 +29,7 @@ export default function NextImage(props: NextImageProps) {
 				sizes="(min-width: 1280px) 100vw, (min-width: 1024px) 100vw, (min-width: 640px) 1000vw, 100vw"
 				priority={priority}
 				unoptimized={isUnOptimized}
+				{...props}
 			/>
 		</div>
 	);

@@ -10,7 +10,7 @@ const PhotoGallery = ({ story }: { story: Story }) => {
 	const [selectedImage, setSelectedImage] = useState<StoryImage | null>(null);
 
 	return (
-		<div className="w-full min-h-screen p-4 bg-gradient-to-br from-slate-50 to-slate-100">
+		<div className="w-full min-h-screen p-4">
 			<div className="mx-auto max-w-415">
 				<h2 className="mb-8 text-4xl font-bold text-center text-slate-800">
 					{story.title}

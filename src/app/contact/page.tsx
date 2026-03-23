@@ -1,17 +1,17 @@
 // import ContactCta from "@/features/user/contact/contact-cta"
 // import ContactForm from "@/features/user/contact/contact-form"
 import { Button } from "@/components/ui/button";
-import ContactHero from "@/features/user/contact/hero";
+// import ContactHero from "@/features/user/contact/hero";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 
 const ContactPage = () => {
 	return (
-		<div className="space-y-20">
-			<ContactHero />
+		<div className="min-h-[calc(100dvh-9.5rem)] flex justify-center items-center">
+			{/* <ContactHero /> */}
 			{/* <ContactCta />
         <ContactForm /> */}
-			<div className="max-w-4xl mx-auto px-5 lg:px-0">
+			<div className="w-full max-w-4xl mx-auto px-5 lg:px-0">
 				<div className="mt-15">
 					<h1 className="text-6xl text-center font-playfair-display font-semibold">
 						Contact Us

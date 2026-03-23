@@ -30,6 +30,7 @@ import {
 	getStoriesData,
 	getStoriesLoading,
 	getStoriesPageNo,
+	getStoriesSearch,
 	setStoryListPageNo,
 } from "@/store/features/story-slice";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -373,41 +374,41 @@ const UpdateOrder = ({ row }: StoriesRow) => {
 };
 
 const columns = [
-	{
-		accessorKey: "name",
-		header: "Banner Image",
-		align: "center",
-		cell: ({ row }: StoriesRow) => (
-			<div className="flex gap-3.25 items-center justify-center relative min-w-25">
-				<div className="relative w-fit">
-					<NextImage
-						src={row.original.bannerImage}
-						alt=""
-						className="rounded size-16"
-						isUnOptimized
-					/>
-					<div className="absolute top-0 right-0">
-						<CustomDialog
-							hideDialogTitle
-							hideDialogDescription
-							isModal
-							dialogButton={
-								<Button size="icon" className="size-5">
-									<Edit className="size-3" />
-								</Button>
-							}
-							dialogContent={
-								<UpdateBanner
-									id={row.original.id}
-									bannerImage={row.original.bannerImage}
-								/>
-							}
-						/>
-					</div>
-				</div>
-			</div>
-		),
-	},
+	// {
+	// 	accessorKey: "name",
+	// 	header: "Banner Image",
+	// 	align: "center",
+	// 	cell: ({ row }: StoriesRow) => (
+	// 		<div className="flex gap-3.25 items-center justify-center relative min-w-25">
+	// 			<div className="relative w-fit">
+	// 				<NextImage
+	// 					src={row.original.bannerImage}
+	// 					alt=""
+	// 					className="rounded size-16"
+	// 					isUnOptimized
+	// 				/>
+	// 				<div className="absolute top-0 right-0">
+	// 					<CustomDialog
+	// 						hideDialogTitle
+	// 						hideDialogDescription
+	// 						isModal
+	// 						dialogButton={
+	// 							<Button size="icon" className="size-5">
+	// 								<Edit className="size-3" />
+	// 							</Button>
+	// 						}
+	// 						dialogContent={
+	// 							<UpdateBanner
+	// 								id={row.original.id}
+	// 								bannerImage={row.original.bannerImage}
+	// 							/>
+	// 						}
+	// 					/>
+	// 				</div>
+	// 			</div>
+	// 		</div>
+	// 	),
+	// },
 	{
 		accessorKey: "title",
 		header: "Title",
@@ -468,12 +469,13 @@ const StoriesList = () => {
 	const stories = useAppSelector(getStoriesData);
 	const pageNo = useAppSelector(getStoriesPageNo);
 	const loading = useAppSelector(getStoriesLoading);
+	const search = useAppSelector(getStoriesSearch);
 
 	useEffect(() => {
 		const controller = new AbortController();
 		dispatch(fetchStories({ controller }));
 		return () => controller.abort();
-	}, []);
+	}, [pageNo, search]);
 
 	return (
 		<div>

@@ -88,7 +88,7 @@ const CarouselSlider = ({
 
 	return (
 		<Carousel
-			plugins={[Autoplay({ delay: 5000, stopOnInteraction: true }), Fade()]}
+			plugins={[Autoplay({ delay: 8000, stopOnInteraction: true }), Fade()]}
 			className="relative w-full carousel"
 			// onMouseEnter={plugin.current.stop}
 			// onMouseLeave={plugin.current.reset}

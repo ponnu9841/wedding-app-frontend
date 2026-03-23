@@ -16,13 +16,15 @@ export const getStories = ({
 	controller,
 	pageNo,
 	pageSize,
+	search,
 }: {
 	controller?: AbortController;
 	pageNo: number;
 	pageSize: number;
+	search: string;
 }) =>
 	fetchData<StoryResponse>({
-		url: `/story?page=${pageNo}&pageSize=${pageSize}`,
+		url: `/story?page=${pageNo}&pageSize=${pageSize}&search=${search}`,
 		controller,
 	});
 

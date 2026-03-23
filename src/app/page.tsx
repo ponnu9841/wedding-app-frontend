@@ -29,7 +29,7 @@ export default async function Home() {
 		<div className="mb-10 space-y-15 md:space-y-20">
 			<CarouselSlider
 				images={bannerData || []}
-				cardContentClassName="min-h-[85vh] lg:min-h-screen relative"
+				cardContentClassName="min-h-[85vh] relative"
 				showTitle
 				showTracker
 			>

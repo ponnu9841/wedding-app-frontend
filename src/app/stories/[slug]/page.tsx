@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
-import PageHero from "@/components/shared/page-hero";
-import { Button } from "@/components/ui/button";
+// import PageHero from "@/components/shared/page-hero";
+// import { Button } from "@/components/ui/button";
 import PhotoGallery from "@/features/user/stories/photo-gallery";
 import { getStoryById } from "@/services/axios/get-data-server";
 import React from "react";
@@ -23,8 +23,8 @@ const StoriesDetails = async (props: PageProps) => {
 
 	if (story) {
 		return (
-			<div className="space-y-4">
-				<PageHero
+			<div className="space-y-4 mt-25">
+				{/* <PageHero
 					imageSrc={story.bannerImage}
 					shouldRenderCustomContent
 					customContent={
@@ -40,7 +40,7 @@ const StoriesDetails = async (props: PageProps) => {
 							</Button>
 						</div>
 					}
-				/>
+				/> */}
 				<PhotoGallery story={story} />
 			</div>
 		);
