@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { MobileNavigation } from "./mobile-nav";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
+import { checkIfAltPresent, cn } from "@/lib/utils";
 
 export const navItems = [
 	{ name: "Home", link: "/" },
@@ -16,7 +16,7 @@ export const navItems = [
 
 const Header = () => {
 	const pathName = usePathname();
-	const isAltPathName = pathName === "/stories" || pathName?.includes("/films");
+	const isAltPathName = checkIfAltPresent(pathName);
 	return (
 		<nav
 			className="max-w-350 px-5 mx-auto absolute top-0 flex items-center justify-between w-full -translate-x-1/2 bg-transparent left-1/2 h-38"

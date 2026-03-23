@@ -51,3 +51,12 @@ export const formatDateToMonthYear = (dateString: string) => {
 	// return `${month} ${year}`;
 	return `${day} ${month} ${year}`;
 };
+
+export const checkIfAltPresent = (pathName: string | null) => {
+	return (
+		pathName?.includes("/stories") ||
+		pathName?.includes("/films") ||
+		pathName?.includes("/contact") ||
+		pathName?.includes("/blogs")
+	);
+};
