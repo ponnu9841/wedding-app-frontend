@@ -10,3 +10,11 @@ type HomeVideoBanner = {
 	id: string;
 	bannerUrl: string;
 }
+
+type Work = {
+	id: string;
+	image: string;
+	alt: string | null;
+	title: string | null;
+	subtitle: string | null;
+}

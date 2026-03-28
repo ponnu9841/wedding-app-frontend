@@ -10,13 +10,20 @@ import BannerForm from "@/features/admin/banner/banner-form";
 import HomeAboutBannerForm from "@/features/admin/home-about-banner/home-about-banner-form";
 import InstagramFollowData from "@/features/admin/instagram-follow/instagram-follow-data";
 import InstagramFollowForm from "@/features/admin/instagram-follow/instagram-follow-form";
+import WorksForm from "@/features/admin/works/works-form";
+import WorksList from "@/features/admin/works/works-list";
 import { useAppDispatch } from "@/hooks/use-store";
 import {
 	fetchAboutBrief,
 	fetchAboutImages,
 } from "@/store/features/about-slice";
 import { fetchBanner, setSelectedBanner } from "@/store/features/banner-slice";
-import { fetchHomeAboutBanner, fetchHomeVideoBanner } from "@/store/features/home-slice";
+import {
+	fetchHomeAboutBanner,
+	fetchHomeVideoBanner,
+	fetchWorks,
+	setSelectedWork,
+} from "@/store/features/home-slice";
 import {
 	fetchInstagramFollowData,
 	setSelectedInstagramFollowData,
@@ -31,12 +38,14 @@ export default function DashboardPage() {
 		dispatch(fetchAboutImages({ controller }));
 		dispatch(fetchAboutBrief({ controller }));
 		dispatch(fetchInstagramFollowData({ controller }));
-		dispatch(fetchHomeAboutBanner(controller));
-		dispatch(fetchHomeVideoBanner(controller));
+		dispatch(fetchHomeAboutBanner({ controller }));
+		dispatch(fetchHomeVideoBanner({ controller }));
+		dispatch(fetchWorks({ controller }));
 		return () => {
 			controller.abort();
 			dispatch(setSelectedBanner(null));
 			dispatch(setSelectedInstagramFollowData(null));
+			dispatch(setSelectedWork(null));
 		};
 	}, [dispatch]);
 
@@ -49,6 +58,7 @@ export default function DashboardPage() {
 				<TabsTrigger value="instagram">Follow on Instagram</TabsTrigger>
 				<TabsTrigger value="banner-1">Home Banner 1</TabsTrigger>
 				<TabsTrigger value="video-banner">Video Banner</TabsTrigger>
+				<TabsTrigger value="works">Works</TabsTrigger>
 			</TabsList>
 			<TabsContent value="banner">
 				<AdminSectionLayout
@@ -73,6 +83,12 @@ export default function DashboardPage() {
 			</TabsContent>
 			<TabsContent value="video-banner">
 				<AboutBrief type="video-banner" />
+			</TabsContent>
+			<TabsContent value="works">
+				<AdminSectionLayout
+					leftSection={<WorksForm />}
+					rightSection={<WorksList />}
+				/>
 			</TabsContent>
 		</Tabs>
 	);

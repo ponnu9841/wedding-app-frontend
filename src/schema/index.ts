@@ -173,6 +173,21 @@ export const homeAboutBannerSchema = z
 		},
 	);
 
+export const worksSchema = z
+	.object({
+		id: z.string().optional(),
+		image: fileSchema().optional(),
+		imageAlt: z.string().optional(),
+		title: z.string().optional(),
+		subtitle: z.string().optional(),
+	})
+	.refine(requireImageIfNoId.condition, {
+		message: requireImageIfNoId.message,
+		path: requireImageIfNoId.path,
+	});
+
+export type WorksFormData = z.infer<typeof worksSchema>;
+
 export type HomeAboutBannerFormData = z.infer<typeof homeAboutBannerSchema>;
 
 export type BlogFormData = z.infer<typeof blogSchema>;

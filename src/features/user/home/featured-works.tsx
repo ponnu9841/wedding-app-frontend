@@ -1,17 +1,16 @@
 import Typography from "@/components/shared/typography";
 import { Button } from "@/components/ui/button";
 import NextImage from "@/components/ui/image";
-import { works } from "@/lib/const";
 import Link from "next/link";
 
-const FeaturedWorks = () => {
+const FeaturedWorks = ({ works }: { works: Work[] | null }) => {
 	return (
 		<div className="space-y-10">
 			<Typography variant="h2" className="text-center text-foreground/80">
 				See My Work
 			</Typography>
 			<div className="container grid grid-cols-1 gap-30 md:gap-20 md:grid-cols-3">
-				{works.map((item, index) => (
+				{works?.map((item, index) => (
 					<div key={index} className="space-y-4 md:space-y-6 min-h-fit">
 						<NextImage
 							src={item.image}
@@ -21,7 +20,7 @@ const FeaturedWorks = () => {
 						<h3 className="text-2xl font-medium text-center font-playfair-display">
 							{item.title}
 						</h3>
-						<p className="text-sm font-normal text-center">{item.caption}</p>
+						<p className="text-sm font-normal text-center">{item.subtitle}</p>
 					</div>
 				))}
 			</div>

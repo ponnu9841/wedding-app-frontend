@@ -32,5 +32,7 @@ export const getBlogById = (id: string) =>
 export const getAboutBanner = () =>
 	fetchData<HomeAboutBanner | null>("/home-about-banner");
 
-export const getHomeVideoBanner = () => 
-	fetchData<HomeVideoBanner | null>("/home-video-banner")
+export const getHomeVideoBanner = () =>
+	fetchData<HomeVideoBanner | null>("/home-video-banner");
+
+export const getWorks = () => fetchData<Work[]>("/works");

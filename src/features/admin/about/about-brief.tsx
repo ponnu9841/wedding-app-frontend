@@ -54,7 +54,7 @@ const AboutBrief = ({ type }: { type?: string }) => {
 		const response = await method(url, reqBody);
 		if (response) {
 			if (type === "video-banner") {
-				dispatch(fetchHomeVideoBanner());
+				dispatch(fetchHomeVideoBanner({}));
 				return;
 			}
 			dispatch(fetchAboutBrief({}));

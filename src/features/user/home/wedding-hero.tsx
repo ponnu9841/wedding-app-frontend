@@ -1,6 +1,7 @@
 import Typography from "@/components/shared/typography";
 import { Button } from "@/components/ui/button";
 import NextImage from "@/components/ui/image";
+import Link from "next/link";
 
 const WeddingHero = ({
 	bannerData,
@@ -34,12 +35,14 @@ const WeddingHero = ({
 					just getting photographers—you’re getting a team that is professional,
 					timely, attentive, and truly passionate about their craft.
 				</Typography>
-				<Button
-					className="h-12 w-46.75 uppercase tracking-widest text-foreground/40 hover:text-foreground/40 border-foreground/40"
-					variant="outline"
-				>
-					Wedding film
-				</Button>
+				<Link href="/films">
+					<Button
+						className="h-12 w-46.75 uppercase tracking-widest text-foreground/40 hover:text-foreground/40 border-foreground/40"
+						variant="outline"
+					>
+						Wedding film
+					</Button>
+				</Link>
 			</div>
 		</div>
 	);
