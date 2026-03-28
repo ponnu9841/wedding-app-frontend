@@ -5,3 +5,8 @@ type HomeAboutBanner = {
 	title: string | null;
 	subtitle: string | null;
 };
+
+type HomeVideoBanner = {
+	id: string;
+	bannerUrl: string;
+}

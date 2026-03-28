@@ -14,6 +14,7 @@ import {
 	getAboutBriefResponse,
 	getAboutImagesResponse,
 	getBannersResponse,
+	getHomeVideoBanner,
 	getInstagramFollowResponse,
 } from "@/services/axios/get-data-server";
 
@@ -24,12 +25,14 @@ export default async function Home() {
 		aboutImages,
 		aboutBrief,
 		aboutBannerData,
+		videoBanner,
 	] = await Promise.all([
 		getBannersResponse(),
 		getInstagramFollowResponse(),
 		getAboutImagesResponse(),
 		getAboutBriefResponse(),
 		getAboutBanner(),
+		getHomeVideoBanner()
 	]);
 
 	return (
@@ -45,7 +48,7 @@ export default async function Home() {
 			<WhyUs aboutImage={aboutImages} />
 			<AboutBrief videoUrl={aboutBrief?.videoUrl} />
 			<WeddingHero bannerData={aboutBannerData} />
-			<VideoBanner />
+			<VideoBanner videoBanner={videoBanner} />
 			{/* works */}
 			<FeaturedWorks />
 			<FeaturedHero />

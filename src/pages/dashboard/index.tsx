@@ -16,7 +16,7 @@ import {
 	fetchAboutImages,
 } from "@/store/features/about-slice";
 import { fetchBanner, setSelectedBanner } from "@/store/features/banner-slice";
-import { fetchHomeAboutBanner } from "@/store/features/home-slice";
+import { fetchHomeAboutBanner, fetchHomeVideoBanner } from "@/store/features/home-slice";
 import {
 	fetchInstagramFollowData,
 	setSelectedInstagramFollowData,
@@ -32,6 +32,7 @@ export default function DashboardPage() {
 		dispatch(fetchAboutBrief({ controller }));
 		dispatch(fetchInstagramFollowData({ controller }));
 		dispatch(fetchHomeAboutBanner(controller));
+		dispatch(fetchHomeVideoBanner(controller));
 		return () => {
 			controller.abort();
 			dispatch(setSelectedBanner(null));
@@ -47,6 +48,7 @@ export default function DashboardPage() {
 				<TabsTrigger value="aboutBrief">About Brief</TabsTrigger>
 				<TabsTrigger value="instagram">Follow on Instagram</TabsTrigger>
 				<TabsTrigger value="banner-1">Home Banner 1</TabsTrigger>
+				<TabsTrigger value="video-banner">Video Banner</TabsTrigger>
 			</TabsList>
 			<TabsContent value="banner">
 				<AdminSectionLayout
@@ -68,6 +70,9 @@ export default function DashboardPage() {
 			</TabsContent>
 			<TabsContent value="banner-1">
 				<HomeAboutBannerForm />
+			</TabsContent>
+			<TabsContent value="video-banner">
+				<AboutBrief type="video-banner" />
 			</TabsContent>
 		</Tabs>
 	);

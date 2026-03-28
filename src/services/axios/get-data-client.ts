@@ -58,3 +58,6 @@ export const getBlogs = ({
 
 export const getHomeAboutBanner = (controller?: AbortController) =>
 	fetchData<HomeAboutBanner | null>({ url: "/home-about-banner", controller });
+
+export const getHomeVideoBanner = (controller?: AbortController) =>
+	fetchData<HomeVideoBanner | null>({ url: "/home-video-banner", controller });

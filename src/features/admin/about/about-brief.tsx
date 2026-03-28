@@ -15,6 +15,10 @@ import {
 	fetchAboutBrief,
 	getAboutBriefData,
 } from "@/store/features/about-slice";
+import {
+	fetchHomeVideoBanner,
+	getHomeVideoBannerData,
+} from "@/store/features/home-slice";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -24,7 +28,7 @@ const initialState = {
 	videoUrl: "",
 };
 
-const AboutBrief = () => {
+const AboutBrief = ({ type }: { type?: string }) => {
 	const form = useForm<AboutBriefFormData>({
 		resolver: zodResolver(aboutBriefSchema),
 		defaultValues: initialState,
@@ -33,6 +37,7 @@ const AboutBrief = () => {
 
 	const dispatch = useAppDispatch();
 	const aboutBriefData = useAppSelector(getAboutBriefData);
+	const homeBannerData = useAppSelector(getHomeVideoBannerData);
 
 	const onSubmit = async (data: AboutBriefFormData) => {
 		const reqBody = {
@@ -41,19 +46,30 @@ const AboutBrief = () => {
 		};
 		const method = data.id ? axiosClient.put : axiosClient.post;
 
-		const response = await method("/about/brief", reqBody);
+		let url = `/about/brief`;
+		if (type === "video-banner") {
+			url = data.id ? `/home-video-banner/${data.id}` : `/home-video-banner`;
+		}
+
+		const response = await method(url, reqBody);
 		if (response) {
+			if (type === "video-banner") {
+				dispatch(fetchHomeVideoBanner());
+				return;
+			}
 			dispatch(fetchAboutBrief({}));
 		}
 	};
 
 	useEffect(() => {
-		if (aboutBriefData) {
+		if (type === "video-banner" && homeBannerData) {
+			form.reset(homeBannerData);
+			return;
+		}
+		if (type !== "video-banner" && aboutBriefData) {
 			form.reset(aboutBriefData);
 		}
 	}, [aboutBriefData]);
-
-    console.log(aboutBriefData)
 
 	return (
 		<div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -78,7 +94,13 @@ const AboutBrief = () => {
 					</Button>
 				</form>
 			</Form>
-			<iframe src={aboutBriefData?.videoUrl} />
+			<iframe
+				src={
+					type === "video-banner"
+						? homeBannerData?.bannerUrl
+						: aboutBriefData?.videoUrl
+				}
+			/>
 		</div>
 	);
 };
