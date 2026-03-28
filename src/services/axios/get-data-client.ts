@@ -55,3 +55,6 @@ export const getBlogs = ({
 		url: `/blog?page=${pageNo}&pageSize=${pageSize}`,
 		controller,
 	});
+
+export const getHomeAboutBanner = (controller?: AbortController) =>
+	fetchData<HomeAboutBanner | null>({ url: "/home-about-banner", controller });

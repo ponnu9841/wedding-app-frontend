@@ -28,3 +28,6 @@ export const getFilmById = (id: string) =>
 
 export const getBlogById = (id: string) =>
 	fetchData<Blog | null>(`/blog/${id}`);
+
+export const getAboutBanner = () =>
+	fetchData<HomeAboutBanner | null>("/home-about-banner");

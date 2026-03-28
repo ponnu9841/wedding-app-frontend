@@ -7,6 +7,7 @@ import AboutBrief from "@/features/admin/about/about-brief";
 import AboutForm from "@/features/admin/about/about-form";
 import BannerData from "@/features/admin/banner/banner-data";
 import BannerForm from "@/features/admin/banner/banner-form";
+import HomeAboutBannerForm from "@/features/admin/home-about-banner/home-about-banner-form";
 import InstagramFollowData from "@/features/admin/instagram-follow/instagram-follow-data";
 import InstagramFollowForm from "@/features/admin/instagram-follow/instagram-follow-form";
 import { useAppDispatch } from "@/hooks/use-store";
@@ -15,6 +16,7 @@ import {
 	fetchAboutImages,
 } from "@/store/features/about-slice";
 import { fetchBanner, setSelectedBanner } from "@/store/features/banner-slice";
+import { fetchHomeAboutBanner } from "@/store/features/home-slice";
 import {
 	fetchInstagramFollowData,
 	setSelectedInstagramFollowData,
@@ -29,6 +31,7 @@ export default function DashboardPage() {
 		dispatch(fetchAboutImages({ controller }));
 		dispatch(fetchAboutBrief({ controller }));
 		dispatch(fetchInstagramFollowData({ controller }));
+		dispatch(fetchHomeAboutBanner(controller));
 		return () => {
 			controller.abort();
 			dispatch(setSelectedBanner(null));
@@ -43,6 +46,7 @@ export default function DashboardPage() {
 				<TabsTrigger value="about">About</TabsTrigger>
 				<TabsTrigger value="aboutBrief">About Brief</TabsTrigger>
 				<TabsTrigger value="instagram">Follow on Instagram</TabsTrigger>
+				<TabsTrigger value="banner-1">Home Banner 1</TabsTrigger>
 			</TabsList>
 			<TabsContent value="banner">
 				<AdminSectionLayout
@@ -61,6 +65,9 @@ export default function DashboardPage() {
 					leftSection={<InstagramFollowForm />}
 					rightSection={<InstagramFollowData />}
 				/>
+			</TabsContent>
+			<TabsContent value="banner-1">
+				<HomeAboutBannerForm />
 			</TabsContent>
 		</Tabs>
 	);

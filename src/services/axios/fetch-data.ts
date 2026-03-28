@@ -16,8 +16,9 @@ async function fetchDataClient<T>({
 	controller,
 }: FetchDataArgs): Promise<T | null> {
 	try {
+		const signal = controller instanceof AbortController ? controller?.signal : controller;
 		const response = await axiosClient.get(url, {
-			signal: controller?.signal,
+			signal: signal,
 		});
 		return response.data.data;
 	} catch (error) {

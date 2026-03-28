@@ -3,7 +3,7 @@ import React from "react";
 
 const VideoBanner = () => {
 	return (
-		<div className="relative h-screen -mt-20">
+		<div className="relative h-[81vh] -mt-20">
 			<div className="absolute top-0 left-0 w-full z-2">
 				<WaveTop className="text-background-alt" />
 			</div>

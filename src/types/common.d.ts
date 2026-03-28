@@ -13,5 +13,5 @@ type ExtendedFile = File & {
 
 type FetchDataArgs = {
 	url: string;
-	controller?: AbortController;
+	controller?: AbortController | AbortSignal;
 };

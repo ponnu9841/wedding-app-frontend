@@ -150,6 +150,31 @@ export const blogSchema = z
 		path: requireImageIfNoId.path,
 	});
 
+export const homeAboutBannerSchema = z
+	.object({
+		id: z.string().optional(),
+
+		image: fileSchema().optional(),
+		imageAlt: z.string().optional(),
+		title: z.string().optional(),
+		subtitle: z.string().optional(),
+	})
+	.refine(
+		(data) => {
+			// ✅ If updating → allow missing images
+			if (data.id?.trim()) return true;
+
+			// ❌ If creating → all three images required
+			return (data.image?.length ?? 0) > 0;
+		},
+		{
+			message: "image are required",
+			path: ["image"],
+		},
+	);
+
+export type HomeAboutBannerFormData = z.infer<typeof homeAboutBannerSchema>;
+
 export type BlogFormData = z.infer<typeof blogSchema>;
 
 export type FilmsFormData = z.infer<typeof filmsSchema>;

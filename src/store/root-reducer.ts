@@ -8,6 +8,7 @@ import aboutReducer from "./features/about-slice";
 import storyReducer from "./features/story-slice";
 import filmsReducer from "./features/films-slice";
 import blogReducer from "./features/blog-slice";
+import homeReducer from "./features/home-slice";
 
 export const LOGOUT = "LOGOUT";
 
@@ -18,7 +19,8 @@ const appReducer = combineReducers({
 	about: aboutReducer,
 	story: storyReducer,
 	films: filmsReducer,
-	blog: blogReducer
+	blog: blogReducer,
+	home: homeReducer,
 });
 
 const rootReducer = (

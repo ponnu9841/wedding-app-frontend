@@ -2,23 +2,27 @@ import Typography from "@/components/shared/typography";
 import { Button } from "@/components/ui/button";
 import NextImage from "@/components/ui/image";
 
-const WeddingHero = () => {
+const WeddingHero = ({
+	bannerData,
+}: {
+	bannerData: HomeAboutBanner | null;
+}) => {
 	return (
 		<div className="pb-20 space-y-15 bg-background-alt">
 			<div className="h-71.5 md:h-122.25 lg:h-124 relative flex justify-center items-center">
 				<div className="absolute inset-0 w-full-h-full">
 					<NextImage
-						src="https://images-pw.pixieset.com/elementfield/VzkkaP/DSC07652-7c858652-2500.JPG"
+						src={bannerData?.image}
 						imageClassName="object-cover object-[60%_36%]"
 					/>
 					<div className="absolute inset-0 w-full h-full bg-black/20" />
 				</div>
 				<div className="space-y-6 text-center text-white z-2">
 					<h2 className="text-base font-medium tracking-widest text-white">
-						WEDDING STORY
+						{bannerData?.subtitle}
 					</h2>
 					<p className="text-2xl font-semibold tracking-wide text-white md:text-3xl font-playfair-display">
-						SUMAN & ELISABETTA
+						{bannerData?.title}
 					</p>
 				</div>
 			</div>
