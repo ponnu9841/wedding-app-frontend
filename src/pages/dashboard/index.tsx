@@ -8,6 +8,7 @@ import AboutForm from "@/features/admin/about/about-form";
 import BannerData from "@/features/admin/banner/banner-data";
 import BannerForm from "@/features/admin/banner/banner-form";
 import HomeAboutBannerForm from "@/features/admin/home-about-banner/home-about-banner-form";
+import StoryBannerForm from "@/features/admin/story-banner/story-banner-form";
 import InstagramFollowData from "@/features/admin/instagram-follow/instagram-follow-data";
 import InstagramFollowForm from "@/features/admin/instagram-follow/instagram-follow-form";
 import WorksForm from "@/features/admin/works/works-form";
@@ -21,6 +22,7 @@ import { fetchBanner, setSelectedBanner } from "@/store/features/banner-slice";
 import {
 	fetchHomeAboutBanner,
 	fetchHomeVideoBanner,
+	fetchStoryBanner,
 	fetchWorks,
 	setSelectedWork,
 } from "@/store/features/home-slice";
@@ -40,6 +42,7 @@ export default function DashboardPage() {
 		dispatch(fetchInstagramFollowData({ controller }));
 		dispatch(fetchHomeAboutBanner({ controller }));
 		dispatch(fetchHomeVideoBanner({ controller }));
+		dispatch(fetchStoryBanner({ controller }));
 		dispatch(fetchWorks({ controller }));
 		return () => {
 			controller.abort();
@@ -58,6 +61,7 @@ export default function DashboardPage() {
 				<TabsTrigger value="instagram">Follow on Instagram</TabsTrigger>
 				<TabsTrigger value="banner-1">Home Banner 1</TabsTrigger>
 				<TabsTrigger value="video-banner">Video Banner</TabsTrigger>
+				<TabsTrigger value="story-banner">Story Banner</TabsTrigger>
 				<TabsTrigger value="works">Works</TabsTrigger>
 			</TabsList>
 			<TabsContent value="banner">
@@ -83,6 +87,9 @@ export default function DashboardPage() {
 			</TabsContent>
 			<TabsContent value="video-banner">
 				<AboutBrief type="video-banner" />
+			</TabsContent>
+			<TabsContent value="story-banner">
+				<StoryBannerForm />
 			</TabsContent>
 			<TabsContent value="works">
 				<AdminSectionLayout

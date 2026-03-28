@@ -186,6 +186,22 @@ export const worksSchema = z
 		path: requireImageIfNoId.path,
 	});
 
+export const storyBannerSchema = z
+	.object({
+		id: z.string().optional(),
+		image: fileSchema().optional(),
+		headingText: z.string().min(1, "Heading text is required"),
+		headingAuthor: z.string().min(1, "Heading Author is required"),
+		title: z.string().min(1, "Title is required"),
+		eventDate: z.string().min(1, "Event Date is required"),
+	})
+	.refine(requireImageIfNoId.condition, {
+		message: requireImageIfNoId.message,
+		path: requireImageIfNoId.path,
+	});
+
+export type StoryBannerFormData = z.infer<typeof storyBannerSchema>;
+
 export type WorksFormData = z.infer<typeof worksSchema>;
 
 export type HomeAboutBannerFormData = z.infer<typeof homeAboutBannerSchema>;

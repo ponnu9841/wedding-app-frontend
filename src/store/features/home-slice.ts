@@ -3,6 +3,7 @@ import { RootState } from "..";
 import {
 	getHomeAboutBanner,
 	getHomeVideoBanner,
+	getStoryBanner,
 	getWorks,
 } from "@/services/axios/get-data-client";
 import { handleThunkError } from "../thunkErrorHandler";
@@ -11,31 +12,37 @@ import { AxiosError } from "axios";
 const initialState: {
 	homeAboutBanner: HomeAboutBanner | null;
 	homeVideoBanner: HomeVideoBanner | null;
+	storyBanner: StoryBanner | null;
 	works: Work[];
 	selectedWork: Work | null;
 	loading: {
 		homeAboutBanner: boolean;
 		homeVideoBanner: boolean;
+		storyBanner: boolean;
 		works: boolean;
 	};
 	error: {
 		homeAboutBanner: string;
 		homeVideoBanner: string;
+		storyBanner: string;
 		works: string;
 	};
 } = {
 	loading: {
 		homeAboutBanner: false,
 		homeVideoBanner: false,
+		storyBanner: false,
 		works: false,
 	},
 	error: {
 		homeAboutBanner: "",
 		homeVideoBanner: "",
+		storyBanner: "",
 		works: "",
 	},
 	homeAboutBanner: null,
 	homeVideoBanner: null,
+	storyBanner: null,
 	works: [],
 	selectedWork: null,
 };
@@ -57,6 +64,18 @@ export const fetchHomeVideoBanner = createAsyncThunk(
 	async ({ controller }: { controller?: AbortController }, thunkAPI) => {
 		try {
 			const response = await getHomeVideoBanner(controller);
+			return response;
+		} catch (error) {
+			handleThunkError(thunkAPI, error as AxiosError);
+		}
+	},
+);
+
+export const fetchStoryBanner = createAsyncThunk(
+	"fetchStoryBanner",
+	async ({ controller }: { controller?: AbortController }, thunkAPI) => {
+		try {
+			const response = await getStoryBanner(controller);
 			return response;
 		} catch (error) {
 			handleThunkError(thunkAPI, error as AxiosError);
@@ -112,6 +131,19 @@ const homeSlice = createSlice({
 					action.error.message || "Error fetching data";
 			})
 
+			.addCase(fetchStoryBanner.pending, (state) => {
+				state.loading.storyBanner = true;
+			})
+			.addCase(fetchStoryBanner.fulfilled, (state, action) => {
+				state.loading.storyBanner = false;
+				state.storyBanner = action.payload ?? null;
+			})
+			.addCase(fetchStoryBanner.rejected, (state, action) => {
+				state.loading.storyBanner = false;
+				state.error.storyBanner =
+					action.error.message || "Error fetching data";
+			})
+
 			.addCase(fetchWorks.pending, (state) => {
 				state.loading.works = true;
 			})
@@ -130,6 +162,8 @@ export const getHomeAboutBannerData = (state: RootState) =>
 	state.home.homeAboutBanner;
 export const getHomeVideoBannerData = (state: RootState) =>
 	state.home.homeVideoBanner;
+export const getStoryBannerData = (state: RootState) =>
+	state.home.storyBanner;
 export const getWorksData = (state: RootState) => state.home.works;
 export const getSelectedWork = (state: RootState) => state.home.selectedWork;
 

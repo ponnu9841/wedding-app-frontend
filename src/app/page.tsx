@@ -5,7 +5,7 @@ import WeddingHero from "@/features/user/home/wedding-hero";
 import WhyUs from "@/features/user/home/why-us";
 import FeaturedWorks from "@/features/user/home/featured-works";
 // import { bannerData } from "@/lib/const";
-import FeaturedHero from "@/features/user/home/featured-hero";
+import StoryBannerSection from "@/features/user/home/story-banner";
 import InstagramFollow from "@/features/user/home/instagram-follow";
 import CarouselSlider from "@/features/user/home/banner-slider";
 import VideoBanner from "@/features/user/home/video-banner";
@@ -16,6 +16,7 @@ import {
 	getBannersResponse,
 	getHomeVideoBanner,
 	getInstagramFollowResponse,
+	getStoryBanner,
 	getWorks,
 } from "@/services/axios/get-data-server";
 
@@ -28,6 +29,7 @@ export default async function Home() {
 		aboutBannerData,
 		videoBanner,
 		works,
+		storyBanner,
 	] = await Promise.all([
 		getBannersResponse(),
 		getInstagramFollowResponse(),
@@ -36,6 +38,7 @@ export default async function Home() {
 		getAboutBanner(),
 		getHomeVideoBanner(),
 		getWorks(),
+		getStoryBanner(),
 	]);
 
 	return (
@@ -54,7 +57,7 @@ export default async function Home() {
 			<VideoBanner videoBanner={videoBanner} />
 			{/* works */}
 			<FeaturedWorks works={works} />
-			<FeaturedHero />
+			<StoryBannerSection storyBanner={storyBanner} />
 			{/* instagram */}
 			<InstagramFollow instagramFollowData={instagramFollow || []} />
 		</div>

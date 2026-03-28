@@ -36,3 +36,6 @@ export const getHomeVideoBanner = () =>
 	fetchData<HomeVideoBanner | null>("/home-video-banner");
 
 export const getWorks = () => fetchData<Work[]>("/works");
+
+export const getStoryBanner = () =>
+	fetchData<StoryBanner | null>("/story-banner");

@@ -18,3 +18,12 @@ type Work = {
 	title: string | null;
 	subtitle: string | null;
 }
+
+type StoryBanner = {
+	id: string;
+	headingText: string;
+	headingAuthor: string;
+	title: string;
+	eventDate: string;
+	backgroundImage: string;
+}

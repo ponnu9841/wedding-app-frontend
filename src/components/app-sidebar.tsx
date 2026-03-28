@@ -232,7 +232,7 @@ function Logo() {
 			<SidebarMenuItem>
 				<Link href="/dashboard" className="flex justify-center">
 					<NextImage
-						src="/assets/images/logo.png"
+						src="/assets/images/logo-dark.png"
 						className="aspect-[3/1] w-50"
 					/>
 				</Link>
