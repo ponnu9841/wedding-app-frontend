@@ -8,6 +8,7 @@ import {
 	FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { useAppDispatch, useAppSelector } from "@/hooks/use-store";
 import { AboutBriefFormData, aboutBriefSchema } from "@/schema";
 import axiosClient from "@/services/axios";
@@ -43,13 +44,12 @@ const AboutBrief = ({ type }: { type?: string }) => {
 		const reqBody = {
 			id: data.id || "",
 			videoUrl: data.videoUrl || "",
+			title: data.title || "",
+			description: data.description || "",
 		};
 		const method = data.id ? axiosClient.put : axiosClient.post;
 
-		let url = `/about/brief`;
-		if (type === "video-banner") {
-			url = data.id ? `/home-video-banner/${data.id}` : `/home-video-banner`;
-		}
+		const url = `/about/brief`;
 
 		const response = await method(url, reqBody);
 		if (response) {
@@ -76,6 +76,32 @@ const AboutBrief = ({ type }: { type?: string }) => {
 			<Form {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4   ">
 					<input type="hidden" {...form.register("id")} />
+					<FormField
+						control={form.control}
+						name="title"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Title</FormLabel>
+								<FormControl>
+									<Input {...field} placeholder="Enter Title" />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name="description"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Description</FormLabel>
+								<FormControl>
+									<Textarea {...field} placeholder="Enter Description" />
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
 					<FormField
 						control={form.control}
 						name="videoUrl"

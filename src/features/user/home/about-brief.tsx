@@ -1,7 +1,7 @@
 import Typography from "@/components/shared/typography";
 import React from "react";
 
-const AboutBrief = ({ videoUrl }: { videoUrl?: string | null }) => {
+const AboutBrief = ({ aboutBrief }: { aboutBrief?: AboutBrief | null }) => {
 	return (
 		<div className="container space-y-20">
 			<div>
@@ -21,10 +21,11 @@ const AboutBrief = ({ videoUrl }: { videoUrl?: string | null }) => {
 			<div className="grid grid-cols-1 gap-10 lg:grid-cols-8">
 				<div className="md:col-span-3">
 					<Typography variant="h2" className="mb-5 text-foreground/80">
-						MOST ROMANTIC EMOTIONAL WEDDING STORY
+						{aboutBrief?.title}
 					</Typography>
-					<Typography variant="p">
-						Goodbyes are never easy. As Sruthy steps into a new chapter with
+					<Typography variant="p" className="text-wrap whitespace-pre-line">
+						{aboutBrief?.description}
+						{/* Goodbyes are never easy. As Sruthy steps into a new chapter with
 						Rahul, her family holds back tears, cherishing the countless
 						memories they’ve shared. For them, she is more than just a daughter,
 						a sister, or a loved one—she is a part of their hearts.
@@ -32,13 +33,13 @@ const AboutBrief = ({ videoUrl }: { videoUrl?: string | null }) => {
 						This wedding film beautifully captures the raw emotions of love,
 						longing, and bittersweet goodbyes, reminding us how deeply weddings
 						touch our souls. As they try to hold back their tears, their love
-						speaks louder than words.
+						speaks louder than words. */}
 					</Typography>
 				</div>
 				<div className="md:col-span-5">
 					<iframe
 						title="vimeo-player"
-						src={videoUrl || ""}
+						src={aboutBrief?.videoUrl || ""}
 						allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
 						className="object-cover w-full h-full bg-black"
 					></iframe>

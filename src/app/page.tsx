@@ -55,7 +55,7 @@ export default async function Home() {
 				<div className="absolute inset-0 w-full h-full bg-black/17" />
 			</CarouselSlider>
 			<WhyUs aboutImage={aboutImages} />
-			<AboutBrief videoUrl={aboutBrief?.videoUrl} />
+			<AboutBrief aboutBrief={aboutBrief} />
 			<WeddingHero bannerData={aboutBannerData} />
 			<VideoBanner videoBanner={videoBanner} />
 			{/* works */}

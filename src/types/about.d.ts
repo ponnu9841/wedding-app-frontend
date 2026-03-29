@@ -11,4 +11,6 @@ type AboutImagesData = {
 type AboutBrief = {
 	id: string;
 	videoUrl: string;
+	title: string;
+	description: string;
 };

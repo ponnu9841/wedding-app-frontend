@@ -100,6 +100,8 @@ export const aboutSchema = z
 export const aboutBriefSchema = z.object({
 	id: z.string().optional(),
 	videoUrl: z.url(),
+	title: z.string().min(1, "Title is required"),
+	description: z.string().min(1, "Description is required"),
 });
 
 export const storySchema = z.object({
@@ -206,6 +208,13 @@ export const seoSchema = z.object({
 	description: z.string().min(3, "Title must be at least 3 characters"),
 	page: z.string(),
 })
+
+export const videoBannerSchema = z.object({
+	id: z.string().optional(),
+	videoUrl: z.url(),
+});
+
+export type VideoBannerFormData = z.infer<typeof videoBannerSchema>;
 
 export type SeoFormData = z.infer<typeof seoSchema>;
 

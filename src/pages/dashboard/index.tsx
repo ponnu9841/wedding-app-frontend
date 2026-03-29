@@ -33,6 +33,7 @@ import {
 import { useEffect } from "react";
 import Seo from "@/features/admin/seo/seo";
 import { fetchSeo } from "@/store/features/seo-slice";
+import VideoBanner from "@/features/admin/video-banner/video-banner";
 
 export default function DashboardPage() {
 	const dispatch = useAppDispatch();
@@ -90,7 +91,7 @@ export default function DashboardPage() {
 				<HomeAboutBannerForm />
 			</TabsContent>
 			<TabsContent value="video-banner">
-				<AboutBrief type="video-banner" />
+				<VideoBanner />
 			</TabsContent>
 			<TabsContent value="story-banner">
 				<StoryBannerForm />
