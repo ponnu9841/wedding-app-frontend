@@ -15,11 +15,21 @@ const VideoBanner = ({
 				<WaveBottom className="text-background" />
 			</div>
 			{/* <div className="absolute inset-0 w-full h-full z-1"> */}
-			<iframe
-				src={videoBanner?.bannerUrl}
-				className="absolute inset-0 w-full h-full z-1"
-			/>
-			{/* </div> */}
+
+			<video
+				className="absolute inset-0 min-w-full h-full z-1 bg-black"
+				// controls
+				autoPlay
+				loop
+				muted
+				playsInline
+			>
+				<source
+					src={videoBanner?.bannerUrl}
+					type="video/mp4"
+					className="w-full"
+				/>
+			</video>
 		</div>
 	);
 };
