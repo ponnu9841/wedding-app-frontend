@@ -1,13 +1,36 @@
 "use client";
 
-import { useState } from "react";
-import { Share2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight, Share2 } from "lucide-react";
 // import { storiesDetails } from "@/lib/const";
 import { Card } from "@/components/ui/card";
 import CustomDialog from "@/components/ui/custom-dialog";
 
 const PhotoGallery = ({ story }: { story: Story }) => {
-	const [selectedImage, setSelectedImage] = useState<StoryImage | null>(null);
+	const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+	const selectedImage = selectedIndex !== null ? story.images[selectedIndex] : null;
+
+	const goToPrev = () => {
+		if (selectedIndex === null) return;
+		setSelectedIndex((selectedIndex - 1 + story.images.length) % story.images.length);
+	};
+
+	const goToNext = () => {
+		if (selectedIndex === null) return;
+		setSelectedIndex((selectedIndex + 1) % story.images.length);
+	};
+
+	useEffect(() => {
+		if (selectedIndex === null) return;
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "ArrowLeft")
+				setSelectedIndex((i) => (i === null ? null : (i - 1 + story.images.length) % story.images.length));
+			if (e.key === "ArrowRight")
+				setSelectedIndex((i) => (i === null ? null : (i + 1) % story.images.length));
+		};
+		window.addEventListener("keydown", handleKeyDown);
+		return () => window.removeEventListener("keydown", handleKeyDown);
+	}, [selectedIndex, story.images.length]);
 
 	return (
 		<div className="w-full min-h-screen p-4">
@@ -21,7 +44,7 @@ const PhotoGallery = ({ story }: { story: Story }) => {
 						<Card
 							key={index}
 							className="relative overflow-hidden cursor-pointer group hover:shadow-2xl p-0 mt-3 first:mt-0 rounded-none group"
-							onClick={() => setSelectedImage(item)}
+							onClick={() => setSelectedIndex(index)}
 						>
 							{/* eslint-disable-next-line @next/next/no-img-element */}
 							<img
@@ -69,7 +92,7 @@ const PhotoGallery = ({ story }: { story: Story }) => {
 				{/* Lightbox Dialog */}
 				<CustomDialog
 					dialogOpen={!!selectedImage}
-					setDialogOpen={() => setSelectedImage(null)}
+					setDialogOpen={() => setSelectedIndex(null)}
 					hideDialogTitle
 					hideDialogDescription
 					contentClassName="p-0 max-h-[80vh] bg-transparent border-none shadow-none max-w-fit"
@@ -88,16 +111,18 @@ const PhotoGallery = ({ story }: { story: Story }) => {
 								</div>
 							)}
 
-							{/* Navigation and actions */}
-							{selectedImage && (
-								<div className="absolute bottom-0 left-0 right-0 p-6">
-									<div className="flex justify-center gap-4">
-										<button className="p-3 transition-colors rounded-full bg-white/20 hover:bg-white/30 cursor-pointer">
-											<Share2 className="w-6 h-6 text-white" />
-										</button>
-									</div>
-								</div>
-							)}
+							<button
+								onClick={goToPrev}
+								className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 hover:bg-black/60 transition-colors cursor-pointer"
+							>
+								<ChevronLeft className="w-6 h-6 text-white" />
+							</button>
+							<button
+								onClick={goToNext}
+								className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 hover:bg-black/60 transition-colors cursor-pointer"
+							>
+								<ChevronRight className="w-6 h-6 text-white" />
+							</button>
 						</div>
 					}
 				/>
