@@ -57,6 +57,7 @@ const VideoBanner = () => {
 	useEffect(() => {
 		if (homeBannerData) {
 			form.reset({
+				id: homeBannerData.id || "",
 				videoUrl: homeBannerData.bannerUrl || "",
 			});
 			return;
