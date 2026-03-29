@@ -9,20 +9,17 @@ const AboutServices = () => {
 			</Typography>
 			<div className="space-y-6">
 				<ServiceCard
-					title="Traditional Wedding"
+					title="Wedding Photography"
 					description={
 						<span className="flex flex-col">
 							<span>
-								{`Traditional weddings have a timeless charm, where rituals and
-    								heritage blend beautifully to create unforgettable moments. If
-    								you cherish your roots and want your wedding photography to
-    								reflect the culture, emotions, and traditions you hold dear,
-    								you're in the right place`}
+								{`Your wedding day is a collection of moments that deserve to be preserved with honesty and elegance. We focus on capturing genuine emotions, meaningful rituals, and the subtle in-between moments that often go unnoticed. Every frame is thoughtfully composed to reflect your story in a timeless and personal way.
+`}
 							</span>
-							<span>
+							{/* <span>
 								Best Traditional Wedding Photography in Kerala | Kochi |
 								Bangalore | India | UK | Dubai
-							</span>
+							</span> */}
 						</span>
 					}
 				/>
@@ -31,67 +28,54 @@ const AboutServices = () => {
 					description={
 						<span className="flex flex-col">
 							<span>
-								If our photographs move you, our wedding films will take you on
-								an emotional journey. We redefine traditional storytelling by
-								crafting cinematic wedding films that capture the warmth,
-								emotions, and magic of your big day. Relive every moment as if
-								it happened just yesterday!
+								Our wedding films bring your day back to life with movement, sound, and emotion. From heartfelt vows to joyful celebrations, we craft cinematic films that let you relive every moment as it naturally unfolded. Each film is designed to feel immersive, emotional, and true to your story.
 							</span>
-							<span>
+							{/* <span>
 								Best Wedding Videography | Destination Wedding Films | Emotional
 								Wedding Stories
-							</span>
+							</span> */}
 						</span>
 					}
 				/>
 				<ServiceCard
-					title="Concept Wedding"
+					title="Signature Portrait Sessions"
 					description={
 						<span className="flex flex-col">
 							<span>
-								We believe that great design starts with a powerful concept. Our
-								concept wedding photography adds personalized elements that
-								showcase the unique personality of the bride and groom, making
-								every frame visually and emotionally captivating.
+								Every couple has a unique story, and our portrait sessions are designed to reflect that individuality. With carefully planned concepts, locations, and styling, we create visually striking images that feel both personal and artistic, capturing your connection in a refined and expressive way.
 							</span>
-							<span>
+							{/* <span>
 								Creative Wedding Photography | Styled Wedding Shoots | Couple
 								Storytelling
-							</span>
+							</span> */}
 						</span>
 					}
 				/>
 				<ServiceCard
-					title="Premium Photobook"
+					title="Premium Wedding Albums"
 					description={
 						<span className="flex flex-col">
 							<span>
-								A photo book isn’t just an album—it’s a time capsule of your
-								love story. While digital photos may fade into memory, our
-								premium handcrafted photo books ensure that your most precious
-								moments are preserved for generations.
+								Your memories deserve more than a digital screen. Our premium albums are thoughtfully designed and handcrafted to preserve your wedding story in a tangible form. With premium materials and elegant layouts, each album becomes a lasting keepsake you can revisit for generations.
 							</span>
-							<span>
+							{/* <span>
 								Luxury Wedding Albums | Fine Art Photo Books | Heirloom Wedding
 								Memories
-							</span>
+							</span> */}
 						</span>
 					}
 				/>
 				<ServiceCard
-					title="Post Wedding Photography"
+					title="Pre Wedding and Post Wedding Shoots"
 					description={
 						<span className="flex flex-col">
 							<span>
-								Wedding days can be overwhelming, leaving little time for those
-								dreamy, magazine-worthy shots. Our post-wedding shoots give you
-								the chance to capture your love story without the rush, in
-								stunning locations with creative concepts tailored just for you.
+								These sessions give you the space to celebrate your story beyond the wedding day. Without the time constraints of the event, we create relaxed and visually rich shoots in carefully chosen locations. The result is a collection of images that feel natural, expressive, and beautifully composed.
 							</span>
-							<span>
+							{/* <span>
 								Post-Wedding & Destination Couple Shoots | Kerala | India |
 								International
-							</span>
+							</span> */}
 						</span>
 					}
 				/>

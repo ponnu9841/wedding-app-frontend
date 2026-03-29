@@ -22,21 +22,21 @@ const ContactPage = async () => {
 					</h1>
 				</div>
 				<div className="flex flex-wrap justify-around items-center gap-8 my-15">
-					<Link href="https://wa.me/1234567890" target="_blank">
+					<Link href="https://wa.me/+15195882563" target="_blank">
 						<Button className="w-50 h-15">
 							UNITED KINGDOM
 							<FaWhatsapp />
 						</Button>
 					</Link>
-					<Link href="https://wa.me/1234567890" target="_blank">
+					<Link href="https://wa.me/+917012628933" target="_blank">
 						<Button className="w-50 h-15">
 							INDIA
 							<FaWhatsapp />
 						</Button>
 					</Link>
-					<Link href="https://wa.me/1234567890" target="_blank">
+					<Link href="https://wa.me/+15195882563" target="_blank">
 						<Button className="w-50 h-15">
-							MIDDLE EAST
+							CANADA
 							<FaWhatsapp />
 						</Button>
 					</Link>

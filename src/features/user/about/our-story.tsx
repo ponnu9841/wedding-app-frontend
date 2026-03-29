@@ -8,17 +8,10 @@ const OurStory = () => {
 				Our Story
 			</Typography>
 			<Typography variant="p">
-				What started as a dream among a group of passionate individuals soon
-				turned into one of the most sought-after wedding photography and
-				cinematography teams in Kochi, Kerala, and beyond. When we combined our
-				skills and vision, Pepper Green Wedding was born—a brand dedicated to
-				storytelling through timeless photography and films
+				Celebrate Wedding Company was built on the belief that weddings are more than events, they are deeply personal stories filled with emotion, culture, and connection. Our journey has been one of growth, learning, and constant refinement, driven by a passion to capture moments that matter.
 				<br />
 				<br />
-				We don’t believe in just claiming to be the best; instead, we let our
-				work, creativity, and dedication speak for us. Every wedding we capture
-				is a new opportunity to hone our craft and create magic, ensuring that
-				your most precious moments are preserved with beauty and authenticity.
+				Over the years, we have evolved into a team that values authenticity, detail, and storytelling. We focus on creating work that feels genuine and enduring, so that every couple can look back and relive not just how their wedding looked, but how it truly felt.
 			</Typography>
 		</div>
 	);
