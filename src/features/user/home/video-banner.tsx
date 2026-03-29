@@ -18,7 +18,7 @@ const VideoBanner = ({
 
 			<video
 				key={videoBanner?.bannerUrl}
-				className="absolute inset-0 min-w-full h-full z-1 bg-black"
+				className="absolute inset-0 min-w-full h-full z-1 bg-black object-cover"
 				autoPlay
 				loop
 				muted
@@ -27,7 +27,6 @@ const VideoBanner = ({
 				<source
 					src={videoBanner?.bannerUrl}
 					type="video/mp4"
-					className="w-full"
 				/>
 			</video>
 		</div>
