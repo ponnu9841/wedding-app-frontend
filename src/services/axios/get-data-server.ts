@@ -39,3 +39,6 @@ export const getWorks = () => fetchData<Work[]>("/works");
 
 export const getStoryBanner = () =>
 	fetchData<StoryBanner | null>("/story-banner");
+
+export const getMetaTags = () =>
+	fetchData<Seo[]>("/seo");

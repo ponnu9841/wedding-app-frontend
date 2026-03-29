@@ -2,6 +2,10 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import parse from "html-react-parser";
 import { Action } from "@reduxjs/toolkit";
+import { getMetaTags } from "@/services/axios/get-data-server";
+import { Metadata } from "next";
+
+type PageKey = "home" | "about" | "story" | "films" | "blog" | "contact";
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -60,3 +64,30 @@ export const checkIfAltPresent = (pathName: string | null) => {
 		pathName?.includes("/blogs")
 	);
 };
+
+export function getPages() {
+	return ["home", "about", "story", "films", "blog", "contact"];
+}
+
+export function capitalizeFirstLetter(str: string): string {
+	if (!str) return str;
+	return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+export function getCurrentMetaTag(metaTags: Seo[] | null, page: string) {
+	if (!metaTags || metaTags.length === 0) return null;
+	return metaTags?.find((metaTag) => metaTag.page === page);
+}
+
+export async function generatePageMetadata(
+	pageKey: PageKey,
+): Promise<Metadata> {
+	const metaTags = await getMetaTags();
+	const currentMetaTag = getCurrentMetaTag(metaTags, pageKey);
+
+	return {
+		title: currentMetaTag?.title || "Default Title",
+		description:
+			currentMetaTag?.description || "Default description for the site.",
+	};
+}

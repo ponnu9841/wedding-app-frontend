@@ -31,6 +31,8 @@ import {
 	setSelectedInstagramFollowData,
 } from "@/store/features/instagram-follow-slice";
 import { useEffect } from "react";
+import Seo from "@/features/admin/seo/seo";
+import { fetchSeo } from "@/store/features/seo-slice";
 
 export default function DashboardPage() {
 	const dispatch = useAppDispatch();
@@ -44,6 +46,7 @@ export default function DashboardPage() {
 		dispatch(fetchHomeVideoBanner({ controller }));
 		dispatch(fetchStoryBanner({ controller }));
 		dispatch(fetchWorks({ controller }));
+		dispatch(fetchSeo({ controller }));
 		return () => {
 			controller.abort();
 			dispatch(setSelectedBanner(null));
@@ -63,6 +66,7 @@ export default function DashboardPage() {
 				<TabsTrigger value="video-banner">Video Banner</TabsTrigger>
 				<TabsTrigger value="story-banner">Story Banner</TabsTrigger>
 				<TabsTrigger value="works">Works</TabsTrigger>
+				<TabsTrigger value="seo">Seo</TabsTrigger>
 			</TabsList>
 			<TabsContent value="banner">
 				<AdminSectionLayout
@@ -96,6 +100,9 @@ export default function DashboardPage() {
 					leftSection={<WorksForm />}
 					rightSection={<WorksList />}
 				/>
+			</TabsContent>
+			<TabsContent value="seo">
+				<Seo />
 			</TabsContent>
 		</Tabs>
 	);

@@ -1,11 +1,15 @@
+export const dynamic = "force-dynamic";
 // import ContactCta from "@/features/user/contact/contact-cta"
 // import ContactForm from "@/features/user/contact/contact-form"
 import { Button } from "@/components/ui/button";
+import { generatePageMetadata } from "@/lib/utils";
 // import ContactHero from "@/features/user/contact/hero";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 
-const ContactPage = () => {
+export const generateMetadata = () => generatePageMetadata("contact");
+
+const ContactPage = async () => {
 	return (
 		<div className="min-h-[calc(100dvh-9.5rem)] flex justify-center items-center">
 			{/* <ContactHero /> */}

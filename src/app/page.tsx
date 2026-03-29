@@ -19,6 +19,9 @@ import {
 	getStoryBanner,
 	getWorks,
 } from "@/services/axios/get-data-server";
+import { generatePageMetadata } from "@/lib/utils";
+
+export const generateMetadata = () => generatePageMetadata("home");
 
 export default async function Home() {
 	const [

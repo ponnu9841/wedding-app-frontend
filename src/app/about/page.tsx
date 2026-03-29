@@ -9,8 +9,12 @@ import OurStory from "@/features/user/about/our-story";
 import AboutServices from "@/features/user/about/services";
 import Testimonials from "@/features/user/about/testimonials";
 import WhatMakesUsUnique from "@/features/user/about/what-makes-us-unique";
+import { generatePageMetadata } from "@/lib/utils";
 
-const AboutPage = () => {
+export const generateMetadata = () => generatePageMetadata("about");
+
+const AboutPage = async () => {
+	
 	return (
 		<div className="space-y-15 md:space-y-20">
 			<AboutHero />
@@ -30,7 +34,5 @@ const AboutPage = () => {
 		</div>
 	);
 };
-
-
 
 export default AboutPage;

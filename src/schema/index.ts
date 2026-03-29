@@ -200,6 +200,15 @@ export const storyBannerSchema = z
 		path: requireImageIfNoId.path,
 	});
 
+export const seoSchema = z.object({
+	id: z.string().optional(),
+	title: z.string().min(3, "Title must be at least 3 characters"),
+	description: z.string().min(3, "Title must be at least 3 characters"),
+	page: z.string(),
+})
+
+export type SeoFormData = z.infer<typeof seoSchema>;
+
 export type StoryBannerFormData = z.infer<typeof storyBannerSchema>;
 
 export type WorksFormData = z.infer<typeof worksSchema>;

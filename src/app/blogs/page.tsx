@@ -1,7 +1,13 @@
+export const dynamic = "force-dynamic";
+
 import Typography from "@/components/shared/typography";
 import BlogList from "@/features/user/blogs/blog-list";
+import { generatePageMetadata } from "@/lib/utils";
 
-const BlogsPage = () => {
+export const generateMetadata = () => generatePageMetadata("blog");
+
+const BlogsPage = async () => {
+
 	return (
 		<div className="space-y-20 mt-30">
 			<div>
