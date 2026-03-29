@@ -146,7 +146,7 @@ const UpdateBanner = ({
 					name="bannerImage"
 					render={({ field, fieldState: { error } }) => (
 						<FormItem>
-							<FormLabel>Update Banner Image</FormLabel>
+							<FormLabel>Update Thumbnail Image</FormLabel>
 							<FormControl>
 								<FileUpload
 									files={field.value || []}
@@ -374,41 +374,41 @@ const UpdateOrder = ({ row }: StoriesRow) => {
 };
 
 const columns = [
-	// {
-	// 	accessorKey: "name",
-	// 	header: "Banner Image",
-	// 	align: "center",
-	// 	cell: ({ row }: StoriesRow) => (
-	// 		<div className="flex gap-3.25 items-center justify-center relative min-w-25">
-	// 			<div className="relative w-fit">
-	// 				<NextImage
-	// 					src={row.original.bannerImage}
-	// 					alt=""
-	// 					className="rounded size-16"
-	// 					isUnOptimized
-	// 				/>
-	// 				<div className="absolute top-0 right-0">
-	// 					<CustomDialog
-	// 						hideDialogTitle
-	// 						hideDialogDescription
-	// 						isModal
-	// 						dialogButton={
-	// 							<Button size="icon" className="size-5">
-	// 								<Edit className="size-3" />
-	// 							</Button>
-	// 						}
-	// 						dialogContent={
-	// 							<UpdateBanner
-	// 								id={row.original.id}
-	// 								bannerImage={row.original.bannerImage}
-	// 							/>
-	// 						}
-	// 					/>
-	// 				</div>
-	// 			</div>
-	// 		</div>
-	// 	),
-	// },
+	{
+		accessorKey: "name",
+		header: "Thumbnail Image",
+		align: "center",
+		cell: ({ row }: StoriesRow) => (
+			<div className="flex gap-3.25 items-center justify-center relative min-w-25">
+				<div className="relative w-fit">
+					<NextImage
+						src={row.original.bannerImage}
+						alt=""
+						className="rounded size-16"
+						isUnOptimized
+					/>
+					<div className="absolute top-0 right-0">
+						<CustomDialog
+							hideDialogTitle
+							hideDialogDescription
+							isModal
+							dialogButton={
+								<Button size="icon" className="size-5">
+									<Edit className="size-3" />
+								</Button>
+							}
+							dialogContent={
+								<UpdateBanner
+									id={row.original.id}
+									bannerImage={row.original.bannerImage}
+								/>
+							}
+						/>
+					</div>
+				</div>
+			</div>
+		),
+	},
 	{
 		accessorKey: "title",
 		header: "Title",
@@ -422,7 +422,7 @@ const columns = [
 
 		align: "center",
 		cell: ({ row }: StoriesRow) => (
-			<div className="flex flex-wrap gap-3.25 items-center max-w-120 max-h-50 overflow-auto">
+			<div className="flex flex-wrap justify-center gap-3.25 items-center max-w-120 max-h-50 overflow-auto">
 				{row.original.images?.map((item) => (
 					<div key={item.id} className="relative">
 						<NextImage

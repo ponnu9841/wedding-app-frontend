@@ -6,7 +6,7 @@ const StoriesCard = (story: Story) => {
 		<Link href={`stories/${story.id}`}>
 			<div className="apsect-[370/246]">
 				<NextImage
-					src={story.images?.[0]?.imageUrl || "/placeholder.png"}
+					src={story.bannerImage || "/placeholder.png"}
 					className="aspect-[370/246]"
 					imageClassName="object-cover object-[20%_80%]"
 					isUnOptimized
