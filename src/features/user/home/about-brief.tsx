@@ -20,7 +20,7 @@ const AboutBrief = ({ aboutBrief }: { aboutBrief?: AboutBrief | null }) => {
 			</div>
 			<div className="grid grid-cols-1 gap-10 lg:grid-cols-8">
 				<div className="md:col-span-3">
-					<Typography variant="h2" className="mb-5 text-foreground/80">
+					<Typography variant="h2" className="mb-5 text-foreground/80 uppercase">
 						{aboutBrief?.title}
 					</Typography>
 					<Typography variant="p" className="text-wrap whitespace-pre-line">
