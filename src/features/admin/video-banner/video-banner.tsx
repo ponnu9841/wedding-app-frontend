@@ -35,6 +35,8 @@ const VideoBanner = () => {
 	const dispatch = useAppDispatch();
 	const homeBannerData = useAppSelector(getHomeVideoBannerData);
 
+	console.log(homeBannerData)
+
 	const onSubmit = async (data: VideoBannerFormData) => {
 		const reqBody = {
 			id: data.id || "",
@@ -54,7 +56,9 @@ const VideoBanner = () => {
 
 	useEffect(() => {
 		if (homeBannerData) {
-			form.reset(homeBannerData);
+			form.reset({
+				videoUrl: homeBannerData.bannerUrl || "",
+			});
 			return;
 		}
 	}, [homeBannerData]);
