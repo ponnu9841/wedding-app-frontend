@@ -48,6 +48,8 @@ const HomeAboutBannerForm = () => {
 				imageAlt: homeAboutBanner.alt || "",
 				title: homeAboutBanner.title || "",
 				subtitle: homeAboutBanner.subtitle || "",
+				description: homeAboutBanner.description || "",
+				url: homeAboutBanner.url || "",
 			});
 		}
 	}, [homeAboutBanner]);

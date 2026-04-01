@@ -44,6 +44,7 @@ const WorksForm = () => {
 				imageAlt: selectedWork.alt || "",
 				title: selectedWork.title || "",
 				subtitle: selectedWork.subtitle || "",
+				url: selectedWork.url || "",
 			});
 		}
 	}, [selectedWork, form]);
