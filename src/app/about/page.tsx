@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import { Button } from "@/components/ui/button";
-import Faq from "@/features/user/about/faq";
+// import Faq from "@/features/user/about/faq";
 import FeaturedList from "@/features/user/about/featured-list";
 import Founder from "@/features/user/about/founder";
 import AboutHero from "@/features/user/about/hero";
@@ -29,7 +29,7 @@ const AboutPage = async () => {
 					Contact Me
 				</Button>
 			</div>
-			<Faq />
+			{/* <Faq /> */}
 			{/* <Testimonials testimonialsData={testimonialsData} /> */}
 		</div>
 	);

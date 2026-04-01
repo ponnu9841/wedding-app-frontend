@@ -2,7 +2,19 @@
 const FilmsHero = ({ videoUrl }: { videoUrl?: string }) => {
 	return (
 		<div className="h-[60vh]">
-			<iframe src={videoUrl} className="min-w-full h-full" />
+			<video
+				key={videoUrl}
+				className="min-w-full h-full object-cover"
+				autoPlay
+				loop
+				muted
+				playsInline
+			>
+				<source
+					src={videoUrl}
+					type="video/mp4"
+				/>
+			</video>
 		</div>
 	);
 };
