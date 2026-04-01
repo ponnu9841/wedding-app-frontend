@@ -23,6 +23,7 @@ const defaultValues = {
 	imageAlt: "",
 	title: "",
 	subtitle: "",
+	url: "",
 };
 
 const WorksForm = () => {

@@ -26,6 +26,8 @@ const defaultValues = {
 	imageAlt: "",
 	title: "",
 	subtitle: "",
+	description: "",
+	url: "",
 };
 
 const HomeAboutBannerForm = () => {
