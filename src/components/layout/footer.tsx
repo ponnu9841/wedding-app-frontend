@@ -5,21 +5,21 @@ const socialChannels = [
 		name: "Instagram",
 		link: "https://www.instagram.com/celebrate_wedding_company",
 	},
-	{
-		name: "Twitter",
-		link: "https://twitter.com/",
-	},
+	// {
+	// 	name: "Twitter",
+	// 	link: "https://twitter.com/",
+	// },
 	{
 		name: "Facebook",
-		link: "https://www.facebook.com/",
+		link: "https://www.facebook.com/CelebrateWeddingCompany",
 	},
-	{
-		name: "LinkedIn",
-		link: "https://www.linkedin.com/",
-	},
+	// {
+	// 	name: "LinkedIn",
+	// 	link: "https://www.linkedin.com/",
+	// },
 	{
 		name: "YouTube",
-		link: "https://www.youtube.com/",
+		link: "www.youtube.com/@celebrateweddingcompany2983",
 	},
 ];
 
@@ -78,17 +78,13 @@ const Footer = () => {
 						</div>
 						<div className="flex flex-col gap-8">
 							<div className="text-base">
-								Hardwicke house
+								162 Wissler Rd
 								<br />
-								Dallas road
+								Waterloo
 								<br />
-								Lancaster
+								ON N2K 3R1
 								<br />
-								LA1 1TN
-								<br />
-								Lancashire
-								<br />
-								United Kingdom
+								Ontario, Canada
 							</div>
 							<div>
 								All rights reserved
