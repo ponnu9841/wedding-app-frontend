@@ -19,6 +19,7 @@ import {
 } from "@/store/features/home-slice";
 import axiosInstance from "@/services/axios/axios-server-instance";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
 const defaultValues = {
 	id: "",
@@ -150,7 +151,7 @@ const HomeAboutBannerForm = () => {
 						<FormItem>
 							<FormLabel>Description</FormLabel>
 							<FormControl>
-								<Input placeholder="Description" {...field} />
+								<Textarea placeholder="Description" {...field} />
 							</FormControl>
 							<FormMessage />
 						</FormItem>
