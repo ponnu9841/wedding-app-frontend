@@ -11,7 +11,7 @@ const FeaturedWorks = ({ works }: { works: Work[] | null }) => {
 			</Typography>
 			<div className="container grid grid-cols-1 gap-30 md:gap-20 md:grid-cols-3">
 				{works?.map((item, index) => (
-					<div key={index} className="space-y-4 md:space-y-6 min-h-fit">
+					<Link href={item.url || "#"} key={index} className="space-y-4 md:space-y-6 min-h-fit">
 						<NextImage
 							src={item.image}
 							className="aspect-square md:aspect-[273/382]"
@@ -21,7 +21,7 @@ const FeaturedWorks = ({ works }: { works: Work[] | null }) => {
 							{item.title}
 						</h3>
 						<p className="text-sm font-normal text-center">{item.subtitle}</p>
-					</div>
+					</Link>
 				))}
 			</div>
 			<div className="flex justify-center mt-40">

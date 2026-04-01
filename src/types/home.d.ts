@@ -19,6 +19,7 @@ type Work = {
 	alt: string | null;
 	title: string | null;
 	subtitle: string | null;
+	url: string | null;
 }
 
 type StoryBanner = {

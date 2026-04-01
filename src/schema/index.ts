@@ -184,6 +184,7 @@ export const worksSchema = z
 		imageAlt: z.string().optional(),
 		title: z.string().optional(),
 		subtitle: z.string().optional(),
+		url: z.url(),
 	})
 	.refine(requireImageIfNoId.condition, {
 		message: requireImageIfNoId.message,

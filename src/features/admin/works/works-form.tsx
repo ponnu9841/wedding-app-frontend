@@ -140,6 +140,19 @@ const WorksForm = () => {
 						</FormItem>
 					)}
 				/>
+				<FormField
+					control={form.control}
+					name="url"
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Url</FormLabel>
+							<FormControl>
+								<Input placeholder="/stories/b6eaacb4-5f1e-4581-bbec-9c41cf" {...field} />
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
 				<FormAction reset={resetForm} loading={loading} />
 			</form>
 		</Form>
