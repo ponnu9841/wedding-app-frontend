@@ -160,6 +160,8 @@ export const homeAboutBannerSchema = z
 		imageAlt: z.string().optional(),
 		title: z.string().optional(),
 		subtitle: z.string().optional(),
+		description: z.string().min(1, "Description is required"),
+		url: z.url(),
 	})
 	.refine(
 		(data) => {

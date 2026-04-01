@@ -29,13 +29,9 @@ const WeddingHero = ({
 			</div>
 			<div className="container space-y-10 text-center">
 				<Typography variant="p" className="mx-auto lg:max-w-9/10">
-					At Pepper Green Wedding, passion and creativity drive everything we
-					do. Our team is dedicated to capturing stunning, emotion-filled
-					moments that you’ll cherish forever. When you choose us, you’re not
-					just getting photographers—you’re getting a team that is professional,
-					timely, attentive, and truly passionate about their craft.
+					{bannerData?.description}
 				</Typography>
-				<Link href="/films">
+				<Link href={bannerData?.url || "#"} target="_blank">
 					<Button
 						className="h-12 w-46.75 uppercase tracking-widest text-foreground/40 hover:text-foreground/40 border-foreground/40"
 						variant="outline"

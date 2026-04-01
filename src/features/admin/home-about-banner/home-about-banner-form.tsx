@@ -34,7 +34,7 @@ const HomeAboutBannerForm = () => {
 		resolver: zodResolver(homeAboutBannerSchema),
 		defaultValues,
 	});
-    const loading = form.formState.isSubmitting;
+	const loading = form.formState.isSubmitting;
 
 	const homeAboutBanner = useAppSelector(getHomeAboutBannerData);
 	const existingImage = homeAboutBanner?.image ?? "";
@@ -58,12 +58,16 @@ const HomeAboutBannerForm = () => {
 		formData.append("imageAlt", data.imageAlt || "");
 		formData.append("title", data.title || "");
 		formData.append("subtitle", data.subtitle || "");
-        formData.append("existingImage", existingImage || "");
+		formData.append("existingImage", existingImage || "");
+		formData.append("description", data.description || "");
+		formData.append("url", data.url || "");
 
 		const method = data.id ? axiosInstance.put : axiosInstance.post;
-        const url = data.id ? `/home-about-banner/${data.id}` : `/home-about-banner`;
+		const url = data.id
+			? `/home-about-banner/${data.id}`
+			: `/home-about-banner`;
 		const response = await method(url, formData);
-		if (response) dispatch(fetchHomeAboutBanner());
+		if (response) dispatch(fetchHomeAboutBanner({}));
 	};
 
 	return (
@@ -135,7 +139,33 @@ const HomeAboutBannerForm = () => {
 						</FormItem>
 					)}
 				/>
-                <Button disabled={loading}>Submit</Button>
+				<FormField
+					control={form.control}
+					name="description"
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Description</FormLabel>
+							<FormControl>
+								<Input placeholder="Description" {...field} />
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+				<FormField
+					control={form.control}
+					name="url"
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Url</FormLabel>
+							<FormControl>
+								<Input placeholder="Subtitle" {...field} />
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+				<Button disabled={loading}>Submit</Button>
 			</form>
 		</Form>
 	);

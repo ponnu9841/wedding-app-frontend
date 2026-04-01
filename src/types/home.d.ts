@@ -4,6 +4,8 @@ type HomeAboutBanner = {
 	alt: string | null;
 	title: string | null;
 	subtitle: string | null;
+	description: string | null;
+	url: string | null;
 };
 
 type HomeVideoBanner = {
