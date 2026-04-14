@@ -19,7 +19,7 @@ const Header = () => {
 	const isAltPathName = checkIfAltPresent(pathName);
 	return (
 		<nav
-			className="max-w-350 px-5 mx-auto absolute top-0 flex items-center justify-between w-full -translate-x-1/2 bg-transparent left-1/2 h-38"
+			className="max-w-450 px-5 2xl:px-10 mx-auto absolute top-0 flex items-center justify-between w-full -translate-x-1/2 bg-transparent left-1/2 h-38"
 			style={{ zIndex: "10" }}
 		>
 			<Link href="/">
