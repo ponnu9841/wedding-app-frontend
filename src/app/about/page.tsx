@@ -24,7 +24,7 @@ const AboutPage = async () => {
 			<AboutServices />
 			<FeaturedList />
 			<Testimonials />
-			<div className="flex justify-center mb-20 -mt-20">
+			<div className="flex justify-center mb-20 -mt-5">
 				<Button variant="outline" className="text-black/80 min-w-40">
 					Contact Me
 				</Button>

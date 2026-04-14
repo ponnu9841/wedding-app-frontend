@@ -40,7 +40,7 @@ const Testimonials = () => {
 			}
 		>
 			{testimonialsData.map((item, index) => (
-				<CarouselItem className="pl-0 basis-full" key={index}>
+				<CarouselItem className="pl-0 basis-full  md:max-h-[90vh]" key={index}>
 					<div className="grid grid-cols-1 md:grid-cols-2 md:min-h-150 lg:min-h-200">
 						<div className="relative flex flex-col items-center h-full gap-10 pb-33 md:p-10 md:p-25 bg-background-alt">
 							<div className="font-medium text-center">TESTIMONIALS</div>
