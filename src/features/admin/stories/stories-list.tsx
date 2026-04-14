@@ -35,7 +35,7 @@ import {
 } from "@/store/features/story-slice";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Row } from "@tanstack/react-table";
-import { Check, Delete, Edit } from "lucide-react";
+import { Check, Delete, Edit, GripVertical, ArrowUpDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { MdDelete } from "react-icons/md";
@@ -325,6 +325,144 @@ const DeleteImageDialog = ({ image }: { image: StoryImage }) => {
 	);
 };
 
+const ReorderImagesDialog = ({ row }: StoriesRow) => {
+	const dispatch = useAppDispatch();
+	const [items, setItems] = useState<StoryImage[]>([]);
+	const [dragIndex, setDragIndex] = useState<number | null>(null);
+	const [overIndex, setOverIndex] = useState<number | null>(null);
+	const [loading, setLoading] = useState(false);
+
+	useEffect(() => {
+		setItems(row.original.images || []);
+	}, [row.original.images]);
+
+	const onDragStart = (index: number) => setDragIndex(index);
+	const onDragOver = (e: React.DragEvent, index: number) => {
+		e.preventDefault();
+		setOverIndex(index);
+	};
+	const onDrop = (index: number) => {
+		if (dragIndex === null || dragIndex === index) {
+			setDragIndex(null);
+			setOverIndex(null);
+			return;
+		}
+		setItems((prev) => {
+			const next = [...prev];
+			const [moved] = next.splice(dragIndex, 1);
+			next.splice(index, 0, moved);
+			return next;
+		});
+		setDragIndex(null);
+		setOverIndex(null);
+	};
+
+	const move = (index: number, dir: -1 | 1) => {
+		const target = index + dir;
+		if (target < 0 || target >= items.length) return;
+		setItems((prev) => {
+			const next = [...prev];
+			[next[index], next[target]] = [next[target], next[index]];
+			return next;
+		});
+	};
+
+	const onSave = async () => {
+		setLoading(true);
+		try {
+			const payload = {
+				storyId: row.original.id,
+				images: items.map((img, idx) => ({ id: img.id, order: idx + 1 })),
+			};
+			const response = await axiosClient.patch("/story/images/order", payload);
+			if (response) {
+				handleToast({ message: "Image order updated", variant: "success" });
+				dispatch(fetchStories({}));
+			}
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	return (
+		<CustomDialog
+			isModal
+			hideDialogTitle
+			hideDialogDescription
+			dialogButton={
+				<Button size="sm" variant="outline" className="text-foreground">
+					<ArrowUpDown className="size-3 mr-1" /> Reorder
+				</Button>
+			}
+			dialogContent={
+				<div className="space-y-4">
+					<div className="text-sm font-medium">
+						Drag images to reorder, or use the arrow buttons.
+					</div>
+					<div className="flex flex-wrap gap-3 max-h-[60vh] overflow-auto p-1">
+						{items.map((item, index) => (
+							<div
+								key={item.id}
+								draggable
+								onDragStart={() => onDragStart(index)}
+								onDragOver={(e) => onDragOver(e, index)}
+								onDrop={() => onDrop(index)}
+								onDragEnd={() => {
+									setDragIndex(null);
+									setOverIndex(null);
+								}}
+								className={`relative w-28 cursor-move border rounded p-1 bg-white ${
+									overIndex === index ? "border-blue-500" : "border-gray-200"
+								} ${dragIndex === index ? "opacity-50" : ""}`}
+							>
+								<div className="absolute top-1 left-1 bg-black/60 text-white text-[10px] rounded px-1">
+									{index + 1}
+								</div>
+								<div className="absolute top-1 right-1 text-gray-500">
+									<GripVertical className="size-3" />
+								</div>
+								<NextImage
+									src={item.imageUrl}
+									alt=""
+									className="object-cover rounded size-26 w-full"
+									isUnOptimized
+								/>
+								<div className="flex justify-between mt-1">
+									<Button
+										type="button"
+										size="icon"
+										variant="outline"
+										className="size-5"
+										onClick={() => move(index, -1)}
+										disabled={index === 0}
+									>
+										‹
+									</Button>
+									<Button
+										type="button"
+										size="icon"
+										variant="outline"
+										className="size-5"
+										onClick={() => move(index, 1)}
+										disabled={index === items.length - 1}
+									>
+										›
+									</Button>
+								</div>
+							</div>
+						))}
+					</div>
+					<div className="flex justify-end">
+						<Button size="sm" onClick={onSave} disabled={loading}>
+							Save Order
+						</Button>
+					</div>
+				</div>
+			}
+		/>
+	);
+};
+
 const UpdateOrder = ({ row }: StoriesRow) => {
 	const dispatch = useAppDispatch();
 	const totalStoryItems = useAppSelector(getStoriesData)?.totalItems || 0;
@@ -459,6 +597,7 @@ const columns = [
 					dialogButton={<Button size="sm">Add Image</Button>}
 					dialogContent={<AddImages id={row.original.id} />}
 				/>
+				<ReorderImagesDialog row={row} />
 			</div>
 		),
 	},

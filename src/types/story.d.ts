@@ -1,6 +1,7 @@
 type StoryImage = {
 	id: string;
 	imageUrl: string;
+	order: number | null;
 	storyId: string;
 	createdAt: string;
 };
