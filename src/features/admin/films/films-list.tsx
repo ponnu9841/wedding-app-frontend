@@ -1,5 +1,7 @@
 import { DeleteDrawer } from "@/components/shared/delete-drawer";
 import EditButton from "@/components/shared/edit-button";
+import SelectField from "@/components/shared/select-field";
+import { Button } from "@/components/ui/button";
 import { CustomPagination } from "@/components/ui/custom-pagination";
 import NextImage from "@/components/ui/image";
 import { useAppDispatch, useAppSelector } from "@/hooks/use-store";
@@ -11,6 +13,57 @@ import {
 	setFilmsPageNo,
 	setSelectedFilm,
 } from "@/store/features/films-slice";
+import { Check } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const UpdateFilmOrder = ({ film }: { film: Film }) => {
+	const dispatch = useAppDispatch();
+	const totalFilmItems = useAppSelector(getFilmsData)?.totalItems || 0;
+	const options = Array.from({ length: totalFilmItems }).map((_, index) => ({
+		label: `${index + 1}`,
+		value: `${index + 1}`,
+	}));
+
+	const [order, setOrder] = useState("");
+	const [loading, setLoading] = useState(false);
+
+	useEffect(() => {
+		if (film.order) setOrder(film.order.toString());
+	}, [film]);
+
+	const updateOrder = async () => {
+		setLoading(true);
+		try {
+			const response = await axiosClient.patch(`/film/order`, {
+				id: film.id,
+				order: +order,
+			});
+			if (response) dispatch(fetchFilms({}));
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	return (
+		<div className="flex gap-1 items-center mt-2">
+			<span className="font-bold">Order:&nbsp;</span>
+			<SelectField
+				data={options}
+				triggerClassName="rounded-none h-7 min-w-16"
+				onValueChange={(value) => setOrder(value)}
+				value={order}
+			/>
+			<Button
+				size="icon"
+				className="size-5"
+				onClick={updateOrder}
+				disabled={loading || !order}
+			>
+				<Check className="size-3" />
+			</Button>
+		</div>
+	);
+};
 
 const FilmsList = () => {
 	const dispatch = useAppDispatch();
@@ -60,6 +113,7 @@ const FilmsList = () => {
 							<span className="font-bold">Description:&nbsp;</span>
 							{item.shortDescription}
 						</div>
+						<UpdateFilmOrder film={item} />
 					</div>
 				))}
 			</div>
