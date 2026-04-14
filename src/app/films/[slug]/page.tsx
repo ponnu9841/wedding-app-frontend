@@ -1,7 +1,6 @@
 export const dynamic = "force-dynamic";
 
 import { Button } from "@/components/ui/button";
-import FilmsHero from "@/features/user/films/films-hero";
 import { getFilmById } from "@/services/axios/get-data-server";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
@@ -22,7 +21,9 @@ const FilmsDetails = async (props: PageProps) => {
 	return (
 		<div className="space-y-20 mb-30">
 			<div className="mt-33">
-				<FilmsHero videoUrl={film.data?.videoUrl} />
+				<div className="h-[60vh]">
+					<iframe src={film.data?.videoUrl} className="min-w-full h-full" />
+				</div>
 			</div>
 			<div className="max-w-243.5 mx-auto space-y-3">
 				<h1 className="text-3xl">{film.data?.title}</h1>
