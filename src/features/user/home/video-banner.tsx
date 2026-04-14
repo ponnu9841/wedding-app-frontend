@@ -9,10 +9,10 @@ const VideoBanner = ({
 	return (
 		<div className="relative h-[81vh] -mt-20">
 			<div className="absolute top-0 left-0 w-full z-2">
-				<WaveTop className="text-background-alt" />
+				<WaveTop className="text-card" />
 			</div>
 			<div className="absolute bottom-0 left-0 w-full z-2">
-				<WaveBottom className="text-background" />
+				<WaveBottom className="text-card" />
 			</div>
 			{/* <div className="absolute inset-0 w-full h-full z-1"> */}
 
