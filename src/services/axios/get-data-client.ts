@@ -67,3 +67,24 @@ export const getWorks = (controller?: AbortController) =>
 
 export const getStoryBanner = (controller?: AbortController) =>
 	fetchData<StoryBanner | null>({ url: "/story-banner", controller });
+
+export const getFoundersResponse = (controller?: AbortController) =>
+	fetchData<Founder[] | null>({ url: "/founder", controller });
+
+export const getAboutBannersResponse = (controller?: AbortController) =>
+	fetchData<AboutBanner[] | null>({ url: "/about-banner", controller });
+
+export const getOurStoriesResponse = (controller?: AbortController) =>
+	fetchData<OurStoryItem[] | null>({ url: "/our-story", controller });
+
+export const getWhatMakesUsUniqueResponse = (controller?: AbortController) =>
+	fetchData<WhatMakesUsUniqueItem[] | null>({
+		url: "/what-makes-us-unique",
+		controller,
+	});
+
+export const getAboutServicesResponse = (controller?: AbortController) =>
+	fetchData<AboutServiceItem[] | null>({ url: "/about-services", controller });
+
+export const getTestimonialsResponse = (controller?: AbortController) =>
+	fetchData<TestimonialItem[] | null>({ url: "/testimonials", controller });

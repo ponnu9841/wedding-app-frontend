@@ -40,11 +40,11 @@ const items = [
 	// 	url: "/dashboard/instagram-follow",
 	// 	icon: FaHome,
 	// },
-	// {
-	// 	title: "About",
-	// 	url: "/dashboard/about",
-	// 	icon: FaInfoCircle,
-	// },
+	{
+		title: "About",
+		url: "/dashboard/about",
+		icon: FaInfoCircle,
+	},
 	// {
 	// 	title: "AboutBrief",
 	// 	url: "/dashboard/about-brief",

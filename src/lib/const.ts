@@ -104,7 +104,7 @@ export const testimonialsData: Testimonial[] = [
 		name: "Akhil Arjun",
 		designation: "",
 		testimonial:
-			"“Definitely a dream team to work with. Each and every moments were captured so beautifully by the team and it was out of the world!!",
+			"“Definitely a dream team to work with. Each and every moments were captured so beautifully by the team and it was out of the world!!”",
 	},
 	{
 		id: "2",

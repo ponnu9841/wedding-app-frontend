@@ -10,6 +10,7 @@ import filmsReducer from "./features/films-slice";
 import blogReducer from "./features/blog-slice";
 import homeReducer from "./features/home-slice";
 import seoReducer from "./features/seo-slice";
+import aboutPageReducer from "./features/about-page-slice";
 
 export const LOGOUT = "LOGOUT";
 
@@ -23,6 +24,7 @@ const appReducer = combineReducers({
 	blog: blogReducer,
 	home: homeReducer,
 	seo: seoReducer,
+	aboutPage: aboutPageReducer,
 });
 
 const rootReducer = (
