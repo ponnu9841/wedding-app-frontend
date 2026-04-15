@@ -85,7 +85,7 @@ export const AboutBannerForm = () => {
 		} else {
 			form.reset(initialState);
 		}
-	}, [current?.id]); //eslint-disable-line
+	}, [current]); //eslint-disable-line
 
 	return (
 		<Form {...form}>

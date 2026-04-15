@@ -57,7 +57,7 @@ const Testimonials = ({ data }: { data?: TestimonialItem[] | null }) => {
 							<p className="mx-auto -mt-4 text-center md:mt-4 max-w-9/10 md:max-w-74/100">
 								{item.testimonial}
 							</p>
-							<div className="flex items-center gap-2 w-fit absolute left-1/2 top-[calc(100%-10rem)] left-1/2 -translate-x-1/2">
+							<div className="flex items-center gap-2 w-fit absolute left-1/2 top-[calc(100%-5rem)] lg:top-[calc(100%-10rem)] left-1/2 -translate-x-1/2">
 								<CarouselPrevious
 									className="absolute -translate-x-1/2 w-15 -left-13 md:w-20"
 									arrowLineClassName="bg-foreground/40"
