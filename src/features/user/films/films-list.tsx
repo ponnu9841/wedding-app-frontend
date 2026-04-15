@@ -26,7 +26,7 @@ const FilmsList = () => {
 	}, [dispatch, pageNo]);
 
 	return (
-		<div className=" mt-50 p-1 container-fluid">
+		<div className="p-1 container-fluid">
 			<Card className="lg:mx-14 p-5 lg:p-18 rounded-lg lg:rounded-[1.875rem]">
 				<div className=" grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
 					{films?.data.map((item) => (

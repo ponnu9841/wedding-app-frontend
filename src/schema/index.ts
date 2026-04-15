@@ -212,6 +212,19 @@ export const seoSchema = z.object({
 	page: z.string(),
 })
 
+export const managingDirectorSchema = z
+	.object({
+		id: z.string().optional(),
+		image: fileSchema().optional(),
+		imageAlt: z.string().optional(),
+		name: z.string().min(1, "Name is required"),
+		description: z.string().optional(),
+	})
+	.refine(requireImageIfNoId.condition, {
+		message: requireImageIfNoId.message,
+		path: requireImageIfNoId.path,
+	});
+
 export const founderSchema = z
 	.object({
 		id: z.string().optional(),
@@ -268,12 +281,22 @@ export const testimonialsSchema = z
 		path: requireImageIfNoId.path,
 	});
 
+export type ManagingDirectorFormData = z.infer<typeof managingDirectorSchema>;
 export type FounderFormData = z.infer<typeof founderSchema>;
 export type AboutBannerFormData = z.infer<typeof aboutBannerSchema>;
 export type OurStoryFormData = z.infer<typeof ourStorySchema>;
 export type WhatMakesUsUniqueFormData = z.infer<typeof whatMakesUsUniqueSchema>;
 export type AboutServicesFormData = z.infer<typeof aboutServicesSchema>;
 export type TestimonialsFormData = z.infer<typeof testimonialsSchema>;
+
+export const pageHeroSchema = z.object({
+	id: z.string().optional(),
+	page: z.string().min(1),
+	title: z.string().min(1, "Title is required"),
+	description: z.string().optional(),
+});
+
+export type PageHeroFormData = z.infer<typeof pageHeroSchema>;
 
 export const videoBannerSchema = z.object({
 	id: z.string().optional(),

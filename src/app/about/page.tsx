@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import FeaturedList from "@/features/user/about/featured-list";
 import Founder from "@/features/user/about/founder";
 import AboutHero from "@/features/user/about/hero";
+import ManagingDirectorSection from "@/features/user/about/managing-director";
 import OurStory from "@/features/user/about/our-story";
 import AboutServices from "@/features/user/about/services";
 import Testimonials from "@/features/user/about/testimonials";
@@ -13,7 +14,9 @@ import { generatePageMetadata } from "@/lib/utils";
 import {
 	getAboutBannersServer,
 	getAboutServicesServer,
+	getFeaturedStoriesServer,
 	getFoundersServer,
+	getManagingDirectorsServer,
 	getOurStoriesServer,
 	getTestimonialsServer,
 	getWhatMakesUsUniqueServer,
@@ -30,6 +33,8 @@ const AboutPage = async () => {
 		whatMakesUsUnique,
 		aboutServices,
 		testimonials,
+		featuredStories,
+		managingDirectors,
 	] = await Promise.all([
 		getFoundersServer(),
 		getAboutBannersServer(),
@@ -37,6 +42,8 @@ const AboutPage = async () => {
 		getWhatMakesUsUniqueServer(),
 		getAboutServicesServer(),
 		getTestimonialsServer(),
+		getFeaturedStoriesServer(),
+		getManagingDirectorsServer(),
 	]);
 
 	return (
@@ -46,8 +53,9 @@ const AboutPage = async () => {
 			<OurStory data={ourStories?.[0] ?? null} />
 			<WhatMakesUsUnique data={whatMakesUsUnique?.[0] ?? null} />
 			<AboutServices data={aboutServices} />
-			<FeaturedList />
+			<FeaturedList data={featuredStories} />
 			<Testimonials data={testimonials} />
+			<ManagingDirectorSection data={managingDirectors?.[0] ?? null} />
 			<div className="flex justify-center mb-20 -mt-5">
 				<Link href="/contact">
 					<Button variant="outline" className="text-black/80 min-w-40">

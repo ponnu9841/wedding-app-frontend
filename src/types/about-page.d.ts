@@ -1,3 +1,13 @@
+type ManagingDirector = {
+	id: string;
+	image: string;
+	alt: string | null;
+	name: string;
+	description: string | null;
+	createdAt: string;
+	updatedAt: string;
+};
+
 type Founder = {
 	id: string;
 	image: string;

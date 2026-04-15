@@ -6,6 +6,7 @@ import {
 	getAboutBannersResponse,
 	getAboutServicesResponse,
 	getFoundersResponse,
+	getManagingDirectorsResponse,
 	getOurStoriesResponse,
 	getTestimonialsResponse,
 	getWhatMakesUsUniqueResponse,
@@ -17,6 +18,9 @@ type AboutPageState = {
 
 	founders: Founder[];
 	selectedFounder: Founder | null;
+
+	managingDirectors: ManagingDirector[];
+	selectedManagingDirector: ManagingDirector | null;
 
 	aboutBanners: AboutBanner[];
 	selectedAboutBanner: AboutBanner | null;
@@ -39,6 +43,8 @@ const initialState: AboutPageState = {
 	error: "",
 	founders: [],
 	selectedFounder: null,
+	managingDirectors: [],
+	selectedManagingDirector: null,
 	aboutBanners: [],
 	selectedAboutBanner: null,
 	ourStories: [],
@@ -56,6 +62,17 @@ export const fetchFounders = createAsyncThunk(
 	async ({ controller }: { controller?: AbortController }, thunkAPI) => {
 		try {
 			return (await getFoundersResponse(controller)) ?? [];
+		} catch (error) {
+			handleThunkError(thunkAPI, error as AxiosError);
+		}
+	},
+);
+
+export const fetchManagingDirectors = createAsyncThunk(
+	"aboutPage/fetchManagingDirectors",
+	async ({ controller }: { controller?: AbortController }, thunkAPI) => {
+		try {
+			return (await getManagingDirectorsResponse(controller)) ?? [];
 		} catch (error) {
 			handleThunkError(thunkAPI, error as AxiosError);
 		}
@@ -124,6 +141,9 @@ const aboutPageSlice = createSlice({
 		setSelectedFounder: (state, action) => {
 			state.selectedFounder = action.payload;
 		},
+		setSelectedManagingDirector: (state, action) => {
+			state.selectedManagingDirector = action.payload;
+		},
 		setSelectedAboutBanner: (state, action) => {
 			state.selectedAboutBanner = action.payload;
 		},
@@ -145,6 +165,9 @@ const aboutPageSlice = createSlice({
 			.addCase(fetchFounders.fulfilled, (state, action) => {
 				state.founders = action.payload ?? [];
 			})
+			.addCase(fetchManagingDirectors.fulfilled, (state, action) => {
+				state.managingDirectors = action.payload ?? [];
+			})
 			.addCase(fetchAboutBanners.fulfilled, (state, action) => {
 				state.aboutBanners = action.payload ?? [];
 			})
@@ -165,6 +188,7 @@ const aboutPageSlice = createSlice({
 
 export const {
 	setSelectedFounder,
+	setSelectedManagingDirector,
 	setSelectedAboutBanner,
 	setSelectedOurStory,
 	setSelectedWhatMakesUsUnique,
@@ -174,6 +198,11 @@ export const {
 
 export const getFounders = (s: RootState) => s.aboutPage.founders;
 export const getSelectedFounder = (s: RootState) => s.aboutPage.selectedFounder;
+
+export const getManagingDirectors = (s: RootState) =>
+	s.aboutPage.managingDirectors;
+export const getSelectedManagingDirector = (s: RootState) =>
+	s.aboutPage.selectedManagingDirector;
 
 export const getAboutBanners = (s: RootState) => s.aboutPage.aboutBanners;
 export const getSelectedAboutBanner = (s: RootState) =>

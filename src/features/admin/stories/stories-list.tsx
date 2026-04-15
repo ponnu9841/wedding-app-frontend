@@ -35,7 +35,13 @@ import {
 } from "@/store/features/story-slice";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Row } from "@tanstack/react-table";
-import { Check, Delete, Edit, GripVertical, ArrowUpDown } from "lucide-react";
+import {
+	ArrowUpDown,
+	Check,
+	Edit,
+	GripVertical,
+	Star,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { MdDelete } from "react-icons/md";
@@ -463,6 +469,40 @@ const ReorderImagesDialog = ({ row }: StoriesRow) => {
 	);
 };
 
+const ToggleFeatured = ({ row }: StoriesRow) => {
+	const dispatch = useAppDispatch();
+	const [loading, setLoading] = useState(false);
+	const isFeatured = !!row.original.featured;
+
+	const onToggle = async () => {
+		setLoading(true);
+		try {
+			const response = await axiosClient.patch(`/story/featured`, {
+				id: row.original.id,
+				featured: !isFeatured,
+			});
+			if (response) dispatch(fetchStories({}));
+		} finally {
+			setLoading(false);
+		}
+	};
+
+	return (
+		<Button
+			size="sm"
+			variant={isFeatured ? "default" : "outline"}
+			onClick={onToggle}
+			disabled={loading}
+			className={isFeatured ? "" : "text-foreground"}
+		>
+			<Star
+				className={`size-3 mr-1 ${isFeatured ? "fill-current" : ""}`}
+			/>
+			{isFeatured ? "Featured" : "Mark Featured"}
+		</Button>
+	);
+};
+
 const UpdateOrder = ({ row }: StoriesRow) => {
 	const dispatch = useAppDispatch();
 	const totalStoryItems = useAppSelector(getStoriesData)?.totalItems || 0;
@@ -584,6 +624,12 @@ const columns = [
 		accessorKey: "order",
 		header: "Order",
 		cell: ({ row }: StoriesRow) => <UpdateOrder row={row} />,
+	},
+	{
+		accessorKey: "featured",
+		header: "Featured",
+		align: "center",
+		cell: ({ row }: StoriesRow) => <ToggleFeatured row={row} />,
 	},
 	{
 		accessorKey: "action",

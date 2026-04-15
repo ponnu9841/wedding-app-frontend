@@ -60,3 +60,12 @@ export const getAboutServicesServer = () =>
 
 export const getTestimonialsServer = () =>
 	fetchData<TestimonialItem[] | null>("/testimonials");
+
+export const getFeaturedStoriesServer = () =>
+	fetchData<Story[] | null>("/story/featured");
+
+export const getManagingDirectorsServer = () =>
+	fetchData<ManagingDirector[] | null>("/managing-director");
+
+export const getPageHeroServer = (page: string) =>
+	fetchData<PageHero | null>(`/page-hero?page=${encodeURIComponent(page)}`);

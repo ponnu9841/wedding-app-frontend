@@ -71,6 +71,24 @@ export const getStoryBanner = (controller?: AbortController) =>
 export const getFoundersResponse = (controller?: AbortController) =>
 	fetchData<Founder[] | null>({ url: "/founder", controller });
 
+export const getManagingDirectorsResponse = (controller?: AbortController) =>
+	fetchData<ManagingDirector[] | null>({
+		url: "/managing-director",
+		controller,
+	});
+
+export const getPageHeroResponse = ({
+	page,
+	controller,
+}: {
+	page: string;
+	controller?: AbortController;
+}) =>
+	fetchData<PageHero | null>({
+		url: `/page-hero?page=${encodeURIComponent(page)}`,
+		controller,
+	});
+
 export const getAboutBannersResponse = (controller?: AbortController) =>
 	fetchData<AboutBanner[] | null>({ url: "/about-banner", controller });
 

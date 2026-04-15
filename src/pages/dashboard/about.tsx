@@ -10,6 +10,10 @@ import {
 	FounderForm,
 } from "@/features/admin/about-page/founder-section";
 import {
+	ManagingDirectorData,
+	ManagingDirectorForm,
+} from "@/features/admin/about-page/managing-director-section";
+import {
 	AboutServicesData,
 	AboutServicesForm,
 	OurStoryData,
@@ -24,12 +28,14 @@ import {
 	fetchAboutBanners,
 	fetchAboutServices,
 	fetchFounders,
+	fetchManagingDirectors,
 	fetchOurStories,
 	fetchTestimonials,
 	fetchWhatMakesUsUnique,
 	setSelectedAboutBanner,
 	setSelectedAboutService,
 	setSelectedFounder,
+	setSelectedManagingDirector,
 	setSelectedOurStory,
 	setSelectedTestimonial,
 	setSelectedWhatMakesUsUnique,
@@ -42,6 +48,7 @@ export default function AboutDashboardPage() {
 	useEffect(() => {
 		const controller = new AbortController();
 		dispatch(fetchFounders({ controller }));
+		dispatch(fetchManagingDirectors({ controller }));
 		dispatch(fetchAboutBanners({ controller }));
 		dispatch(fetchOurStories({ controller }));
 		dispatch(fetchWhatMakesUsUnique({ controller }));
@@ -50,6 +57,7 @@ export default function AboutDashboardPage() {
 		return () => {
 			controller.abort();
 			dispatch(setSelectedFounder(null));
+			dispatch(setSelectedManagingDirector(null));
 			dispatch(setSelectedAboutBanner(null));
 			dispatch(setSelectedOurStory(null));
 			dispatch(setSelectedWhatMakesUsUnique(null));
@@ -69,6 +77,7 @@ export default function AboutDashboardPage() {
 				</TabsTrigger>
 				<TabsTrigger value="about-services">About Services</TabsTrigger>
 				<TabsTrigger value="testimonials">Testimonials</TabsTrigger>
+				<TabsTrigger value="managing-director">Managing Director</TabsTrigger>
 			</TabsList>
 			<TabsContent value="founder">
 				<h2 className="text-lg font-semibold mb-4">Founder</h2>
@@ -110,6 +119,13 @@ export default function AboutDashboardPage() {
 				<AdminSectionLayout
 					leftSection={<TestimonialsForm />}
 					rightSection={<TestimonialsData />}
+				/>
+			</TabsContent>
+			<TabsContent value="managing-director">
+				<h2 className="text-lg font-semibold mb-4">Managing Director</h2>
+				<AdminSectionLayout
+					leftSection={<ManagingDirectorForm />}
+					rightSection={<ManagingDirectorData />}
 				/>
 			</TabsContent>
 		</Tabs>

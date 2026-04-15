@@ -1,17 +1,10 @@
 import Typography from "@/components/shared/typography";
 import Link from "next/link";
 
-const publications: string[] = [
-	"Femina Wedding",
-	"Brides of Kerala",
-	"WedMeGood",
-	"Wedding Sutra",
-	"Wedding Bazar",
-	"Wedding Wire",
-	"Vogue",
-];
+const FeaturedList = ({ data }: { data?: Story[] | null }) => {
+	const items = data || [];
+	if (items.length === 0) return null;
 
-const FeaturedList = () => {
 	return (
 		<div className="container my-10 space-y-6 md:space-y-12 max-w-7xl">
 			<Typography
@@ -21,13 +14,13 @@ const FeaturedList = () => {
 				As featured in
 			</Typography>
 			<div className="flex flex-wrap justify-center gap-6">
-				{publications.map((item) => (
+				{items.map((item) => (
 					<Link
-						key={item}
-						href="#"
+						key={item.id}
+						href={`/stories/${item.id}`}
 						className="text-lg tracking-wider uppercase md:text-xl text-foreground/75 font-playfair-display"
 					>
-						{item}
+						{item.title}
 					</Link>
 				))}
 				{/* <Link

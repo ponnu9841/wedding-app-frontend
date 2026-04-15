@@ -11,6 +11,7 @@ type Story = {
 	title: string;
 	bannerImage: string;
 	order: number | string | null;
+	featured: boolean;
 	createdAt: string;
 	updatedAt: string;
 	images: StoryImage[];
