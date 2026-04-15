@@ -8,12 +8,14 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 import NextImage from "@/components/ui/image";
-import { testimonialsData } from "@/lib/const";
 import { useState } from "react";
 
-const Testimonials = () => {
+const Testimonials = ({ data }: { data?: TestimonialItem[] | null }) => {
 	const [api, setApi] = useState<CarouselApi | undefined | null>(null);
 	const [current, setCurrent] = useState(1);
+
+	const items = data || [];
+	if (items.length === 0) return null;
 
 	const handleNavClick = (type: "prev" | "next") => {
 		if (!api) return;
@@ -39,7 +41,7 @@ const Testimonials = () => {
 				</>
 			}
 		>
-			{testimonialsData.map((item, index) => (
+			{items.map((item: TestimonialItem, index: number) => (
 				<CarouselItem className="pl-0 basis-full  md:max-h-[90vh]" key={index}>
 					<div className="grid grid-cols-1 md:grid-cols-2 md:min-h-150 lg:min-h-200">
 						<div className="relative flex flex-col items-center h-full gap-10 pb-33 md:p-10 md:p-25 bg-background-alt">
@@ -62,7 +64,7 @@ const Testimonials = () => {
 									arrowTipClassName="border-foreground/40"
 									onClick={() => handleNavClick("prev")}
 								/>
-								<div className="text-foreground/40">{`${current} / ${testimonialsData.length}`}</div>
+								<div className="text-foreground/40">{`${current} / ${items.length}`}</div>
 								<CarouselNext
 									className="absolute -translate-x-1/2 left-20 md:w-20"
 									arrowLineClassName="bg-foreground/40"

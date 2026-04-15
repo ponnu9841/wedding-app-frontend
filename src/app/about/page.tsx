@@ -10,27 +10,51 @@ import AboutServices from "@/features/user/about/services";
 import Testimonials from "@/features/user/about/testimonials";
 import WhatMakesUsUnique from "@/features/user/about/what-makes-us-unique";
 import { generatePageMetadata } from "@/lib/utils";
+import {
+	getAboutBannersServer,
+	getAboutServicesServer,
+	getFoundersServer,
+	getOurStoriesServer,
+	getTestimonialsServer,
+	getWhatMakesUsUniqueServer,
+} from "@/services/axios/get-data-server";
+import Link from "next/link";
 
 export const generateMetadata = () => generatePageMetadata("about");
 
 const AboutPage = async () => {
-	
+	const [
+		founders,
+		aboutBanners,
+		ourStories,
+		whatMakesUsUnique,
+		aboutServices,
+		testimonials,
+	] = await Promise.all([
+		getFoundersServer(),
+		getAboutBannersServer(),
+		getOurStoriesServer(),
+		getWhatMakesUsUniqueServer(),
+		getAboutServicesServer(),
+		getTestimonialsServer(),
+	]);
+
 	return (
 		<div className="space-y-15 md:space-y-20">
-			<AboutHero />
-			<Founder />
-			<OurStory />
-			<WhatMakesUsUnique />
-			<AboutServices />
+			<AboutHero data={aboutBanners?.[0] ?? null} />
+			<Founder data={founders?.[0] ?? null} />
+			<OurStory data={ourStories?.[0] ?? null} />
+			<WhatMakesUsUnique data={whatMakesUsUnique?.[0] ?? null} />
+			<AboutServices data={aboutServices} />
 			<FeaturedList />
-			<Testimonials />
+			<Testimonials data={testimonials} />
 			<div className="flex justify-center mb-20 -mt-5">
-				<Button variant="outline" className="text-black/80 min-w-40">
-					Contact Me
-				</Button>
+				<Link href="/contact">
+					<Button variant="outline" className="text-black/80 min-w-40">
+						Contact Me
+					</Button>
+				</Link>
 			</div>
-			{/* <Faq /> */}
-			{/* <Testimonials testimonialsData={testimonialsData} /> */}
 		</div>
 	);
 };

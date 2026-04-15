@@ -42,3 +42,21 @@ export const getStoryBanner = () =>
 
 export const getMetaTags = () =>
 	fetchData<Seo[]>("/seo");
+
+export const getFoundersServer = () =>
+	fetchData<Founder[] | null>("/founder");
+
+export const getAboutBannersServer = () =>
+	fetchData<AboutBanner[] | null>("/about-banner");
+
+export const getOurStoriesServer = () =>
+	fetchData<OurStoryItem[] | null>("/our-story");
+
+export const getWhatMakesUsUniqueServer = () =>
+	fetchData<WhatMakesUsUniqueItem[] | null>("/what-makes-us-unique");
+
+export const getAboutServicesServer = () =>
+	fetchData<AboutServiceItem[] | null>("/about-services");
+
+export const getTestimonialsServer = () =>
+	fetchData<TestimonialItem[] | null>("/testimonials");
