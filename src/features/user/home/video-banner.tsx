@@ -7,7 +7,7 @@ const VideoBanner = ({
 	videoBanner: HomeVideoBanner | null;
 }) => {
 	return (
-		<div className="relative h-[81vh] -mt-20">
+		<div className="relative h-[50vh] md:h-[81vh] -mt-20">
 			<div className="absolute top-0 left-0 w-full z-2">
 				<WaveTop className="text-card" />
 			</div>
