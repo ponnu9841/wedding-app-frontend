@@ -51,11 +51,11 @@ const AboutPage = async () => {
 			<AboutHero data={aboutBanners?.[0] ?? null} />
 			<Founder data={founders?.[0] ?? null} />
 			<OurStory data={ourStories?.[0] ?? null} />
+			<ManagingDirectorSection data={managingDirectors?.[0] ?? null} />
 			<WhatMakesUsUnique data={whatMakesUsUnique?.[0] ?? null} />
 			<AboutServices data={aboutServices} />
 			<FeaturedList data={featuredStories} />
 			<Testimonials data={testimonials} />
-			<ManagingDirectorSection data={managingDirectors?.[0] ?? null} />
 			<div className="flex justify-center mb-20 -mt-5">
 				<Link href="/contact">
 					<Button variant="outline" className="text-black/80 min-w-40">

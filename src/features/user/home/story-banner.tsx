@@ -1,6 +1,7 @@
 import Typography from "@/components/shared/typography";
 import { Button } from "@/components/ui/button";
 import NextImage from "@/components/ui/image";
+import Link from "next/link";
 
 const StoryBannerSection = ({
 	storyBanner,
@@ -39,12 +40,14 @@ const StoryBannerSection = ({
 				</div>
 			</div>
 			<div className="flex justify-center">
-				<Button
-					className="h-12 w-46.75 uppercase tracking-widest text-foreground/40 hover:text-foreground/40 border-foreground/40"
-					variant="outline"
-				>
-					Book Now
-				</Button>
+				<Link href="/contact">
+					<Button
+						className="h-12 w-46.75 uppercase tracking-widest text-foreground/40 hover:text-foreground/40 border-foreground/40"
+						variant="outline"
+					>
+						Book Now
+					</Button>
+				</Link>
 			</div>
 		</div>
 	);

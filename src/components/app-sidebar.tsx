@@ -5,7 +5,7 @@ import {
 	// FaComments,
 	// FaImages,
 	// // FaUsers,
-	// FaAddressBook,
+	FaAddressBook,
 	FaInfoCircle,
 	// FaThList,
 	FaBlog,
@@ -57,6 +57,7 @@ const items = [
 	},
 	{ title: "Films", url: "/dashboard/films", icon: FaVideo },
 	{ title: "Blogs", url: "/dashboard/blog", icon: FaBlog },
+	{ title: "Contact", url: "/dashboard/contact", icon: FaAddressBook },
 	// {
 	// 	title: "Clients",
 	// 	url: "/dashboard/clients",
