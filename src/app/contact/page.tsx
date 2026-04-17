@@ -1,11 +1,9 @@
 export const dynamic = "force-dynamic";
 import PageIntro from "@/components/shared/page-intro";
-// import ContactCta from "@/features/user/contact/contact-cta"
-// import ContactForm from "@/features/user/contact/contact-form"
 import { Button } from "@/components/ui/button";
+import ContactForm from "@/features/user/contact/contact-form";
 import { generatePageMetadata } from "@/lib/utils";
 import { getPageHeroServer } from "@/services/axios/get-data-server";
-// import ContactHero from "@/features/user/contact/hero";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -17,10 +15,7 @@ const DEFAULT_DESCRIPTION = "";
 const ContactPage = async () => {
 	const hero = await getPageHeroServer("contact");
 	return (
-		<div className="min-h-[calc(100dvh-9.5rem)] flex justify-center items-center">
-			{/* <ContactHero /> */}
-			{/* <ContactCta />
-        <ContactForm /> */}
+		<div className="flex justify-center items-center py-20">
 			<div className="w-full max-w-4xl mx-auto px-5 lg:px-0">
 				<div className="mt-15">
 					<PageIntro
@@ -49,6 +44,13 @@ const ContactPage = async () => {
 							<FaWhatsapp />
 						</Button>
 					</Link>
+				</div>
+
+				<div className="border-t pt-15">
+					<h2 className="text-2xl text-center font-playfair-display mb-10">
+						Send Us a Message
+					</h2>
+					<ContactForm />
 				</div>
 			</div>
 		</div>
