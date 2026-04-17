@@ -59,7 +59,7 @@ const AboutPage = async () => {
 			<div className="flex justify-center mb-20 -mt-5">
 				<Link href="/contact">
 					<Button variant="outline" className="text-black/80 min-w-40">
-						Contact Me
+						Contact Us
 					</Button>
 				</Link>
 			</div>

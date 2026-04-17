@@ -62,6 +62,8 @@ const WorksForm = () => {
 		formData.append("alt", data.imageAlt || "");
 		formData.append("title", data.title || "");
 		formData.append("subtitle", data.subtitle || "");
+		formData.append("url", data.url || "");
+		formData.append("existingImage", existingImage || "");
 
 		const method = data.id ? axiosInstance.put : axiosInstance.post;
 
