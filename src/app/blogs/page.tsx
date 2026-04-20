@@ -20,7 +20,6 @@ const BlogsPage = async () => {
 					<PageIntro
 						title={hero.title}
 						description={hero.description}
-						className="[&>h1]:text-4xl md:[&>h1]:text-5xl"
 					/>
 				)}
 			</div>
