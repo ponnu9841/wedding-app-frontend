@@ -1,6 +1,7 @@
 import FormAction from "@/components/shared/admin-form-action";
 import FileUpload from "@/components/shared/file-upload";
 import { DeleteDrawer } from "@/components/shared/delete-drawer";
+import EditButton from "@/components/shared/edit-button";
 import NextImage from "@/components/ui/image";
 import {
 	Form,
@@ -19,6 +20,8 @@ import axiosClient from "@/services/axios";
 import {
 	fetchManagingDirectors,
 	getManagingDirectors,
+	getSelectedManagingDirector,
+	setSelectedManagingDirector,
 } from "@/store/features/about-page-slice";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
@@ -40,8 +43,8 @@ export const ManagingDirectorForm = () => {
 	const loading = form.formState.isSubmitting;
 
 	const dispatch = useAppDispatch();
-	const current = useAppSelector(getManagingDirectors)[0] ?? null;
-	const existingImage = current?.image ?? "";
+	const selected = useAppSelector(getSelectedManagingDirector);
+	const existingImage = selected?.image ?? "";
 
 	const onSubmit = async (data: ManagingDirectorFormData) => {
 		const body = new FormData();
@@ -62,32 +65,21 @@ export const ManagingDirectorForm = () => {
 	};
 
 	const resetForm = () => {
-		if (current) {
-			form.reset({
-				id: current.id,
-				image: [],
-				imageAlt: current.alt || "",
-				name: current.name,
-				description: current.description || "",
-			});
-		} else {
-			form.reset(initialState);
-		}
+		form.reset(initialState);
+		dispatch(setSelectedManagingDirector(null));
 	};
 
 	useEffect(() => {
-		if (current) {
+		if (selected) {
 			form.reset({
-				id: current.id,
+				id: selected.id,
 				image: [],
-				imageAlt: current.alt || "",
-				name: current.name,
-				description: current.description || "",
+				imageAlt: selected.alt || "",
+				name: selected.name,
+				description: selected.description || "",
 			});
-		} else {
-			form.reset(initialState);
 		}
-	}, [current?.id]); //eslint-disable-line
+	}, [selected]); //eslint-disable-line
 
 	return (
 		<Form {...form}>
@@ -178,7 +170,7 @@ export const ManagingDirectorData = () => {
 	if (!data.length)
 		return (
 			<div className="text-sm text-muted-foreground">
-				No managing director added
+				No team members added
 			</div>
 		);
 
@@ -193,9 +185,14 @@ export const ManagingDirectorData = () => {
 							isUnOptimized
 						/>
 						<div className="absolute bottom-0 right-0">
+							<EditButton
+								onClick={() =>
+									dispatch(setSelectedManagingDirector(item))
+								}
+							/>
 							<DeleteDrawer
 								title={`Delete ${item.name}`}
-								description="Are you sure you want to delete this managing director? This action cannot be undone."
+								description="Are you sure you want to delete this team member? This action cannot be undone."
 								onDelete={() => deleteItem(item.id, item.image)}
 							/>
 						</div>

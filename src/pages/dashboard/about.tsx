@@ -77,7 +77,7 @@ export default function AboutDashboardPage() {
 				</TabsTrigger>
 				<TabsTrigger value="about-services">About Services</TabsTrigger>
 				<TabsTrigger value="testimonials">Testimonials</TabsTrigger>
-				<TabsTrigger value="managing-director">Managing Director</TabsTrigger>
+				<TabsTrigger value="team">Team</TabsTrigger>
 			</TabsList>
 			<TabsContent value="founder">
 				<h2 className="text-lg font-semibold mb-4">Founder</h2>
@@ -121,8 +121,8 @@ export default function AboutDashboardPage() {
 					rightSection={<TestimonialsData />}
 				/>
 			</TabsContent>
-			<TabsContent value="managing-director">
-				<h2 className="text-lg font-semibold mb-4">Managing Director</h2>
+			<TabsContent value="team">
+				<h2 className="text-lg font-semibold mb-4">Team</h2>
 				<AdminSectionLayout
 					leftSection={<ManagingDirectorForm />}
 					rightSection={<ManagingDirectorData />}

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import FeaturedList from "@/features/user/about/featured-list";
 import Founder from "@/features/user/about/founder";
 import AboutHero from "@/features/user/about/hero";
-import ManagingDirectorSection from "@/features/user/about/managing-director";
+import Team from "@/features/user/about/our-team";
 import OurStory from "@/features/user/about/our-story";
 import AboutServices from "@/features/user/about/services";
 import Testimonials from "@/features/user/about/testimonials";
@@ -51,7 +51,7 @@ const AboutPage = async () => {
 			<AboutHero data={aboutBanners?.[0] ?? null} />
 			<Founder data={founders?.[0] ?? null} />
 			<OurStory data={ourStories?.[0] ?? null} />
-			<ManagingDirectorSection data={managingDirectors?.[0] ?? null} />
+			<Team data={managingDirectors} />
 			<WhatMakesUsUnique data={whatMakesUsUnique?.[0] ?? null} />
 			<AboutServices data={aboutServices} />
 			<FeaturedList data={featuredStories} />
