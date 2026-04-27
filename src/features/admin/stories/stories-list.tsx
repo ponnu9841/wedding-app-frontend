@@ -1,3 +1,4 @@
+import CustomTooltip from "@/components/shared/custom-tooltip";
 import { DeleteDrawer } from "@/components/shared/delete-drawer";
 import FileUpload from "@/components/shared/file-upload";
 import GenericTable from "@/components/shared/generic-table/generic-table";
@@ -35,13 +36,7 @@ import {
 } from "@/store/features/story-slice";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Row } from "@tanstack/react-table";
-import {
-	ArrowUpDown,
-	Check,
-	Edit,
-	GripVertical,
-	Star,
-} from "lucide-react";
+import { ArrowUpDown, Check, Edit, GripVertical, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { MdDelete } from "react-icons/md";
@@ -396,9 +391,13 @@ const ReorderImagesDialog = ({ row }: StoriesRow) => {
 			hideDialogTitle
 			hideDialogDescription
 			dialogButton={
-				<Button size="sm" variant="outline" className="text-foreground">
-					<ArrowUpDown className="size-3 mr-1" /> Reorder
-				</Button>
+				<div>
+					<CustomTooltip tooltip="Reorder Images">
+						<Button size="icon" variant="outline" className="text-foreground">
+							<ArrowUpDown className="size-3" />
+						</Button>
+					</CustomTooltip>
+				</div>
 			}
 			dialogContent={
 				<div className="space-y-4">
@@ -469,6 +468,33 @@ const ReorderImagesDialog = ({ row }: StoriesRow) => {
 	);
 };
 
+const DeleteStoryButton = ({ row }: StoriesRow) => {
+	const dispatch = useAppDispatch();
+	const handleDelete = async () => {
+		const response = await axiosClient.delete(`/story/${row.original.id}`);
+		if (response?.status === 200) {
+			handleToast({
+				message: "Story deleted successfully",
+				variant: "success",
+			});
+			dispatch(fetchStories({}));
+		}
+	};
+
+	return (
+		<DeleteDrawer
+			title={`Delete ${row.original.title}`}
+			description="Are you sure you want to delete this story? All associated images will also be deleted. This action cannot be undone."
+			deleteButton={
+				<Button size="icon" variant="destructive">
+					<MdDelete className="size-4" />
+				</Button>
+			}
+			onDelete={handleDelete}
+		/>
+	);
+};
+
 const ToggleFeatured = ({ row }: StoriesRow) => {
 	const dispatch = useAppDispatch();
 	const [loading, setLoading] = useState(false);
@@ -495,9 +521,7 @@ const ToggleFeatured = ({ row }: StoriesRow) => {
 			disabled={loading}
 			className={isFeatured ? "" : "text-foreground"}
 		>
-			<Star
-				className={`size-3 mr-1 ${isFeatured ? "fill-current" : ""}`}
-			/>
+			<Star className={`size-3 mr-1 ${isFeatured ? "fill-current" : ""}`} />
 			{isFeatured ? "Featured" : "Mark Featured"}
 		</Button>
 	);
@@ -634,8 +658,9 @@ const columns = [
 	{
 		accessorKey: "action",
 		header: "Action",
+		align: "center",
 		cell: ({ row }: StoriesRow) => (
-			<div className="flex gap-3 items-center justify-center">
+			<div className="flex gap-3 items-center justify-center flex-wrap min-w-50">
 				<CustomDialog
 					isModal
 					hideDialogTitle
@@ -644,6 +669,7 @@ const columns = [
 					dialogContent={<AddImages id={row.original.id} />}
 				/>
 				<ReorderImagesDialog row={row} />
+				<DeleteStoryButton row={row} />
 			</div>
 		),
 	},
