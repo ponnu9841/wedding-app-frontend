@@ -25,7 +25,7 @@ const StoriesList = () => {
 
 	return (
 		<>
-			<div className="grid grid-cols-1 gap-5 lg:gap-8 md:grid-cols-2 lg:grid-cols-3">
+			<div className="grid gap-5 lg:gap-8 grid-cols-2 md:gird-cols-3 lg:grid-cols-4">
 				{stories?.data.map((item) => (
 					<StoriesCard {...item} key={item.id} />
 				))}
