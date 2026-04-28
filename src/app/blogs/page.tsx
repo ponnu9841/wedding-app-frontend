@@ -11,8 +11,8 @@ const BlogsPage = async () => {
 	const hero = await getPageHeroServer("blog");
 
 	return (
-		<div className="space-y-20 mt-30">
-			<div>
+		<div className="space-y-20 mt-35">
+			<div className="container">
 				{/* <Typography variant="h1" className="mb-5 text-center">
 					Blogs
 				</Typography> */}

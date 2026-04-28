@@ -7,7 +7,7 @@ const StoriesCard = (story: Story) => {
 			<div className="apsect-[370/246]">
 				<NextImage
 					src={story.bannerImage || "/placeholder.png"}
-					className="aspect-[10/16]"
+					className="aspect-[4/5]"
 					imageClassName="object-cover"
 					isUnOptimized
 				/>
