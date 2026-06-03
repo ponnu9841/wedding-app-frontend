@@ -18,11 +18,14 @@ const ContactPage = async () => {
 		<div className="flex justify-center items-center py-20">
 			<div className="w-full max-w-4xl mx-auto px-5 lg:px-0">
 				<div className="mt-15">
-					<PageIntro
-						title={hero?.title || DEFAULT_TITLE}
-						description={hero?.description || DEFAULT_DESCRIPTION}
-						className="[&>h1]:text-6xl [&>h1]:font-playfair-display [&>h1]:font-semibold"
-					/>
+					<h1 className="text-3xl lg:text-6xl font-bold font-playfair-display text-foreground/80 text-center">
+						{hero?.title || DEFAULT_TITLE}
+					</h1>
+					{hero?.description && (
+						<p className="mt-6 whitespace-pre-line text-center">
+							{hero?.description || DEFAULT_DESCRIPTION}
+						</p>
+					)}
 				</div>
 
 				<div className="flex flex-wrap justify-around items-center gap-8 my-15">

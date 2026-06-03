@@ -25,12 +25,12 @@ const FilmsDetails = async (props: PageProps) => {
 					<iframe src={film.data?.videoUrl} className="min-w-full h-full" />
 				</div>
 			</div>
-			<div className="max-w-243.5 mx-auto space-y-3">
-				<h1 className="text-3xl">{film.data?.title}</h1>
+			<div className="max-w-243.5 mx-auto space-y-3 px-3 lg:px-0">
+				<h1 className="text-3xl font-playfair-display text-foreground/80 text-center lg:text-left">{film.data?.title}</h1>
 				<p className="text-sm font-medium leading-6 text-foreground">
 					{film.data?.shortDescription}
 				</p>
-				<div className="mt-6 flex justify-between items-center gap-6">
+				<div className="mt-6 flex flex-wrap justify-between items-center gap-6">
 					{!!film.previousFilm && (
 						<Link href={`/films/${film.previousFilm.id}`}>
 							<Button variant="link" className="text-xl items-center">
