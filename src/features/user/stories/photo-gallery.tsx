@@ -35,7 +35,7 @@ const PhotoGallery = ({ story }: { story: Story }) => {
 	return (
 		<div className="w-full min-h-screen p-4">
 			<div className="mx-auto max-w-415">
-				<h2 className="mb-8 text-4xl font-bold text-center text-slate-800">
+				<h2 className="mb-8 text-4xl font-playfair-display text-center text-foreground/80">
 					{story.title}
 				</h2>
 

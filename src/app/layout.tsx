@@ -1,18 +1,28 @@
-import type { Metadata } from "next";
-import { Playfair_Display, Google_Sans_Flex } from "next/font/google";
-import Layout from "@/components/layout/layout";
 import "./globals.css";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import Layout from "@/components/layout/layout";
 import Provider from "@/store/provider";
 
-const fontPlayfairDisplay = Playfair_Display({
-	variable: "--font-playfair-display",
-	subsets: ["latin"],
+const fontRecolita = localFont({
+	variable: "--font-recolita",
+	src: "../../public/assets/fonts/RecoletaMedium/font.woff2",
 });
 
-const fontGoogleSansFlex = Google_Sans_Flex({
-	variable: "--font-google-sans-flex",
-	subsets: ["latin"],
+const fontSofiaPro = localFont({
+	variable: "--font-sofia-pro",
+	src: "../../public/assets/fonts/SofiaProXLight/font.woff2",
 });
+
+// const fontPlayfairDisplay = Playfair_Display({
+// 	variable: "--font-playfair-display",
+// 	subsets: ["latin"],
+// });
+
+// const fontGoogleSansFlex = Google_Sans_Flex({
+// 	variable: "--font-google-sans-flex",
+// 	subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -27,7 +37,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${fontPlayfairDisplay.variable} ${fontGoogleSansFlex.variable} antialiased`}
+				className={`${fontRecolita.variable} ${fontSofiaPro.className} antialiased`}
 			>
 				<Provider>
 					<Layout>{children}</Layout>

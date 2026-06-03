@@ -11,10 +11,10 @@ const InstagramFollow = ({
 }) => {
 	return (
 		<div className="container">
-			<Typography variant="h2" className="flex justify-center mb-10">
+			<Typography variant="h2" className="flex justify-center text-center mb-10">
 				FOLLOW ME ON INSTAGRAM
 			</Typography>
-			<div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+			<div className="grid grid-cols-2 gap-4 md:grid-cols-3">
 				{instagramFollowData?.map((item, index) => (
 					<Link
 						href={item.url}
@@ -29,7 +29,7 @@ const InstagramFollow = ({
 						/>
 						<Copy className="absolute text-white top-3 right-3 size-8" />
 						<div className="absolute inset-0 flex items-center justify-center transition-all opacity-0 bg-white/30 group-hover:opacity-100">
-							<Instagram className="text-white size-5" />
+							<Instagram className="text-white size-3 lg:size-5" />
 						</div>
 					</Link>
 				))}

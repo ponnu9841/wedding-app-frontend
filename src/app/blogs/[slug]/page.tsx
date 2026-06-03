@@ -30,7 +30,7 @@ const BlogDetailsPage = async (props: PageProps) => {
 					<Calendar size={16} />{" "}
 					<span>{formatDateToMonthYear(blog.createdAt)}</span>
 				</div>
-				<h1 className="my-4 text-lg font-fairly-display">{blog.title}</h1>
+				<h1 className="my-4 text-lg font-playfair-display text-foreground/80">{blog.title}</h1>
 				<div className="[&>ul]:list-disc [&>ul]:ml-8 text-foreground/80">
 					{parseHtml(blog.content)}
 				</div>
