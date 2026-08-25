@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
 			},
 			{
 				protocol: "https",
+				hostname: "townin-storage.s3.eu-north-1.amazonaws.com",
+			},
+			{
+				protocol: "https",
 				hostname: "images-pw.pixieset.com",
 			},
 			{

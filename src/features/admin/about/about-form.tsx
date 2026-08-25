@@ -18,7 +18,7 @@ import {
 	getAboutImagesData,
 } from "@/store/features/about-slice";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 const initialState = {
@@ -36,7 +36,7 @@ const AboutForm = () => {
 		resolver: zodResolver(aboutSchema),
 		defaultValues: initialState,
 	});
-	const loading = form.formState.isSubmitting;
+	const [loading, setLoading] = useState(false);
 
 	const dispatch = useAppDispatch();
 	const aboutImagesData = useAppSelector(getAboutImagesData);
@@ -59,6 +59,7 @@ const AboutForm = () => {
 			form.append("imageThree", data.imageThree[0]);
 		}
 		if (data.id) form.append("id", data.id);
+		setLoading(true);
 		const method = data.id ? axiosClient.put : axiosClient.post;
 		method("/about", form)
 			.then((response) => {
@@ -68,7 +69,7 @@ const AboutForm = () => {
 			})
 			.catch((error) => {
 				console.log(error);
-			});
+			}).finally(() => setLoading(false));
 	};
 
 	useEffect(() => {
@@ -80,7 +81,9 @@ const AboutForm = () => {
 				imageThreeAlt: aboutImagesData.imageThreeAlt || "",
 			});
 		}
-	}, [aboutImagesData]);
+	}, [aboutImagesData, form]);
+
+	console.log(aboutImagesData, "tone")
 
 	return (
 		<Form {...form}>
