@@ -19,7 +19,7 @@ import {
 	setSelectedInstagramFollowData,
 } from "@/store/features/instagram-follow-slice";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 const initialState = {
@@ -34,7 +34,7 @@ const InstagramFollowForm = () => {
 		resolver: zodResolver(instagramFollowSchema),
 		defaultValues: initialState,
 	});
-    const loading = form.formState.isSubmitting;
+    const [loading, setLoading] = useState(false);
 
 	const dispatch = useAppDispatch();
 	const selectedInstagramData = useAppSelector(getSelectedInstagramData);
@@ -49,6 +49,7 @@ const InstagramFollowForm = () => {
 			form.append("image", data.image[0]);
 		}
 		if (data.id) form.append("id", data.id);
+		setLoading(true);
 		const method = data.id ? axiosClient.put : axiosClient.post;
 		method("/instagram-follow", form)
 			.then((response) => {
@@ -59,7 +60,7 @@ const InstagramFollowForm = () => {
 			})
 			.catch((error) => {
 				console.log(error);
-			});
+			}).finally(() => setLoading(false));
 	};
 
 	const resetForm = () => {
