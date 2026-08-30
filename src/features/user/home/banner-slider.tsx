@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const CarouselSlider = ({
 	images,
@@ -34,6 +35,7 @@ const CarouselSlider = ({
 	const [api, setApi] = useState<CarouselApi | null>(null);
 	const [current, setCurrent] = useState(1);
 	const total = images?.length || 0;
+	const isMobile = useIsMobile();
 
 	const opts = {
 		loop,
@@ -113,7 +115,7 @@ const CarouselSlider = ({
 						cardClassName={cardClassName}
 					>
 						<Image
-							src={image.image}
+							src={!isMobile ? image.image : image.mobileImage ? image.mobileImage : image.image}
 							fill
 							alt="banner"
 							className="object-cover"

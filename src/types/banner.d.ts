@@ -1,6 +1,7 @@
 type Banner = {
 	id: string;
 	image: string;
+	mobileImage: string;
 	alt?: string;
 	title?: string;
 	description?: string;

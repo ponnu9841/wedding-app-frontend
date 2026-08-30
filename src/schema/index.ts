@@ -7,6 +7,13 @@ const requireImageIfNoId = {
 		!!data.id?.trim() || (data.image?.length ?? 0) >= 1,
 };
 
+const requireMobileImageIfNoId = {
+	message: "Mobile image is required",
+	path: ["mobileImage"],
+	condition: (data: { id?: string; mobileImage?: ExtendedFile[] }) =>
+		!!data.id?.trim() || (data.mobileImage?.length ?? 0) >= 1,
+};
+
 export const fileSchema = (errorMessage = "Invalid Image") =>
 	z.array(
 		z.custom<ExtendedFile>(
@@ -45,6 +52,7 @@ export const bannerSchema = z
 	.object({
 		id: z.string().optional(),
 		image: fileSchema().optional(),
+		mobileImage: fileSchema().optional(),
 		imageAlt: z.string().optional(),
 		title: z.string().optional(),
 		description: z.string().optional(),
@@ -52,6 +60,10 @@ export const bannerSchema = z
 	.refine(requireImageIfNoId.condition, {
 		message: requireImageIfNoId.message,
 		path: requireImageIfNoId.path,
+	})
+	.refine(requireMobileImageIfNoId.condition, {
+		message: requireMobileImageIfNoId.message,
+		path: requireMobileImageIfNoId.path,
 	});
 
 export const instagramFollowSchema = z
@@ -210,7 +222,7 @@ export const seoSchema = z.object({
 	title: z.string().min(3, "Title must be at least 3 characters"),
 	description: z.string().min(3, "Title must be at least 3 characters"),
 	page: z.string(),
-})
+});
 
 export const managingDirectorSchema = z
 	.object({

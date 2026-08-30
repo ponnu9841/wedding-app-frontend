@@ -40,6 +40,7 @@ export default function BannerForm() {
 	);
 	const [loading, setLoading] = useState(false);
 	const existingImage = selectedBanner?.image ?? "";
+	const existingMobileImage = selectedBanner?.mobileImage ?? "";
 
 	const onSubmit = (data: BannerFormData) => {
 		setLoading(true);
@@ -50,6 +51,9 @@ export default function BannerForm() {
 		form.append("existingImage", existingImage);
 		if (data.image && data.image.length > 0) {
 			form.append("image", data.image[0]);
+		}
+		if (data.mobileImage && data.mobileImage.length > 0) {
+			form.append("mobileImage", data.mobileImage[0]);
 		}
 		if (data.id) form.append("id", data.id);
 		const method = data.id ? axiosInstance.put : axiosInstance.post;
@@ -86,7 +90,7 @@ export default function BannerForm() {
 		<Form {...form}>
 			<form onSubmit={form.handleSubmit(onSubmit)}>
 				<input type="hidden" {...register("id")} />
-				<div>
+				<div className="space-y-4">
 					<FormField
 						control={form.control}
 						name="image"
@@ -106,9 +110,27 @@ export default function BannerForm() {
 							</FormItem>
 						)}
 					/>
-				</div>
 
-				<div className="mt-4">
+					<FormField
+						control={form.control}
+						name="mobileImage"
+						render={({ field, fieldState: { error } }) => (
+							<FormItem>
+								<FormLabel>Mobile Image</FormLabel>
+								<FormControl>
+									<FileUpload
+										files={field.value || []}
+										setFiles={field.onChange}
+										placeholder="Select Image"
+										existingImage={existingMobileImage}
+										error={error?.message}
+									/>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+
 					<FormField
 						control={form.control}
 						name="imageAlt"
@@ -122,9 +144,7 @@ export default function BannerForm() {
 							</FormItem>
 						)}
 					/>
-				</div>
 
-				<div className="mt-4">
 					<FormField
 						control={form.control}
 						name="title"
@@ -138,9 +158,7 @@ export default function BannerForm() {
 							</FormItem>
 						)}
 					/>
-				</div>
 
-				<div className="mt-4">
 					<FormField
 						control={form.control}
 						name="description"
