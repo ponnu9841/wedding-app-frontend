@@ -14,20 +14,20 @@ const InstagramFollow = ({
 			<Typography variant="h2" className="flex justify-center text-center mb-10">
 				FOLLOW ME ON INSTAGRAM
 			</Typography>
-			<div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+			<div className="grid grid-cols-3 gap-0.25 lg:gap-2 lg:grid-cols-4 -mx-3 lg:mx-0">
 				{instagramFollowData?.map((item, index) => (
 					<Link
 						href={item.url}
 						target="_blank"
-						className="relative aspect-square group"
+						className="relative aspect-[100/129] group"
 						key={index}
 					>
 						<NextImage
 							src={item.image}
-							className="aspect-square"
+							className="aspect-[100/129]"
 							imageClassName="object-cover"
 						/>
-						<Copy className="absolute text-white top-3 right-3 size-8" />
+						<Copy className="absolute text-white top-3 right-3 size-4 lg:size-8" />
 						<div className="absolute inset-0 flex items-center justify-center transition-all opacity-0 bg-white/30 group-hover:opacity-100">
 							<Instagram className="text-white size-3 lg:size-5" />
 						</div>
