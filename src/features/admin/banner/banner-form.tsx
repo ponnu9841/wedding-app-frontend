@@ -49,6 +49,7 @@ export default function BannerForm() {
 		form.append("title", data.title || "");
 		form.append("description", data.description || "");
 		form.append("existingImage", existingImage);
+		form.append("existingMobileImage", existingMobileImage);
 		if (data.image && data.image.length > 0) {
 			form.append("image", data.image[0]);
 		}
