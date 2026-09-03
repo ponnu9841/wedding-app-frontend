@@ -45,7 +45,7 @@ const ContactForm = () => {
 
 	const onSubmit = async (data: ContactFormData) => {
 		try {
-			const res = await axiosClient.post("/contacttt", data);
+			const res = await axiosClient.post("/contact", data);
 			if (res?.status === 200) {
 				setMessage({
 					type: "success",
