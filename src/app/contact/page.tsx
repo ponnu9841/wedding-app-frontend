@@ -1,5 +1,5 @@
 export const dynamic = "force-dynamic";
-import PageIntro from "@/components/shared/page-intro";
+// import PageIntro from "@/components/shared/page-intro";
 import { Button } from "@/components/ui/button";
 import ContactForm from "@/features/user/contact/contact-form";
 import { generatePageMetadata } from "@/lib/utils";

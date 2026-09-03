@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Layout from "@/components/layout/layout";
 import Provider from "@/store/provider";
+import { Toaster } from "sonner";
 
 const fontRecolita = localFont({
 	variable: "--font-recolita",
@@ -41,6 +42,7 @@ export default function RootLayout({
 			>
 				<Provider>
 					<Layout>{children}</Layout>
+					<Toaster />
 				</Provider>
 			</body>
 		</html>
