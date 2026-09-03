@@ -45,7 +45,7 @@ const ContactForm = () => {
 
 	const onSubmit = async (data: ContactFormData) => {
 		try {
-			const res = await axiosClient.post("/contact", data);
+			const res = await axiosClient.post("/contacttt", data);
 			if (res?.status === 200) {
 				setMessage({
 					type: "success",
@@ -63,7 +63,7 @@ const ContactForm = () => {
 		} catch {
 			setMessage({
 				type: "error",
-				text: "Failed to send message. Please try again.",
+				text: "Failed to send message. Please try again after sometime.",
 			});
 			setTimeout(() => {
 				setMessage(messageInitialState);
