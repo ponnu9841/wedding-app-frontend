@@ -1,3 +1,4 @@
+import { CustomPagination } from "@/components/ui/custom-pagination";
 import axiosClient from "@/services/axios";
 import { useEffect, useState } from "react";
 
@@ -10,21 +11,42 @@ type ContactSubmission = {
 	createdAt: string;
 };
 
+type ContactSubmissionsResponse = {
+	data: ContactSubmission[];
+	hasNextPage: boolean;
+	hasPreviousPage: boolean;
+	limit: number;
+	page: number;
+	totalItems: number;
+	totalPages: number;
+
+}
+
 const ContactSubmissions = () => {
-	const [data, setData] = useState<ContactSubmission[]>([]);
+	const [data, setData] = useState<ContactSubmissionsResponse | null>(null);
 	const [loading, setLoading] = useState(true);
+	const [page, setPage] = useState(1);
 
 	useEffect(() => {
+		const controller = new AbortController();
 		axiosClient
-			.get("/contact")
+			.get("/contact", {
+				signal: controller.signal,
+				params: {
+					page,
+					pageSize: 10,
+				}
+			})
 			.then((res) => setData(res.data?.data ?? []))
 			.finally(() => setLoading(false));
-	}, []);
+
+		return () => controller.abort();
+	}, [page]);
 
 	if (loading)
 		return <div className="text-sm text-muted-foreground">Loading...</div>;
 
-	if (!data.length)
+	if (!data?.totalItems && data?.totalItems === 0)
 		return (
 			<div className="text-sm text-muted-foreground">
 				No submissions yet
@@ -33,7 +55,7 @@ const ContactSubmissions = () => {
 
 	return (
 		<div className="space-y-4">
-			{data.map((item) => (
+			{data?.data.map((item) => (
 				<div
 					key={item.id}
 					className="border rounded p-4 space-y-2"
@@ -71,6 +93,13 @@ const ContactSubmissions = () => {
 					</div>
 				</div>
 			))}
+
+			<CustomPagination
+				totalPages={data?.totalPages || 1}
+				currentPage={data?.page || 1}
+				onPageChange={(page) => setPage(page)}
+				isCustomIcon={false}
+			/>
 		</div>
 	);
 };

@@ -6,9 +6,13 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CustomDialog from "@/components/ui/custom-dialog";
 import { navItems } from "./header";
+import { checkIfAltPresent, cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 export function MobileNavigation() {
 	const [dialogOpen, setDialogOpen] = useState(false);
+	const pathName = usePathname();
+	const isAltPathName = checkIfAltPresent(pathName);
 	return (
 		<CustomDialog
 			dialogOpen={dialogOpen}
@@ -19,7 +23,7 @@ export function MobileNavigation() {
 					size="icon"
 					className="items-center hover:bg-transparent md:hidden"
 				>
-					<Menu className="size-8 text-background" />
+					<Menu className={cn("size-8 text-background", isAltPathName && "text-foreground")} />
 				</Button>
 			}
 			dialogContent={

@@ -24,7 +24,7 @@ const Header = () => {
 		>
 			<Link href="/">
 				{/* eslint-disable-next-line */}
-				<img src="/assets/images/logo-dark.png" alt="" className="max-w-50 max-h-35" /> 
+				<img src={isAltPathName ? "/assets/images/logo-light.webp" : "/assets/images/logo-dark.png"} alt="" className="max-w-50 max-h-35" /> 
 				{/* <NextImage src="/assets/images/logo-dark.png" className="min-w-full min-h-full max-w-50 max-h-35" /> */}
 			</Link>
 			<div className="items-center hidden gap-10 overflow-hidden text-white md:flex">
